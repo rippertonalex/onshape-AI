@@ -1,44 +1,60 @@
-import requests 
+import requests
 import json
 import os
+from dotenv import load_dotenv
+from agents import function_tool # Assuming this is the correct import
 
-# Assemble the URL for the API call 
+# Load environment variables from .env file
+load_dotenv()
 
-api_url = "https://cad.onshape.com/documents/7820391e3a9b37485d78da07"
+ONSHAPE_API_BASE_URL = "https://cad.onshape.com/api"
 
-# Optional query parameters can be assigned 
-params = {}
+@function_tool
+def get_onshape_document_details(document_id: str) -> str:
+    """
+    Fetches details for a specific Onshape document using its ID.
 
-# Use the keys from the developer portal
-access_key = os.getenv("ACCESS_KEY")
-secret_key = os.getenv("SECRET_KEY")
+    Args:
+        document_id: The unique identifier of the Onshape document.
 
-# Define the header for the request 
-headers = {'Accept': 'application/json;charset=UTF-8;qs=0.09',
-           'Content-Type': 'application/json'}
+    Returns:
+        A string containing the JSON details of the document if successful,
+        or an error message if the request fails or keys are missing.
+    """
+    api_url = f"{ONSHAPE_API_BASE_URL}/documents/{document_id}"
 
-# Putting everything together to make the API request 
-response = requests.get(api_url, 
-                        params=params, 
-                        auth=(access_key, secret_key),
-                        headers=headers)
+    access_key = os.getenv("ACCESS_KEY")
+    secret_key = os.getenv("SECRET_KEY")
 
-# --- Debugging ---
-print(f"Status Code: {response.status_code}")
-print("Response Headers:")
-print(response.headers)
-print("Response Text:")
-print(response.text) # Print the raw text content
-# --- End Debugging ---
+    if not access_key or not secret_key:
+        return "Error: Onshape ACCESS_KEY or SECRET_KEY not found in environment variables."
 
-# Check if the request was successful before trying to parse JSON
-if response.ok: # Checks if status_code is less than 400
+    headers = {
+        'Accept': 'application/vnd.onshape.v1+json;charset=UTF-8;qs=0.1',
+        'Content-Type': 'application/json'
+    }
+
     try:
-        # Convert the response to formatted JSON and print the `name` property
-        print(json.dumps(response.json(), indent=4))
-    except json.JSONDecodeError:
-        print("Error: Failed to decode JSON, even though status code was OK.")
-else:
-    print(f"Error: Request failed with status code {response.status_code}")
+        response = requests.get(
+            api_url,
+            auth=(access_key, secret_key),
+            headers=headers,
+            timeout=15 # Slightly longer timeout
+        )
 
+        if response.ok:
+            try:
+                response_json = response.json()
+                # Return formatted JSON string for the agent to use
+                return json.dumps(response_json, indent=2)
+            except json.JSONDecodeError:
+                return f"Error: Successfully fetched from {api_url} but failed to decode JSON response. Status: {response.status_code}. Response text: {response.text}"
+        else:
+            return f"Error: Failed to fetch from {api_url}. Status: {response.status_code}. Response text: {response.text}"
 
+    except requests.exceptions.Timeout:
+        return f"Error: Request timed out while trying to reach {api_url}."
+    except requests.exceptions.RequestException as e:
+        return f"Error: An network error occurred while requesting {api_url}: {e}"
+    except Exception as e:
+        return f"Error: An unexpected error occurred: {e}"
