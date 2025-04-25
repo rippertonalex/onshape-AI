@@ -98,7 +98,208 @@ def get_onshape_document_details(document_id: str) -> str:
     return _fetch_onshape_document_details_logic(document_id)
 
 
-# --- Tool 2: Create Onshape Cube ---
+# --- Tool 2: Get Feature List ---
+
+# Helper function containing the core logic (undecorated)
+def _get_onshape_feature_list_logic(part_studio_url: str) -> str:
+    """Internal logic to fetch the feature list for an Onshape Part Studio."""
+    print(f"[Tool Logic] Attempting to get feature list for URL: {part_studio_url}")
+
+    # --- 1. Parse URL ---
+    parsed_ids = _parse_onshape_url(part_studio_url) # Use existing parser
+    if not parsed_ids:
+        return f"Error: Could not parse Document ID, Workspace ID, and Element ID from the provided URL: {part_studio_url}. Ensure it's a valid Onshape Part Studio URL with a workspace (e.g., /w/).'"
+
+    did = parsed_ids["did"]
+    wid = parsed_ids["wid"]
+    eid = parsed_ids["eid"]
+
+    # Use v10 endpoint
+    api_url = f"{ONSHAPE_API_BASE_URL}/partstudios/d/{did}/w/{wid}/e/{eid}/features"
+    print(f"[Tool Logic] Constructed API URL: {api_url}")
+
+    # --- 2. Authentication ---
+    access_key = os.getenv("ACCESS_KEY")
+    secret_key = os.getenv("SECRET_KEY")
+    if not access_key or not secret_key:
+        error_msg = "Error: Onshape ACCESS_KEY or SECRET_KEY not found in environment variables. Cannot use tool."
+        print(f"[Tool Logic] {error_msg}")
+        return error_msg
+
+    masked_access_key = f"{access_key[:5]}..." if access_key else "None"
+    print(f"[Tool Logic] Using Access Key: {masked_access_key}")
+
+    headers = {
+        # Use Accept header from documentation examples
+        'Accept': 'application/json;charset=UTF-8; qs=0.09',
+        'Content-Type': 'application/json' # Content-Type might not be strictly needed for GET, but doesn't hurt
+    }
+
+    # --- 3. Make API Call (GET Request) ---
+    print(f"[Tool Logic] Attempting GET request to {api_url}.")
+    try:
+        response = requests.get(
+            api_url,
+            auth=(access_key, secret_key),
+            headers=headers,
+            timeout=20 # Standard timeout for GET
+        )
+
+        print(f"[Tool Logic] Response Status Code: {response.status_code}")
+
+        # Process response
+        if response.ok:
+            try:
+                response_json = response.json()
+                print("[Tool Logic] Successfully fetched and decoded feature list JSON.")
+                # Return the feature list JSON as a formatted string
+                return json.dumps(response_json, indent=2)
+            except json.JSONDecodeError as e:
+                 error_msg = f"Error: Successfully fetched feature list from {api_url} but failed to decode JSON response: {e}. Status: {response.status_code}."
+                 print(f"[Tool Logic] {error_msg}")
+                 return error_msg + f" Raw response preview: {response.text[:200]}"
+        else:
+            error_msg = f"Error: Failed to get feature list via {api_url}. Status Code: {response.status_code}."
+            print(f"[Tool Logic] {error_msg}")
+            return error_msg + f" Response Text: {response.text[:500]}" # Return API error text
+
+    except requests.exceptions.Timeout:
+        error_msg = f"Error: Request timed out while trying to reach {api_url}."
+        print(f"[Tool Logic] {error_msg}")
+        return error_msg
+    except requests.exceptions.RequestException as e:
+        error_msg = f"Error: A network communication error occurred while requesting {api_url}: {e}"
+        print(f"[Tool Logic] {error_msg}")
+        return error_msg
+    except Exception as e:
+        error_msg = f"Error: An unexpected error occurred within the get feature list tool logic: {e}"
+        print(f"[Tool Logic] {error_msg}")
+        return error_msg
+
+# Decorated function for the agent framework
+@function_tool
+def get_onshape_feature_list(part_studio_url: str) -> str:
+    """
+    Fetches the list of features for a specified Onshape Part Studio.
+
+    Args:
+        part_studio_url: The full URL of the Onshape Part Studio element. Must contain /w/ (workspace).
+                         Example: 'https://cad.onshape.com/documents/DID/w/WID/e/EID'
+
+    Returns:
+        A JSON string representing the list of features and their details if successful,
+        or a descriptive error message if the operation fails.
+    """
+    # Call the internal logic function
+    return _get_onshape_feature_list_logic(part_studio_url)
+
+
+# --- Tool 3: Get FeatureScript Representation ---
+
+# Helper function containing the core logic (undecorated)
+def _get_onshape_featurescript_representation_logic(part_studio_url: str) -> str:
+    """Internal logic to fetch the FeatureScript representation for an Onshape Part Studio."""
+    print(f"[Tool Logic] Attempting to get FeatureScript representation for URL: {part_studio_url}")
+
+    # --- 1. Parse URL ---
+    parsed_ids = _parse_onshape_url(part_studio_url) # Use existing parser
+    if not parsed_ids:
+        return f"Error: Could not parse Document ID, Workspace ID, and Element ID from the provided URL: {part_studio_url}. Ensure it's a valid Onshape Part Studio URL with a workspace (e.g., /w/).'"
+
+    did = parsed_ids["did"]
+    wid = parsed_ids["wid"]
+    eid = parsed_ids["eid"]
+
+    # Use v10 endpoint for featurescriptrepresentation
+    api_url = f"{ONSHAPE_API_BASE_URL}/partstudios/d/{did}/w/{wid}/e/{eid}/featurescriptrepresentation"
+    print(f"[Tool Logic] Constructed API URL: {api_url}")
+
+    # --- 2. Authentication ---
+    access_key = os.getenv("ACCESS_KEY")
+    secret_key = os.getenv("SECRET_KEY")
+    if not access_key or not secret_key:
+        error_msg = "Error: Onshape ACCESS_KEY or SECRET_KEY not found in environment variables. Cannot use tool."
+        print(f"[Tool Logic] {error_msg}")
+        return error_msg
+
+    masked_access_key = f"{access_key[:5]}..." if access_key else "None"
+    print(f"[Tool Logic] Using Access Key: {masked_access_key}")
+
+    headers = {
+        # Consistent Accept header
+        'Accept': 'application/vnd.onshape.v1+json; charset=UTF-8;qs=0.1',
+        'Content-Type': 'application/json'
+    }
+
+    # --- 3. Make API Call (GET Request) ---
+    print(f"[Tool Logic] Attempting GET request to {api_url}.")
+    try:
+        response = requests.get(
+            api_url,
+            auth=(access_key, secret_key),
+            headers=headers,
+            timeout=20 # Standard timeout for GET
+        )
+
+        print(f"[Tool Logic] Response Status Code: {response.status_code}")
+
+        # Process response
+        if response.ok:
+            try:
+                # FeatureScript representation might not always be JSON, check content type?
+                # For now, assume it's JSON based on Accept header, but be mindful.
+                # If it's plain text script, response.json() will fail.
+                # Let's try getting text first, then attempt JSON parsing for structure.
+                response_text = response.text
+                print("[Tool Logic] Successfully fetched FeatureScript representation.")
+                # Try to format as JSON if possible, otherwise return raw text
+                try:
+                    parsed_json = json.loads(response_text)
+                    return json.dumps(parsed_json, indent=2)
+                except json.JSONDecodeError:
+                    return response_text # Return raw text if not valid JSON
+            except Exception as e: # Catch potential issues reading response.text
+                error_msg = f"Error reading response from {api_url} after successful status code {response.status_code}: {e}"
+                print(f"[Tool Logic] {error_msg}")
+                return error_msg
+        else:
+            error_msg = f"Error: Failed to get FeatureScript representation via {api_url}. Status Code: {response.status_code}."
+            print(f"[Tool Logic] {error_msg}")
+            return error_msg + f" Response Text: {response.text[:500]}" # Return API error text
+
+    except requests.exceptions.Timeout:
+        error_msg = f"Error: Request timed out while trying to reach {api_url}."
+        print(f"[Tool Logic] {error_msg}")
+        return error_msg
+    except requests.exceptions.RequestException as e:
+        error_msg = f"Error: A network communication error occurred while requesting {api_url}: {e}"
+        print(f"[Tool Logic] {error_msg}")
+        return error_msg
+    except Exception as e:
+        error_msg = f"Error: An unexpected error occurred within the get FeatureScript representation tool logic: {e}"
+        print(f"[Tool Logic] {error_msg}")
+        return error_msg
+
+# Decorated function for the agent framework
+@function_tool
+def get_onshape_featurescript_representation(part_studio_url: str) -> str:
+    """
+    Fetches the FeatureScript representation for a specified Onshape Part Studio.
+    This often contains the underlying FeatureScript code defining the features.
+
+    Args:
+        part_studio_url: The full URL of the Onshape Part Studio element. Must contain /w/ (workspace).
+                         Example: 'https://cad.onshape.com/documents/DID/w/WID/e/EID'
+
+    Returns:
+        A string containing the FeatureScript representation (potentially JSON or plain text) if successful,
+        or a descriptive error message if the operation fails.
+    """
+    # Call the internal logic function
+    return _get_onshape_featurescript_representation_logic(part_studio_url)
+
+
+# --- Tool 4: Create Onshape Cube ---
 
 # Helper function containing the core logic (undecorated)
 def _create_onshape_cube_logic(part_studio_url: str, name: str, side_length_expression: str) -> str:
@@ -222,7 +423,7 @@ def create_onshape_cube(part_studio_url: str, name: str, side_length_expression:
     return _create_onshape_cube_logic(part_studio_url, name, side_length_expression)
 
 
-# --- Tool 3: Create Onshape Feature (General - Keep for other types) ---
+# --- Tool 5: Create Onshape Feature (General - Keep for other types) ---
 
 def _parse_onshape_url(url: str) -> Union[dict, None]:
     """Parses a standard Onshape document URL to extract IDs."""
@@ -355,41 +556,36 @@ def create_onshape_feature(part_studio_url: str, feature_payload_json: str) -> s
 
 # Define the Onshape Agent
 onshape_agent = Agent(
-    name="Onshape Assistant Agent V3", # Renamed agent again
+    name="Onshape Assistant Agent V5", # Renamed agent again
     instructions=(
-        "You are a helpful assistant knowledgeable about Onshape documents and capable of creating features using the Onshape REST API v10. "
-        "You have three tools: 'get_onshape_document_details', 'create_onshape_cube', and 'create_onshape_feature'."
+        "You are a helpful assistant knowledgeable about Onshape documents and capable of viewing and creating features using the Onshape REST API v10. "
+        "You have five tools: 'get_onshape_document_details', 'get_onshape_feature_list', 'get_onshape_featurescript_representation', 'create_onshape_cube', and 'create_onshape_feature'."
         "\n\n"
-        "1.  **Get Details:** If the user asks for details about a specific Onshape document and provides its ID, "
-        "use the 'get_onshape_document_details' tool. This tool returns document details, including the current 'microversionId'. Present the key information clearly."
+        "1.  **Get Document Details:** Use for overall document info (like 'microversionId'). Requires document ID."
         "\n\n"
-        "2.  **Create Cube:** If the user **specifically asks to create a 'cube'** in a Part Studio and provides its **full URL**, "
-        "you MUST use the 'create_onshape_cube' tool. This tool is specialized for cubes."
-        "\n   It requires THREE simple arguments:"
-        "\n   - `part_studio_url`: The full URL provided by the user (e.g., 'https://cad.onshape.com/documents/DID/w/WID/e/EID')."
-        "\n   - `name`: The name the user wants for the cube (e.g., 'My Cube')."
-        "\n   - `side_length_expression`: The side length as a string with units (e.g., '1 in', '25 mm', '0.1 * meter')."
-        "\n   **Example:** User asks 'Create a 2 inch cube named TestCube at URL ...'. You call `create_onshape_cube(part_studio_url='...', name='TestCube', side_length_expression='2 * inch')`."
+        "2.  **Get Feature List:** Use when asked to **list the features** in a Part Studio. Requires the full Part Studio URL. Returns a JSON list of features."
         "\n\n"
-        "3.  **Create Feature (General):** If the user asks to create **any other feature type** (like a sketch, extrude, fillet, etc.) "
-        "or provides complex instructions that don't fit the simple cube tool, you should attempt to use the 'create_onshape_feature' tool."
-        "\n   This tool is more complex and requires YOU to generate the JSON payload."
-        "\n   To use this tool, you need TWO arguments:"
-        "\n   - `part_studio_url`: The full URL provided by the user."
-        "\n   - `feature_payload_json`: A JSON **string** that YOU MUST GENERATE, defining the feature according to the Onshape API v10 structure (using 'BTFeatureDefinitionCall-1406', 'BTMFeature-134' or 'BTMSketch-151', appropriate parameters, and ideally the 'sourceMicroversion' obtained from 'get_onshape_document_details')."
-        "\n   **WARNING:** Generating the correct `feature_payload_json` for this general tool is difficult and error-prone. Double-check the structure based on the API docs. Prefer the `create_onshape_cube` tool for cubes."
+        "3.  **Get FeatureScript Representation:** Use when asked for the **FeatureScript representation** or underlying code of a Part Studio. Requires the full Part Studio URL. Returns the FeatureScript data (often JSON or plain text)."
+        "\n\n"
+        "4.  **Create Cube:** Use ONLY when asked to create a **simple 'cube'**. Requires `part_studio_url`, `name`, and `side_length_expression`."
+        "\n   **Example:** 'Create a 2 inch cube named TestCube at URL ...' -> call `create_onshape_cube(part_studio_url='...', name='TestCube', side_length_expression='2 * inch')`."
+        "\n\n"
+        "5.  **Create Feature (General):** Use for creating **any other feature type** (sketch, extrude, fillet, etc.). Requires `part_studio_url` and a generated `feature_payload_json` string conforming to the Onshape API v10 'addPartStudioFeature' structure."
+        "\n   **WARNING:** Generating the payload is difficult. Prefer specific tools like `create_onshape_cube` when available."
         "\n\n"
         "**General Rules:**"
-        "\n- Always use the **most specific tool** available (use `create_onshape_cube` for cube requests)."
-        "\n- Get the `sourceMicroversion` using `get_onshape_document_details` before attempting `create_onshape_feature` (it might be less critical but still good practice for `create_onshape_cube`)."
-        "\n- If a tool call fails (e.g., returns a 400 error), **report the specific error message provided in the tool's output string** back to the user. Do not retry failed creation attempts unless the user provides corrected information."
-        "\n- Ask for clarification if the user's request is ambiguous or missing required information (URL, dimensions, feature specifics, name)."
+        "\n- Always use the **most specific tool** available."
+        "\n- Get the `sourceMicroversion` using `get_onshape_document_details` before attempting `create_onshape_feature`."
+        "\n- If a tool call fails, **report the specific error message from the tool's output string** back to the user."
+        "\n- Ask for clarification if the request is ambiguous or missing required information."
     ),
-    model="gpt-4o-mini", # Make sure this model is suitable
+    model="gpt-4o-mini",
     tools=[
         get_onshape_document_details,
-        create_onshape_cube, # Add the new specific tool
-        create_onshape_feature # Keep the general tool
+        get_onshape_feature_list,
+        get_onshape_featurescript_representation,
+        create_onshape_cube,
+        create_onshape_feature
     ],
 )
 
@@ -403,12 +599,17 @@ async def run_agent_example():
     # --- Query for Get Details ---
     # user_query = "Could you please provide details for the Onshape document with ID 34194a7792ea9db6d10188d3"
 
-    # --- Query for Create CUBE (should now use the specific tool) ---
-    test_part_studio_url = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/ff8bd4f1cd0882be07172a4d" # Example URL
-    user_query = f"Please create a 50mm cube named 'AgentCube' in the Part Studio at this URL: {test_part_studio_url}"
+    # --- Query for Create CUBE ---
+    # test_part_studio_url = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/ff8bd4f1cd0882be07172a4d" # Example URL
+    # user_query = f"Please create a 50mm cube named 'AgentCube' in the Part Studio at this URL: {test_part_studio_url}"
 
-    # --- Query for general feature (will likely still struggle/fail) ---
-    # user_query = f"Please create a simple extrusion, call it 'My Test Extrude', make it 25 mm deep, in the Part Studio at this URL: {test_part_studio_url}. Use the front plane for the sketch."
+    # --- Query for Get Feature List ---
+    # test_part_studio_url = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/ff8bd4f1cd0882be07172a4d" # Example URL
+    # user_query = f"Can you list the features in the part studio at {test_part_studio_url}?"
+
+    # --- Query for Get FeatureScript Representation ---
+    test_part_studio_url = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/ff8bd4f1cd0882be07172a4d" # Example URL
+    user_query = f"Show me the featurescript representation for the part studio {test_part_studio_url}"
 
 
     print(f"\nUser Query: {user_query}")
