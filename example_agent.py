@@ -122,7 +122,7 @@ async def run_agent_example():
     print("Running Onshape Agent example...")
 
     # Define the user query
-    user_query = "Could you please provide details for the Onshape document with ID 34194a7792ea9db6d10188d3"
+    user_query = "Could you please provide details for the Onshape document here is the url with docid: https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/ff8bd4f1cd0882be07172a4d"
     print(f"\nUser Query: {user_query}")
 
     # Define RunConfig (optional, disabling tracing as per example)
