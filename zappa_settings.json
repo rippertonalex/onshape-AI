@@ -1,0 +1,18 @@
+{
+    "dev": {
+        "app_function": "application.app",
+        "exclude": [
+            "boto3",
+            "dateutil",
+            "botocore",
+            "s3transfer",
+            "concurrent"
+        ],
+        "profile_name": "AlexRippertonPersonal",
+        "project_name": "onshape-ai",
+        "runtime": "python3.10",
+        "s3_bucket": "zappa-ylghz6vxt",
+        "environment_variables": {
+            "SQLALCHEMY_DATABASE_URI": "postgresql+psycopg2://postgres:YOUR_PASSWORD@your_rds_host.region.rds.amazonaws.com/your_database_name"}
+    }
+}

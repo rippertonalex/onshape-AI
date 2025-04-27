@@ -23,12 +23,14 @@ chat_controller = OpenShapeController()
 
 @chat_routes.post("/", endpoint="chat")
 #@token_required
-@handle_exceptions
+# @handle_exceptions
 def chat():
+    print("--- Entered /v1/chat/ route (RADICAL SIMPLIFICATION) ---", flush=True)
+    logger.info("--- Entered /v1/chat/ route ---")
     validated_request_body = chat_schema.load(request.get_json())
     user_query = validated_request_body["message"]
     chat_response = asyncio.run(chat_controller.onshape_agent(
         user_query=user_query
     ))
     return Response.make(chat_response, Response.HTTP_SUCCESS)
-
+    
