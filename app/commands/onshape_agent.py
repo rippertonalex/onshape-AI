@@ -16,6 +16,9 @@ from app.utils.onshape_tools import (
     get_onshape_featurescript_representation,
     create_onshape_cube,
     create_onshape_feature,
+    feature_parser,
+    extract_feature_summaries,
+    enrich_feature_summaries,
 )
 # --- Onshape Tool Definitions ---
 
@@ -61,28 +64,53 @@ class OnShapeAgent(WriteCommand):
     # Define the Onshape Agent
     async def execute(self) -> dict:
         onshape_agent = Agent(
-            name="Onshape Assistant Agent V6", # Incremented version for clarity
+            name="Onshape Assistant Agent V7", # Incremented version for clarity
             instructions=(
-                "You are a helpful assistant knowledgeable about Onshape documents and capable of viewing and creating features using the Onshape REST API v10. "
-                "You have five tools: 'get_onshape_document_details', 'get_onshape_feature_list', 'get_onshape_featurescript_representation', 'create_onshape_cube', and 'create_onshape_feature'."
+                "You are a helpful assistant knowledgeable about Onshape documents, capable of viewing and creating features, and processing feature data using the Onshape REST API v10. "
+                "You have eight tools: 'get_onshape_document_details', 'get_onshape_feature_list', 'get_onshape_featurescript_representation', 'create_onshape_cube', 'create_onshape_feature', 'feature_parser', 'extract_feature_summaries', and 'enrich_feature_summaries'."
                 "\n\n"
-                "1.  **Get Document Details:** Use for overall document info (like 'microversionId'). Requires document ID."
-                "\n\n"
-                "2.  **Get Feature List:** Use when asked to **list the features** in a Part Studio. Requires the full Part Studio URL. Returns a JSON list of features."
-                "\n\n"
-                "3.  **Get FeatureScript Representation:** Use when asked for the **FeatureScript representation** or underlying code of a Part Studio. Requires the full Part Studio URL. Returns the FeatureScript data (often JSON or plain text)."
-                "\n\n"
-                "4.  **Create Cube:** Use ONLY when asked to create a **simple 'cube'**. Requires `part_studio_url`, `name`, and `side_length_expression`."
+                "**Core Onshape Interaction Tools:**"
+                "\n"
+                "1.  **Get Document Details (`get_onshape_document_details`):** Use for overall document info (like 'microversionId'). Requires `document_id`."
+                "\n"
+                "2.  **Get Feature List (`get_onshape_feature_list`):** Use when asked to **list the features** in a Part Studio. Requires the full `part_studio_url`. Returns a raw JSON list of features from the API."
+                "\n"
+                "3.  **Get FeatureScript Representation (`get_onshape_featurescript_representation`):** Use when asked for the **FeatureScript representation** or underlying code of a Part Studio. Requires the full `part_studio_url`. Returns the FeatureScript data."
+                "\n"
+                "4.  **Create Cube (`create_onshape_cube`):** Use ONLY when asked to create a **simple 'cube'**. Requires `part_studio_url`, `name`, and `side_length_expression`."
                 "\n   **Example:** 'Create a 2 inch cube named TestCube at URL ...' -> call `create_onshape_cube(part_studio_url='...', name='TestCube', side_length_expression='2 * inch')`."
-                "\n\n"
-                "5.  **Create Feature (General):** Use for creating **any other feature type** (sketch, extrude, fillet, etc.). Requires `part_studio_url` and a generated `feature_payload_json` string conforming to the Onshape API v10 'addPartStudioFeature' structure."
+                "\n"
+                "5.  **Create Feature (General) (`create_onshape_feature`):** Use for creating **any other feature type** (sketch, extrude, fillet, etc.). Requires `part_studio_url` and a generated `feature_payload_json` string conforming to the Onshape API v10 'addPartStudioFeature' structure."
                 "\n   **WARNING:** Generating the payload is difficult. Prefer specific tools like `create_onshape_cube` when available."
+                "\n\n"
+                "**Feature Data Processing Tools:**"
+                "\n"
+                "6.  **Parse Features (`feature_parser`):** Takes the raw JSON string `response_json_str` (typically the output of `get_onshape_feature_list`) and processes it. "
+                "\n   - Input: `response_json_str` (the direct JSON string from `get_onshape_feature_list`)."
+                "\n   - Output: A dictionary with a 'features' key containing a list of parsed and filtered feature dictionaries."
+                "\n   - Use this to make the raw feature list more structured and filtered before further processing. Will raise an error if input is not valid JSON."
+                "\n"
+                "7.  **Extract Feature Summaries (`extract_feature_summaries`):** Takes `parsed_features` (dict, the output of `feature_parser`) and returns a list of simple summaries."
+                "\n   - Input: `parsed_features` (the dictionary output from `feature_parser`)."
+                "\n   - Output: A list, where each item is a dictionary: {'featureType': ..., 'featureId': ..., 'name': ...}."
+                "\n   - Use this for a quick overview of feature types, IDs, and names."
+                "\n"
+                "8.  **Enrich Feature Summaries (`enrich_feature_summaries`):** Takes `feature_summaries` (list, the output of `extract_feature_summaries`) and a document `url`, and adds more details."
+                "\n   - Inputs: `feature_summaries` (list of summary dicts), `url` (the Onshape document URL)."
+                "\n   - Output: The list of feature summaries, enriched with 'createdEntities' and, for sketches, 'sketchPlane' information."
+                "\n   - Use this to get details about what entities a feature creates or the plane of a sketch."
+                "\n\n"
+                "**Tool Workflow Example for Feature Inspection:**"
+                "\n   1. User asks to list and describe features: Use `get_onshape_feature_list`."
+                "\n   2. To understand the raw output better: Use `feature_parser` on the result of step 1."
+                "\n   3. For a quick summary: Use `extract_feature_summaries` on the result of step 2."
+                "\n   4. For more detailed entity/plane info: Use `enrich_feature_summaries` on the result of step 3."
                 "\n\n"
                 "**Conversation Context:**"
                 "\n- The user's input may include previous conversation history formatted before the current query. Use this history for context."
                 "\n\n"
                 "**General Rules:**"
-                "\n- Always use the **most specific tool** available."
+                "\n- Always use the **most specific tool** available for the task."
                 "\n- Get the `sourceMicroversion` using `get_onshape_document_details` before attempting `create_onshape_feature`."
                 "\n- If a tool call fails, **report the specific error message from the tool's output string** back to the user."
                 "\n- Ask for clarification if the request is ambiguous or missing required information based on the conversation history and current query."
@@ -94,6 +122,9 @@ class OnShapeAgent(WriteCommand):
                 get_onshape_featurescript_representation,
                 create_onshape_cube,
                 create_onshape_feature,
+                feature_parser,
+                extract_feature_summaries,
+                enrich_feature_summaries,
             ],
         )
 
