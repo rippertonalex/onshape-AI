@@ -4,7 +4,8 @@ from marshmallow import fields
 
 class ChatSchema(ma.Schema):
     HMW_user_id = ma.Integer()
-    message = ma.String()
+    message = ma.String(required=True)
+    history = ma.List(ma.Dict())
 
 
 chat_schema = ChatSchema()
