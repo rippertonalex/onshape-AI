@@ -60,7 +60,8 @@ def chat():
         final_output = agent_response_data.get("final_output")
         chain_of_thought = agent_response_data.get("chain_of_thought")
         raw_responses = agent_response_data.get("raw_responses")
-
+        total_time_seconds = agent_response_data.get("total_time_seconds")
+        tools_called_summary = agent_response_data.get("tools_called_summary")
     except Exception as e:
          logger.exception("Error running onshape_agent")
          agent_message = f"An internal error occurred: {e}"
@@ -91,7 +92,9 @@ def chat():
         "final_output": final_output,
         "chain_of_thought": chain_of_thought,
         "raw_responses": raw_responses,
-        "history": updated_history
+        "history": updated_history,
+        "total_time_seconds": total_time_seconds,
+        "tools_called_summary": tools_called_summary
     }
 
     logger.info(f"Responding with updated history length: {len(updated_history)}")
