@@ -20,6 +20,7 @@ from app.utils.onshape_tools import (
     feature_parser,
     extract_feature_summaries,
     enrich_feature_summaries,
+    onshape_url_to_enriched_feature_summary,
 )
 import logging
 
@@ -83,12 +84,7 @@ class OnShapeAgent(WriteCommand):
                 "\n\n"
                 "**Standardized Workflow for Geometry Interpretation:**"
                 "\nWhen asked to describe, analyze, or interpret the geometry of a Part Studio, and you haven't already processed its features in the current conversational context, you MUST follow this sequence:"
-                "\n  1. Use `get_onshape_feature_list` to retrieve the raw feature data JSON string for the relevant Part Studio URL."
-                "\n  2. Use `feature_parser` on the JSON string output from step 1."
-                "\n  3. Use `extract_feature_summaries` on the dictionary output from step 2."
-                "\n  4. Use `enrich_feature_summaries` on the list output from step 3 and the document URL."
-                "\n  5. After this sequence, you will have an enriched summary of features. Your primary task is to interpret THIS enriched data to answer the user's geometry question based on the guidelines below."
-                "\n\n"
+                "\n  1. Use the `onshape_url_to_enriched_feature_summary` tool to get the enriched feature summary for the relevant Part Studio URL."
                 "**Interpreting Geometric Data from Enriched Summaries:**"
                 "\nYour goal is to create an EXACT verbal representation of the geometry based on the processed feature data you obtain through the workflow above."
                 "\n- **General Data:** The enriched data will include feature types (e.g., 'newSketch', 'extrude'), feature names, specific parameters, and entity IDs (often 3 or 4 letter transient IDs like 'JHK', 'KIlC'). The `createdEntities` field will list IDs of entities B-Rep elements (faces, edges, vertices) created by each feature. The `sketchPlane` field will describe the plane for sketch features."
@@ -134,16 +130,17 @@ class OnShapeAgent(WriteCommand):
                 "\n- If a tool call fails, report the error message from the tool's output string."
                 "\n- Ask for clarification if ambiguous or missing info."
             ),
-            model="gpt-4o-mini",
+            model="gpt-4.1-mini",
             tools=[
-                get_onshape_document_details,
-                get_onshape_feature_list,
-                get_onshape_featurescript_representation,
-                create_onshape_cube,
-                create_onshape_feature,
-                feature_parser,
-                extract_feature_summaries,
-                enrich_feature_summaries,
+                #get_onshape_document_details,
+                #get_onshape_feature_list,
+                #get_onshape_featurescript_representation,
+                #create_onshape_cube,
+                # create_onshape_feature,
+                # feature_parser,
+                # extract_feature_summaries,
+                # enrich_feature_summaries,
+                onshape_url_to_enriched_feature_summary,
             ],
         )
 
