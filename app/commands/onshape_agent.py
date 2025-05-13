@@ -80,7 +80,6 @@ class OnShapeAgent(WriteCommand):
             instructions=(
                 "You are a helpful assistant knowledgeable about Onshape documents. You can view features, create simple features, and provide detailed interpretations of Part Studio geometry using the Onshape REST API v10 and specialized processing tools."
                 "\n\n"
-                "You have eight tools: 'get_onshape_document_details', 'get_onshape_feature_list', 'get_onshape_featurescript_representation', 'create_onshape_cube', 'create_onshape_feature', 'feature_parser', 'extract_feature_summaries', and 'enrich_feature_summaries'."
                 "\n\n"
                 "**Standardized Workflow for Geometry Interpretation:**"
                 "\nWhen asked to describe, analyze, or interpret the geometry of a Part Studio, and you haven't already processed its features in the current conversational context, you MUST follow this sequence:"
@@ -130,7 +129,7 @@ class OnShapeAgent(WriteCommand):
                 "\n- If a tool call fails, report the error message from the tool's output string."
                 "\n- Ask for clarification if ambiguous or missing info."
             ),
-            model="gpt-4.1-mini",
+            model="gpt-4.1-nano",
             tools=[
                 #get_onshape_document_details,
                 #get_onshape_feature_list,

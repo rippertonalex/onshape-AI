@@ -11,7 +11,7 @@ import traceback
 load_dotenv()
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-OPENAI_MODEL = "gpt-4.1-mini"
+OPENAI_MODEL = "gpt-4.1-nano"
 
 class OnshapeChat(WriteCommand):
     """
@@ -130,8 +130,8 @@ class OnshapeChat(WriteCommand):
             response_openai = await client.chat.completions.create(
                 model=self.model,
                 messages=messages,
-                temperature=0.2,
-                max_tokens=1024,
+                #temperature=0.2,
+                #max_completion_tokens=1024,
             )
             answer = response_openai.choices[0].message.content
             print(f"[{datetime.now()}] OpenAI call successful. Answer received.")
