@@ -16,9 +16,9 @@ class Executor:
             Executor.__instance = self
 
     @staticmethod
-    def execute_write(command):
-        return command.execute()
+    async def execute_write(command):
+        return await command.execute()
 
     @staticmethod
-    def execute_read(command):
-        return command.execute()
+    async def execute_read(command):
+        return await command.execute()
