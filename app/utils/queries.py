@@ -1,6 +1,6 @@
-from utils.api_requests import standard_api_request, endpoints
-from utils.geometry_extractors import extract_plane_vectors, extract_face_geometry, extract_edge_geometry
-from utils.geom import convert_2d_to_3d
+from .api_requests import standard_api_request, endpoints
+from .geometry_extractors import extract_plane_vectors, extract_face_geometry, extract_edge_geometry
+from .geom import convert_2d_to_3d
 
 def query_get_sketch_plane(url: str, sketch_id: str) -> dict:
     """
