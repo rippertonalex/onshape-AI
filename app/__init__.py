@@ -1,3 +1,4 @@
+# This file makes 'app' a Python package
 import logging.config
 import os
 import sys
