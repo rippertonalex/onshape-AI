@@ -14,6 +14,7 @@ import json
 from openai import AsyncOpenAI
 from dotenv import load_dotenv
 import asyncio # Ensure asyncio is imported
+import re
 
 # Load environment variables (assuming .env is in project_root)
 load_dotenv(os.path.join(project_root, '.env')) 
@@ -42,7 +43,7 @@ load_dotenv(os.path.join(project_root, '.env'))
 async def identify_ambigous_entities(
     parsed_features: dict, 
     enriched_feature_summaries: list
-) -> str:
+) -> list:
     """
     Identifies entities within Onshape feature data that require more detailed descriptions 
     to fully define the geometry, using an OpenAI Chat Completions call.
@@ -56,11 +57,10 @@ async def identify_ambigous_entities(
                                 typically the output of `feature_parser`.
         enriched_feature_summaries (list): The enriched feature summaries,
                                           typically the output of `enrich_feature_summaries`.
-        part_studio_url (str): The URL of the Onshape Part Studio, for context.
 
     Returns:
-        str: The response from the OpenAI model, indicating which entities need
-             more detail, or an error message if the process fails.
+        list: A list of entity IDs (strings) that need more detail, e.g., ['IB', 'JDC', 'JGO', 'JHK', 'KIlC'],
+              or an empty list if the process fails or no ambiguous entities are found.
     """
 
     # --- Prompt Definition ---
@@ -73,9 +73,8 @@ async def identify_ambigous_entities(
         "Similarly for a 3D feature like an extrude or fillet, you will know it's exact behavior and the IDs of the entities which the feature acts on, "
         "but not the exact definition of these entities.\n\n"
         "Please identify the entities for which you require a more detailed description to EXACTLY define the geometry. "
-        "For each ambiguous entity, format your response as follows, with each entity on a new line:\n"
-        "ENTITY_ID: A brief summary of this entity's context in the provided data and an explanation of why its precise definition is needed to fully understand the geometry.\n"
-        "Your response should consist ONLY of these entity-summary pairs, without any additional introductory text, concluding remarks, or follow-up questions.\n\n"
+        "Your response must be ONLY a JSON array of entity IDs, for example: [\"IB\", \"JDC\", \"JGO\", \"JHK\", \"KIlC\"]\n"
+        "Do not include any other text, explanations, or formatting. Only return the JSON array.\n\n"
         "Here is a suggested order of operations:\n"
         "• Look through the parsed output file.\n"
         "• For a sketch, define precisely the 2D geometry created. Consider any unit conversions necessary. Consider constraints.\n"
@@ -90,19 +89,19 @@ async def identify_ambigous_entities(
         user_prompt_content = (
             f"Parsed Features Data:\n{json.dumps(parsed_features, indent=2)}\n\n"
             f"Enriched Feature Summary:\n{json.dumps(enriched_feature_summaries, indent=2)}\n\n"
-            "Based on your instructions (form a precise mental image and identify entities needing more detail, providing summaries for each), "
-            "please provide your analysis now."
+            "Based on your instructions (form a precise mental image and identify entities needing more detail), "
+            "please provide your analysis as a JSON array of entity IDs only."
         )
     except NameError:
         # This occurs if `json` is not imported.
         error_message = "Critical Error: `json` module not imported. Cannot serialize data for OpenAI prompt."
         print(error_message)
-        return error_message
+        return []
     except Exception as e: # Catch potential json.dumps errors
         error_message = f"Error serializing data for OpenAI prompt: {type(e).__name__} - {e}"
         # Consider logging this error properly in a real application.
         print(error_message) 
-        return error_message
+        return []
 
     messages = [
         {"role": "system", "content": system_prompt},
@@ -124,20 +123,54 @@ async def identify_ambigous_entities(
         
         response_content = completion.choices[0].message.content
         if response_content is None:
-            return "Error: OpenAI API returned a null response content."
+            print("Error: OpenAI API returned a null response content.")
+            return []
+        
+        # Parse the JSON response
+        try:
+            # Clean the response to extract just the JSON array
+            response_content = response_content.strip()
+            # Try to parse as JSON
+            entity_ids = json.loads(response_content)
             
-        return response_content
+            # Validate that it's a list
+            if not isinstance(entity_ids, list):
+                print(f"Error: Expected JSON array, got {type(entity_ids)}")
+                return []
+            
+            # Validate that all items are strings (entity IDs)
+            for item in entity_ids:
+                if not isinstance(item, str):
+                    print(f"Error: Expected string entity ID, got {type(item)}: {item}")
+                    return []
+            
+            return entity_ids
+            
+        except json.JSONDecodeError as je:
+            print(f"Error parsing JSON response: {je}")
+            print(f"Raw response: {response_content}")
+            # Try to extract entity IDs using regex as fallback
+            try:
+                # Look for patterns like 3-4 letter IDs in the response
+                entity_pattern = r'\b[A-Za-z]{3,4}\b'
+                found_entities = re.findall(entity_pattern, response_content)
+                # Filter to likely entity IDs (3-4 characters, alphanumeric)
+                filtered_entities = [e for e in found_entities if len(e) in [3, 4] and e.isalnum()]
+                return list(set(filtered_entities))  # Remove duplicates
+            except Exception as fallback_error:
+                print(f"Fallback parsing also failed: {fallback_error}")
+                return []
 
     except NameError as ne:
         # This catches if `AsyncOpenAI`, `OPENAI_API_KEY`, or `OPENAI_MODEL_FOR_AMBIGUITY` are not defined.
         error_message = f"Configuration or Import Error: A required name is not defined: {ne}. Ensure imports and global API variables are set."
         print(error_message)
-        return error_message
+        return []
     except Exception as e:
         # In a real application, import traceback and use traceback.print_exc() for detailed debugging.
         error_message = f"Error during OpenAI API call: {type(e).__name__} - {e}"
         print(error_message) 
-        return error_message
+        return []
 
 if __name__ == "__main__":
     # The _onshape_url_to_enriched_feature_summary_logic call returns a dictionary or an error string.
@@ -168,3 +201,5 @@ if __name__ == "__main__":
     result = asyncio.run(identify_ambigous_entities(parsed_features_data, enriched_summaries_data))
     print("\n--- Ambiguity Analysis Result ---")
     print(result)
+    print(f"Type: {type(result)}")
+    print(f"Length: {len(result) if isinstance(result, list) else 'N/A'}")

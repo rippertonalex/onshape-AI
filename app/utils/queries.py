@@ -53,6 +53,7 @@ def query_get_created_entities(url: str, feature_id: str, extra_arguments: dict 
     return response
 
 def query_sketch_profiles_contains(url: str, test_points: list) -> list:
+    #use this one 
     """
     For each sketch and its test points, check which region(s) each point is contained in.
 
@@ -71,7 +72,7 @@ def query_sketch_profiles_contains(url: str, test_points: list) -> list:
     """
     results = []
     for sketch in test_points:
-        sketch_id = sketch['id']
+        sketch_id = sketch['sketch_id']
         pts = sketch['test_points']
         points_to_matches = []
         geo_id_to_points = {}
@@ -109,7 +110,7 @@ def query_sketch_profiles_contains(url: str, test_points: list) -> list:
             # If after removal, empty, restore ambiguous geo_ids (if that's all there was)
             if not pt_match['geo_id']:
                 pt_match['geo_id'] = [gid for gid in pt_geo_ids if gid in ambiguous_geo_ids]
-        results.append({'id': sketch_id, 'points_to_region_ids': points_to_matches})
+        results.append({'sketch_id': sketch_id, 'points_to_region_ids': points_to_matches})
     return results
 
 def _define_face(url: str, entity_id: str, rollback_index: int):
