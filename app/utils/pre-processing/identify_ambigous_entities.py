@@ -9,12 +9,14 @@ if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
 # Now your imports should work
-from app.utils.onshape_tools import _onshape_url_to_enriched_feature_summary_logic
+from app.utils.queries import standard_api_request, endpoints
+from app.utils.parsing import feature_parser, extract_feature_summaries, enrich_feature_summaries
 import json
 from openai import AsyncOpenAI
 from dotenv import load_dotenv
 import asyncio # Ensure asyncio is imported
 import re
+from app.utils.onshape_tools import _onshape_url_to_enriched_feature_summary_logic
 
 # Load environment variables (assuming .env is in project_root)
 load_dotenv(os.path.join(project_root, '.env')) 
@@ -59,7 +61,7 @@ async def identify_ambigous_entities(
                                           typically the output of `enrich_feature_summaries`.
 
     Returns:
-        list: A list of entity IDs (strings) that need more detail, e.g., ['IB', 'JDC', 'JGO', 'JHK', 'KIlC'],
+        list: A list of entity IDs (strings) that need more detail, e.g., ['JFD', 'JFH', 'JFL'],
               or an empty list if the process fails or no ambiguous entities are found.
     """
 
@@ -80,7 +82,13 @@ async def identify_ambigous_entities(
         "• For a sketch, define precisely the 2D geometry created. Consider any unit conversions necessary. Consider constraints.\n"
         "• For a 3D feature like an extrude or fillet, define precisely its action (e.g. it extrudes 3mm in direction z+ or it fillets 0.25in) and which entities it acts on (usually a 3 or 4 letter ID).\n"
         "• Look through the summary_output.\n"
-        "• Identify any relationships between entities acted on by 3D features or by a sketch (perhaps the sketch plane). Your goal here is to link all entities so that we can fully resolve the geometry."
+        "• Identify any relationships between entities acted on by 3D features or by a sketch (perhaps the sketch plane). Your goal here is to link all entities so that we can fully resolve the geometry.\n\n"
+        "Here are some examples of what makes an entity ambiguous and requiring more detailed description:\n"
+        "• External entities referenced by constraints in sketches that help position the sketch geometry relative to something outside the definition provided in these files. Their precise definition is needed to fully locate the geometry in 3D space.\n"
+        "• Sketch plane entities where the summary provides the normal, origin, and x-direction of the plane, but the specific definition or source of the entity represented by the ID is not detailed.\n"
+        "• Profile entities created by sketches that are used by 3D features. While the parsed output describes the various lines, arcs, and points within the sketch using descriptive internal IDs, the specific geometric features from the detailed sketch description that constitute the profile entity are not explicitly linked.\n"
+        "• Entities acted upon by 3D features (like fillets or extrudes) where the feature creates multiple faces and edges with various short IDs, but the specific face(s) or edge(s) corresponding to a particular ID are not explicitly defined.\n"
+        "• Entities that are created by one feature and then acted upon by subsequent features, where the specific geometric features created by the preceding features that correspond to the entity ID are not explicitly defined."
     )
 
     try:
@@ -90,7 +98,7 @@ async def identify_ambigous_entities(
             f"Parsed Features Data:\n{json.dumps(parsed_features, indent=2)}\n\n"
             f"Enriched Feature Summary:\n{json.dumps(enriched_feature_summaries, indent=2)}\n\n"
             "Based on your instructions (form a precise mental image and identify entities needing more detail), "
-            "please provide your analysis as a JSON array of entity IDs only."
+            "please provide your analysis as a JSON array of entity IDs only. Ensure the output array only includes entity IDs which are 2-4 characters long. Make sure to think through your answer throughly"
         )
     except NameError:
         # This occurs if `json` is not imported.
@@ -151,7 +159,7 @@ async def identify_ambigous_entities(
             print(f"Raw response: {response_content}")
             # Try to extract entity IDs using regex as fallback
             try:
-                # Look for patterns like 3-4 letter IDs in the response
+                # Look for patterns like 3-4 letter IDs in the response, focusing on entity IDs
                 entity_pattern = r'\b[A-Za-z]{3,4}\b'
                 found_entities = re.findall(entity_pattern, response_content)
                 # Filter to likely entity IDs (3-4 characters, alphanumeric)
@@ -173,32 +181,50 @@ async def identify_ambigous_entities(
         return []
 
 if __name__ == "__main__":
-    # The _onshape_url_to_enriched_feature_summary_logic call returns a dictionary or an error string.
-    # We need to capture its output to pass to identify_ambigous_entities.
+    # Use the same approach as in file_context_0 to get enriched feature summary
+    # url = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/140112c65afa2d3dddb074ba"
+    
+
+    # tool_output = _onshape_url_to_enriched_feature_summary_logic(url)
+
+    # onshape_parsed_features_data = tool_output.get("feature_parser_output", [])
+    # onshape_enriched_summaries_data = tool_output.get("enriched_feature_summaries", [])
+
+    # enriched_by_id = {f['featureId']: f for f in enriched_summaries_data if f.get('featureId')}
+    
+
+    # print("\nRunning identify_ambigous_entities...")
+   
+    # # Ensure identify_ambigous_entities is awaited as it's an async function
+    # result = asyncio.run(identify_ambigous_entities(onshape_parsed_features_data, onshape_enriched_summaries_data))
+    # print("\n--- Ambiguity Analysis Result ---")
+    # print(result)
+    # print(f"Type: {type(result)}")
+    # print(f"Length: {len(result) if isinstance(result, list) else 'N/A'}")
     print("Running _onshape_url_to_enriched_feature_summary_logic...")
     # Example URL, replace with actual test URL if needed
     test_onshape_url = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/140112c65afa2d3dddb074ba"
-    tool_output = _onshape_url_to_enriched_feature_summary_logic(test_onshape_url)
+    test_onshape_url_2 = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/ed0327add99ecf3427274439"
+    test_onshape_url_3 = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/8e8fe9de5851db99112d3500"
     
-    if isinstance(tool_output, str): # If the tool returned an error string
-        print(f"Error from _onshape_url_to_enriched_feature_summary_logic: {tool_output}")
-        parsed_features_data = {}
-        enriched_summaries_data = []
-    elif isinstance(tool_output, dict):
-        parsed_features_data = tool_output.get("feature_parser_output", {})
-        enriched_summaries_data = tool_output.get("enriched_feature_summaries", [])
-        if not parsed_features_data:
-            print("Warning: 'feature_parser_output' missing or empty in tool output.")
-        if not enriched_summaries_data:
-            print("Warning: 'enriched_feature_summaries' missing or empty in tool output.")
-    else:
-        print(f"Unexpected output type from _onshape_url_to_enriched_feature_summary_logic: {type(tool_output)}")
-        parsed_features_data = {}
-        enriched_summaries_data = []
+    params = {'rollbackBarIndex': -1, 'noSketchGeometry': 'false'}
 
+    # # Step 1: Get and parse features
+    response = standard_api_request(
+            test_onshape_url,
+            endpoints['features'],
+            method='GET',
+            params=params
+        )
+    new_parsed_features_data = feature_parser(response)
+    new_feature_summaries = extract_feature_summaries(new_parsed_features_data)
+    new_enriched_summaries_data = enrich_feature_summaries(new_feature_summaries, test_onshape_url)
+
+    print("Here is the new_enriched_summaries_data: ", new_enriched_summaries_data)
+    
     print("\nRunning identify_ambigous_entities...")
     # Ensure identify_ambigous_entities is awaited as it's an async function
-    result = asyncio.run(identify_ambigous_entities(parsed_features_data, enriched_summaries_data))
+    result = asyncio.run(identify_ambigous_entities(new_parsed_features_data, new_enriched_summaries_data))
     print("\n--- Ambiguity Analysis Result ---")
     print(result)
     print(f"Type: {type(result)}")

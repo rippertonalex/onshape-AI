@@ -21,6 +21,10 @@ if current_dir not in sys.path:
 # Load environment variables (assuming .env is in project_root)
 load_dotenv(os.path.join(project_root, '.env'))
 
+# Now import from app modules after sys.path is set up
+from app.utils.queries import standard_api_request, endpoints
+from app.utils.parsing import feature_parser, extract_feature_summaries, enrich_feature_summaries
+
 # Make these top-level imports for the whole script if they are needed outside __main__ too
 from app.utils.onshape_tools import _onshape_url_to_enriched_feature_summary_logic
 # Import from the same directory
@@ -165,9 +169,7 @@ if __name__ == "__main__":
 
     async def main_test():
         # Check if functions are available (they should be due to top-level imports)
-        if not callable(_onshape_url_to_enriched_feature_summary_logic) or not callable(identify_ambigous_entities):
-            print("Skipping __main__ test due to missing function definitions.")
-            return
+      
 
         test_onshape_url = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/140112c65afa2d3dddb074ba"
         if not test_onshape_url:
@@ -178,37 +180,26 @@ if __name__ == "__main__":
         current_time = lambda: asyncio.get_event_loop().time()
         print(f"[{current_time():.2f}] Running test with Onshape URL: {test_onshape_url}")
         
-        print(f"[{current_time():.2f}] Calling _onshape_url_to_enriched_feature_summary_logic...")
-        try:
-            tool_output = await asyncio.to_thread(_onshape_url_to_enriched_feature_summary_logic, test_onshape_url)
-        except Exception as e:
-            print(f"Error calling _onshape_url_to_enriched_feature_summary_logic: {type(e).__name__} - {e}")
-            return
+      
+        test_onshape_url = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/140112c65afa2d3dddb074ba"
+        test_onshape_url_2 = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/ed0327add99ecf3427274439"
+        test_onshape_url_3 = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/8e8fe9de5851db99112d3500"
+    
+        params = {'rollbackBarIndex': -1, 'noSketchGeometry': 'false'}
 
-        if isinstance(tool_output, str):
-            print(f"Error from _onshape_url_to_enriched_feature_summary_logic: {tool_output}")
-            return
-        
-        parsed_features_data = tool_output.get("feature_parser_output")
-        enriched_summaries_data = tool_output.get("enriched_feature_summaries", []) # Default to empty list
-
-        if not parsed_features_data:
-            print("Error: 'feature_parser_output' missing from tool_output. Cannot proceed.")
-            return
-        
-        if not tool_output.get("enriched_feature_summaries"): # Check original before defaulting
-            print("Warning: 'enriched_feature_summaries' missing or empty in tool_output. Ambiguity analysis might be affected.")
-
+    # # Step 1: Get and parse features
+        response = standard_api_request(
+            test_onshape_url,
+            endpoints['features'],
+            method='GET',
+            params=params
+        )
+        new_parsed_features_data = feature_parser(response)
         print(f"[{current_time():.2f}] Calling identify_ambigous_entities...")
-        ambiguous_entities_list = await identify_ambigous_entities(parsed_features_data, enriched_summaries_data)
-        
-        print(f"\n--- Ambiguity Analysis Result ---")
-        print(f"Ambiguous entities: {ambiguous_entities_list}")
-        print(f"Type: {type(ambiguous_entities_list)}")
-        print(f"Length: {len(ambiguous_entities_list) if isinstance(ambiguous_entities_list, list) else 'N/A'}")
+        ambiguous_entities_list_1 = ["IB", "JDC", "JGO", "JHK", "KIlC"]
 
         print(f"\n[{current_time():.2f}] Calling generate_sketch_test_points...")
-        test_points_result = await generate_sketch_test_points(parsed_features_data, ambiguous_entities_list)
+        test_points_result = await generate_sketch_test_points(new_parsed_features_data, ambiguous_entities_list_1)
 
         print("\n--- Sketch Test Points Generation Result ---")
         if isinstance(test_points_result, dict):

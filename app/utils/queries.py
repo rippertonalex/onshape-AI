@@ -1,8 +1,23 @@
-from .api_requests import standard_api_request, endpoints
-from .geometry_extractors import extract_plane_vectors, extract_face_geometry, extract_edge_geometry
-from .geom import convert_2d_to_3d
-
+import sys
+import os
 import re
+
+# Calculate the project root directory based on the current script's location
+# This script is in app/utils, so we need to go up two levels
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+# Use absolute imports when running directly, relative imports when imported as module
+if __name__ == '__main__':
+    from app.utils.api_requests import standard_api_request, endpoints
+    from app.utils.geometry_extractors import extract_plane_vectors, extract_face_geometry, extract_edge_geometry
+    from app.utils.geom import convert_2d_to_3d
+else:
+    from .api_requests import standard_api_request, endpoints
+    from .geometry_extractors import extract_plane_vectors, extract_face_geometry, extract_edge_geometry
+    from .geom import convert_2d_to_3d
 
 def parse_console_map_output(console_output: str) -> dict:
     # Remove curly braces at the ends
@@ -59,6 +74,19 @@ def query_get_created_entities(url: str, feature_id: str, extra_arguments: dict 
                                 method='POST',
                                 payload=payload,
                                 params=extra_arguments)
+    
+    # Check if the response was successful and contains the expected 'console' key
+    if 'console' not in response:
+        print(f"ERROR: API request failed or returned unexpected response structure.")
+        print(f"Response: {response}")
+        # Return empty entity lists when there's an error
+        return {
+            'bodies': [],
+            'faces': [], 
+            'edges': [],
+            'vertices': []
+        }
+    
     # print(response['console'])
     response = parse_console_map_output(response['console'])
     return response
@@ -84,6 +112,20 @@ def query_get_sketch_plane(url: str, sketch_id: str) -> dict:
                                     endpoints['featurescript'],
                                     method='POST',
                                     payload=payload)
+    
+    # Check if the response was successful and contains the expected 'result' key
+    if 'result' not in response:
+        print(f"ERROR: Sketch plane API request failed for sketch_id '{sketch_id}'.")
+        print(f"Response: {response}")
+        # Return a response structure that extract_plane_vectors can handle
+        return {
+            'result': {
+                'message': {
+                    'value': []
+                }
+            }
+        }
+    
     return response
 
 def query_sketch_profiles_contains(url: str, enriched_feature_summary: list, test_points: list) -> list:
@@ -133,7 +175,7 @@ def query_sketch_profiles_contains(url: str, enriched_feature_summary: list, tes
         sketch_plane = sketch_feature['sketchPlane']
         pts = sketch['test_points']
         print([pt for pt in pts])
-        pts_3d = [convert_2d_to_3d(pt, sketch_plane['normal'], sketch_plane['x_direction'], sketch_plane['origin'], units='in') for pt in pts]
+        pts_3d = [convert_2d_to_3d(pt, sketch_plane['normal'], sketch_plane['x_direction'], sketch_plane['origin']) for pt in pts]
         points_to_matches = []
         geo_id_to_points = {}
         # First pass: collect all matches
@@ -239,10 +281,9 @@ def define_ambiguous_entities(url: str, entity_id_list: list, enriched_feature_s
     """
     Enriches the provided feature summary with geometry definitions for specified ambiguous entities.
 
-    For each feature in the enriched_feature_summary (except sketches), this function iterates through all entity categories
-    (bodies, faces, edges, vertices). If an entity's ID matches one in the entity_id_list, it calls the appropriate definition
-    function (_define_edge, _define_face, _define_body, or _define_vertex) and inserts the resulting definition into the entity's
-    dictionary within the enriched_feature_summary.
+    For each feature in the enriched_feature_summary (except sketches), this function iterates through 
+    the createdEntities list. If an entity's ID matches one in the entity_id_list, it calls the appropriate 
+    definition function based on the entity ID pattern and adds the definition to the entity.
 
     Args:
         url (str): The base URL of the API.
@@ -257,25 +298,30 @@ def define_ambiguous_entities(url: str, entity_id_list: list, enriched_feature_s
         feature_type = feature.get('featureType')
         if feature_type == 'newSketch':
             continue  # Skip sketches for now
-        created_entities = feature.get('createdEntities', {})
-        for category in ['bodies', 'faces', 'edges', 'vertices']:
-            entities = created_entities.get(category, [])
-            for entity_dict in entities:
-                for entity_id in entity_dict.keys():
-                    if entity_id in entity_id_list:
-                        # Call the appropriate definition function
-                        if category == 'edges':
-                            definition = _define_edge(url, entity_id, rollback_index)
-                        elif category == 'faces':
-                            definition = _define_face(url, entity_id, rollback_index)
-                        elif category == 'bodies':
-                            definition = _define_body(url, entity_id, rollback_index)
-                        elif category == 'vertices':
-                            definition = _define_vertex(url, entity_id, rollback_index)
-                        else:
-                            definition = None
-                        # Insert the definition into the entity's dict
-                        entity_dict[entity_id]['definition'] = definition
+        
+        # createdEntities is actually a list of entity IDs, not a categorized dictionary
+        created_entities = feature.get('createdEntities', [])
+        
+        # Process each entity in the list
+        for entity_id in created_entities:
+            if isinstance(entity_id, str) and entity_id in entity_id_list:
+                # Determine entity type based on ID length (this is a heuristic)
+                if len(entity_id) == 3:
+                    # 3-character IDs are typically faces
+                    definition = _define_face(url, entity_id, rollback_index)
+                elif len(entity_id) == 4:
+                    # 4-character IDs are typically edges
+                    definition = _define_edge(url, entity_id, rollback_index)
+                else:
+                    # For other lengths, we might need more logic or default to a generic definition
+                    definition = _define_body(url, entity_id, rollback_index)
+                
+                # Since createdEntities is just a list of IDs, we need to modify the feature structure
+                # to store the definitions. We'll create a new field for this.
+                if 'entityDefinitions' not in feature:
+                    feature['entityDefinitions'] = {}
+                feature['entityDefinitions'][entity_id] = definition
+    
     return enriched_feature_summary
 
 if __name__ == '__main__':

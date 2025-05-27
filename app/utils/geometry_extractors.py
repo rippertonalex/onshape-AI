@@ -1,5 +1,3 @@
-
-
 def extract_plane_vectors(response: dict) -> dict:
     """
     Extracts normal, origin, and x-direction vectors from a FeatureScript evOwnerSketchPlane response.
@@ -14,9 +12,27 @@ def extract_plane_vectors(response: dict) -> dict:
     # Initialize output
     normal = origin = x_dir = None
 
+    # Check if the response has the expected structure
+    if "result" not in response:
+        print(f"ERROR: 'result' key not found in sketch plane response. Available keys: {list(response.keys())}")
+        return {"normal": None, "origin": None, "x_direction": None}
+    
+    if "message" not in response["result"]:
+        print(f"ERROR: 'message' key not found in response['result']. Available keys: {list(response['result'].keys())}")
+        return {"normal": None, "origin": None, "x_direction": None}
+    
+    if "value" not in response["result"]["message"]:
+        print(f"ERROR: 'value' key not found in response['result']['message']. Available keys: {list(response['result']['message'].keys())}")
+        return {"normal": None, "origin": None, "x_direction": None}
+
     # Navigate to the list of value map entries
     entries = response["result"]["message"]["value"]
     
+    # Handle empty entries (when API returns error or no data)
+    if not entries:
+        print("WARNING: No sketch plane data returned from API.")
+        return {"normal": None, "origin": None, "x_direction": None}
+
     for entry in entries:
         key = entry["message"]["key"]["message"]["value"]
         value_data = entry["message"]["value"]["message"]["value"]
