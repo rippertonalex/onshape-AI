@@ -2,10 +2,10 @@ import json
 import os
 from typing import Any, Dict, List, Union, Optional
 from agents import function_tool
-from .api_requests import standard_api_request, endpoints
-from .filter import apply_filters, FILTER_CONFIG
-from .queries import query_get_created_entities, query_get_sketch_plane
-from .geometry_extractors import extract_plane_vectors
+from app.utils.api_requests import standard_api_request, endpoints
+from app.utils.filter import apply_filters, FILTER_CONFIG
+from app.utils.queries import query_get_created_entities, query_get_sketch_plane
+from app.utils.geometry_extractors import extract_plane_vectors
 
 def feature_parser(response) -> dict:
     features = []
@@ -168,10 +168,37 @@ def extract_feature_summaries(parsed_features: dict) -> list:
 
 def enrich_feature_summaries(feature_summaries: list, url: str) -> list:
     """
-    For each feature in the summary, run get_created_entities and add the returned 'value' list to the summary.
-    If the feature is a sketch, also run get_sketch_plane and add the result to the summary.
-    Passes extra_arguments={'rollbackBarIndex': i+1} to get_created_entities for each feature.
-    Returns the enriched summary list.
+    Enriches a list of feature summary dictionaries with additional information from the Onshape API.
+
+    For each feature in the input summary list, this function:
+      - Calls `query_get_created_entities` to retrieve the entities created by the feature, passing
+        `extra_arguments={'rollbackBarIndex': i+1}` where `i` is the feature's index in the list. The
+        returned entities are added to the feature summary under the key 'createdEntities' as a list of
+        dictionaries, each mapping the entity name to an empty dictionary.
+      - If the feature's type is 'newSketch', it also calls `query_get_sketch_plane` to retrieve the
+        sketch plane information, which is processed by `extract_plane_vectors` and added to the summary
+        under the key 'sketchPlane'.
+
+    Parameters:
+        feature_summaries (list):
+            A list of dictionaries, each representing a feature summary. Each dictionary should contain
+            at least the keys 'featureId' and 'featureType'.
+        url (str):
+            The Onshape document URL used to query for additional feature information.
+
+    Returns:
+        list: The input list of feature summaries, with each dictionary enriched with the following keys:
+            - 'createdEntities': a list of dicts representing entities created by the feature.
+            - 'sketchPlane': (only for sketches) a dict of sketch plane vectors, if applicable.
+
+    Side Effects:
+        - Makes network requests to the Onshape API for each feature in the list.
+        - Modifies the input feature summary dictionaries in-place by adding new keys.
+
+    Notes:
+        - If an error occurs while retrieving created entities, the 'createdEntities' key will be set to an empty list.
+        - If an error occurs while retrieving the sketch plane, the 'sketchPlane' key may be omitted.
+        - The function assumes that the order of features in the input list matches the order in the Onshape feature tree.
     """
     enriched = []
     for i, feature in enumerate(feature_summaries):
@@ -179,13 +206,17 @@ def enrich_feature_summaries(feature_summaries: list, url: str) -> list:
         feature_type = feature.get('featureType')
         # Get created entities with rollbackBarIndex
         entities_response = query_get_created_entities(url, feature_id, extra_arguments={'rollbackBarIndex': i+1})
-        values = []
+        created_entities = {}
         try:
-            # Each entity is a dict with the entity name as key and an empty dict as value
-            values = [{v['message']['value']: {}} for v in entities_response['result']['message']['value']]
+            # entities_response is now a dict with keys: bodies, edges, faces, vertices
+            for entity_type in ['bodies', 'edges', 'faces', 'vertices']:
+                items = entities_response.get(entity_type, [])
+                created_entities[entity_type] = [{item: {}} for item in items]
         except Exception:
-            pass
-        feature['createdEntities'] = values
+            # If error, set all to empty lists
+            for entity_type in ['bodies', 'edges', 'faces', 'vertices']:
+                created_entities[entity_type] = []
+        feature['createdEntities'] = created_entities
         ## TODO : add rollbackBarIndex to the feature_summaries
         # If sketch, get sketch plane
         if feature_type and feature_type == 'newSketch':
@@ -195,7 +226,7 @@ def enrich_feature_summaries(feature_summaries: list, url: str) -> list:
     return enriched
 
 if __name__ == '__main__':
-    url = r'https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/140112c65afa2d3dddb074ba'
+    url = r'https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/7c61ed6a6bdd4b97c28505a6'
     params = {'rollbackBarIndex': -1, 'noSketchGeometry': 'false'}  # Example param usage
     response = standard_api_request(
         url,
