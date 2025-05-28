@@ -1,6 +1,7 @@
 import sys
 import os
 import re
+import json
 
 # Calculate the project root directory based on the current script's location
 # This script is in app/utils, so we need to go up two levels
@@ -9,11 +10,12 @@ project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..
 if project_root not in sys.path:
     sys.path.insert(0, project_root)
 
-# Use absolute imports when running directly, relative imports when imported as module
+# Now we can safely import our modules
 if __name__ == '__main__':
     from app.utils.api_requests import standard_api_request, endpoints
     from app.utils.geometry_extractors import extract_plane_vectors, extract_face_geometry, extract_edge_geometry
     from app.utils.geom import convert_2d_to_3d
+    from app.utils.parsing import feature_parser, extract_feature_summaries, enrich_feature_summaries
 else:
     from .api_requests import standard_api_request, endpoints
     from .geometry_extractors import extract_plane_vectors, extract_face_geometry, extract_edge_geometry
@@ -44,12 +46,10 @@ def parse_console_map_output(console_output: str) -> dict:
 def query_get_created_entities(url: str, feature_id: str, extra_arguments: dict = None) -> dict:
     """
     Query to get the created entities of a given feature ID.
-
     Args:
         url (str): The URL of the part studio.
         feature_id (str): The featureID of the feature to get the created entities of.
         extra_arguments (dict): Extra arguments to pass to the query. Typically of the form {'rollbackBarIndex': i}
-
     Returns:
         dict: The created entities of the given feature ID, separated by type: BODY, FACE, EDGE, VERTEX.
     """
@@ -74,19 +74,6 @@ def query_get_created_entities(url: str, feature_id: str, extra_arguments: dict 
                                 method='POST',
                                 payload=payload,
                                 params=extra_arguments)
-    
-    # Check if the response was successful and contains the expected 'console' key
-    if 'console' not in response:
-        print(f"ERROR: API request failed or returned unexpected response structure.")
-        print(f"Response: {response}")
-        # Return empty entity lists when there's an error
-        return {
-            'bodies': [],
-            'faces': [], 
-            'edges': [],
-            'vertices': []
-        }
-    
     # print(response['console'])
     response = parse_console_map_output(response['console'])
     return response
@@ -94,11 +81,9 @@ def query_get_created_entities(url: str, feature_id: str, extra_arguments: dict 
 def query_get_sketch_plane(url: str, sketch_id: str) -> dict:
     """
     Query to get the sketch plane of a given sketch ID.
-
     Args:
         url (str): The URL of the part studio.
         sketch_id (str): The featureID of the sketch to get the plane of.
-
     Returns:
         dict: The sketch plane of the given sketch ID.
     """
@@ -112,26 +97,11 @@ def query_get_sketch_plane(url: str, sketch_id: str) -> dict:
                                     endpoints['featurescript'],
                                     method='POST',
                                     payload=payload)
-    
-    # Check if the response was successful and contains the expected 'result' key
-    if 'result' not in response:
-        print(f"ERROR: Sketch plane API request failed for sketch_id '{sketch_id}'.")
-        print(f"Response: {response}")
-        # Return a response structure that extract_plane_vectors can handle
-        return {
-            'result': {
-                'message': {
-                    'value': []
-                }
-            }
-        }
-    
     return response
 
 def query_sketch_profiles_contains(url: str, enriched_feature_summary: list, test_points: list) -> list:
     """
     For each sketch and its test points, check which region(s) each point is contained in.
-
     Args:
         url (str): The URL of the Onshape document.
         enriched_feature_summary (list): 
@@ -160,19 +130,10 @@ def query_sketch_profiles_contains(url: str, enriched_feature_summary: list, tes
             ]
     """
     results = []
+    enriched_by_id = {f['featureId']: f for f in enriched_feature_summary if f.get('featureId')}
     for sketch in test_points:
         sketch_id = sketch['sketch_id']
-        # Find the sketch feature in enriched_feature_summary
-        sketch_feature = None
-        for feature in enriched_feature_summary:
-            if feature.get('featureId') == sketch_id:
-                sketch_feature = feature
-                break
-        
-        if not sketch_feature or 'sketchPlane' not in sketch_feature:
-            raise ValueError(f"Sketch feature {sketch_id} not found or missing sketchPlane in enriched_feature_summary")
-        
-        sketch_plane = sketch_feature['sketchPlane']
+        sketch_plane = enriched_by_id[sketch_id]['sketchPlane']
         pts = sketch['test_points']
         print([pt for pt in pts])
         pts_3d = [convert_2d_to_3d(pt, sketch_plane['normal'], sketch_plane['x_direction'], sketch_plane['origin']) for pt in pts]
@@ -212,7 +173,7 @@ def query_sketch_profiles_contains(url: str, enriched_feature_summary: list, tes
             # If after removal, empty, restore ambiguous geo_ids (if that's all there was)
             if not pt_match['geo_id']:
                 pt_match['geo_id'] = [gid for gid in pt_geo_ids if gid in ambiguous_geo_ids]
-        results.append({'sketch_id': sketch_id, 'points_to_region_ids': points_to_matches})
+        results.append({'id': sketch_id, 'points_to_region_ids': points_to_matches})
     return results
 
 def _define_face(url: str, entity_id: str, rollback_index: int):
@@ -251,12 +212,10 @@ def _define_body(url: str, entity_id: str, rollback_index: int):
     """
     Placeholder function to define a body entity.
     In a real implementation, this would query the Onshape API for body geometry or metadata.
-
     Args:
         url (str): The base URL of the API.
         entity_id (str): The ID of the body entity to define.
         rollback_index (int): The rollback index for the feature tree state.
-
     Returns:
         dict: A dictionary containing the definition of the body entity.
     """
@@ -266,12 +225,10 @@ def _define_vertex(url: str, entity_id: str, rollback_index: int):
     """
     Placeholder function to define a vertex entity.
     In a real implementation, this would query the Onshape API for vertex geometry or metadata.
-
     Args:
         url (str): The base URL of the API.
         entity_id (str): The ID of the vertex entity to define.
         rollback_index (int): The rollback index for the feature tree state.
-
     Returns:
         dict: A dictionary containing the definition of the vertex entity.
     """
@@ -280,16 +237,14 @@ def _define_vertex(url: str, entity_id: str, rollback_index: int):
 def define_ambiguous_entities(url: str, entity_id_list: list, enriched_feature_summary: list) -> list:
     """
     Enriches the provided feature summary with geometry definitions for specified ambiguous entities.
-
-    For each feature in the enriched_feature_summary (except sketches), this function iterates through 
-    the createdEntities list. If an entity's ID matches one in the entity_id_list, it calls the appropriate 
-    definition function based on the entity ID pattern and adds the definition to the entity.
-
+    For each feature in the enriched_feature_summary (except sketches), this function iterates through all entity categories
+    (bodies, faces, edges, vertices). If an entity's ID matches one in the entity_id_list, it calls the appropriate definition
+    function (_define_edge, _define_face, _define_body, or _define_vertex) and inserts the resulting definition into the entity's
+    dictionary within the enriched_feature_summary.
     Args:
         url (str): The base URL of the API.
         entity_id_list (list): List of entity IDs (strings) to define (e.g., ['JGO', 'JHK']).
         enriched_feature_summary (list): List of feature summary dictionaries, each containing createdEntities and other metadata.
-
     Returns:
         list: The enriched_feature_summary with definitions added for all matched entities.
     """
@@ -298,34 +253,47 @@ def define_ambiguous_entities(url: str, entity_id_list: list, enriched_feature_s
         feature_type = feature.get('featureType')
         if feature_type == 'newSketch':
             continue  # Skip sketches for now
-        
-        # createdEntities is actually a list of entity IDs, not a categorized dictionary
-        created_entities = feature.get('createdEntities', [])
-        
-        # Process each entity in the list
-        for entity_id in created_entities:
-            if isinstance(entity_id, str) and entity_id in entity_id_list:
-                # Determine entity type based on ID length (this is a heuristic)
-                if len(entity_id) == 3:
-                    # 3-character IDs are typically faces
-                    definition = _define_face(url, entity_id, rollback_index)
-                elif len(entity_id) == 4:
-                    # 4-character IDs are typically edges
-                    definition = _define_edge(url, entity_id, rollback_index)
-                else:
-                    # For other lengths, we might need more logic or default to a generic definition
-                    definition = _define_body(url, entity_id, rollback_index)
-                
-                # Since createdEntities is just a list of IDs, we need to modify the feature structure
-                # to store the definitions. We'll create a new field for this.
-                if 'entityDefinitions' not in feature:
-                    feature['entityDefinitions'] = {}
-                feature['entityDefinitions'][entity_id] = definition
-    
+        created_entities = feature.get('createdEntities', {})
+        for category in ['bodies', 'faces', 'edges', 'vertices']:
+            entities = created_entities.get(category, [])
+            for entity_dict in entities:
+                for entity_id in entity_dict.keys():
+                    if entity_id in entity_id_list:
+                        # Call the appropriate definition function
+                        if category == 'edges':
+                            definition = _define_edge(url, entity_id, rollback_index)
+                        elif category == 'faces':
+                            definition = _define_face(url, entity_id, rollback_index)
+                        elif category == 'bodies':
+                            definition = _define_body(url, entity_id, rollback_index)
+                        elif category == 'vertices':
+                            definition = _define_vertex(url, entity_id, rollback_index)
+                        else:
+                            definition = None
+                        # Insert the definition into the entity's dict
+                        entity_dict[entity_id]['definition'] = definition
     return enriched_feature_summary
 
 if __name__ == '__main__':
-    from app.utils.parsing import feature_parser, extract_feature_summaries, enrich_feature_summaries
+    def save_debug_json(data: dict, filename: str = 'output_debug.json'):
+        """
+        Save a dictionary to a JSON file in the test_data folder.
+        
+        Args:
+            data (dict): The dictionary to save
+            filename (str): The name of the file to save to (default: 'output_debug.json')
+        """
+        # Ensure test_data directory exists
+        test_data_dir = os.path.join(os.path.dirname(__file__), '..', '..', 'test_data')
+        os.makedirs(test_data_dir, exist_ok=True)
+        
+        # Create full file path
+        file_path = os.path.join(test_data_dir, filename)
+        
+        # Save the data with pretty printing
+        with open(file_path, 'w') as f:
+            json.dump(data, f, indent=2)
+        print(f"Debug data saved to {file_path}")
 
     url = r'https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/140112c65afa2d3dddb074ba'
     params = {'rollbackBarIndex': -1, 'noSketchGeometry': 'false'}
@@ -338,11 +306,18 @@ if __name__ == '__main__':
         params=params
     )
     parsed = feature_parser(response)
+    # Save the parsed data for debugging
+    save_debug_json(parsed, 'parsed_features.json')
+    
     feature_summaries = extract_feature_summaries(parsed)
+    save_debug_json(feature_summaries, 'feature_summaries.json')
+    
     enriched = enrich_feature_summaries(feature_summaries, url)
+    save_debug_json(enriched, 'enriched_feature_summaries.json')
 
     # Step 2: Build a mapping for easy lookup
-    enriched_by_id = {f['featureId']: f for f in enriched if f.get('featureId')}
+    # enriched_by_id = {f['featureId']: f for f in enriched if f.get('featureId')}
+    # save_debug_json(enriched_by_id, 'enriched_by_id.json')
 
     # Step 3: Find a sketch feature to test
     sketch_features = [f for f in enriched if f.get('featureType') == 'newSketch']
@@ -354,20 +329,25 @@ if __name__ == '__main__':
 
         # Step 4: Define test points (2D, in inches)
         test_points = [
-            {'sketch_id': sketch_id, 'test_points': [[0.0, 0.75], [0.0, -5.0]]},
+            {'sketch_id': sketch_id, 'test_points': [
+                [0.0, 0.02], 
+                [-0.03175, 0.01905],
+                [0.03175, 0.01905],
+                [0.0, 0.07619]]},
         ]
 
         # Step 5: Run the test
-        result = query_sketch_profiles_contains(url, enriched_by_id, test_points)
-        print("Result of query_sketch_profiles_contains:")
-        print(result)
+        result = query_sketch_profiles_contains(url, enriched, test_points)
+        # print("Result of query_sketch_profiles_contains:")
+        # print(result)
+        save_debug_json(result, 'sketch_profiles_result.json')
 
     # --- Test for define_ambiguous_entities ---
     print("\n--- Testing define_ambiguous_entities ---")
-    entity_id_list = ['JHF', 'JHG']
+    entity_id_list = ['JDC', 'JGO', 'JHF', 'JHG', 'JHK', 'KIlC']
     # Deep copy to avoid mutating the original enriched summary if needed
     import copy
     enriched_copy = copy.deepcopy(enriched)
     enriched_with_defs = define_ambiguous_entities(url, entity_id_list, enriched_copy)
-    import json
-    print(json.dumps(enriched_with_defs, indent=2))
+    save_debug_json(enriched_with_defs, 'enriched_with_defs.json')
+    # print(json.dumps(enriched_with_defs, indent=2))
