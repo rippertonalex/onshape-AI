@@ -211,16 +211,20 @@ if __name__ == "__main__":
 
     # # Step 1: Get and parse features
     response = standard_api_request(
-            test_onshape_url,
+            test_onshape_url_2,
             endpoints['features'],
             method='GET',
             params=params
         )
     new_parsed_features_data = feature_parser(response)
     new_feature_summaries = extract_feature_summaries(new_parsed_features_data)
-    new_enriched_summaries_data = enrich_feature_summaries(new_feature_summaries, test_onshape_url)
+    new_enriched_summaries_data = enrich_feature_summaries(new_feature_summaries, test_onshape_url_2)
 
-    print("Here is the new_enriched_summaries_data: ", new_enriched_summaries_data)
+    tool_output = _onshape_url_to_enriched_feature_summary_logic(test_onshape_url_2)
+
+    onshape_parsed_features_data = tool_output.get("feature_parser_output", [])
+
+    print("Here is the onshape_parsed_features_data: ", onshape_parsed_features_data)
     
     print("\nRunning identify_ambigous_entities...")
     # Ensure identify_ambigous_entities is awaited as it's an async function

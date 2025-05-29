@@ -195,11 +195,16 @@ if __name__ == "__main__":
             params=params
         )
         new_parsed_features_data = feature_parser(response)
+
+        tool_output = _onshape_url_to_enriched_feature_summary_logic(test_onshape_url)
+
+        old_parsed_features_data = tool_output.get("feature_parser_output", [])
+        
         print(f"[{current_time():.2f}] Calling identify_ambigous_entities...")
         ambiguous_entities_list_1 = ["IB", "JDC", "JGO", "JHK", "KIlC"]
 
         print(f"\n[{current_time():.2f}] Calling generate_sketch_test_points...")
-        test_points_result = await generate_sketch_test_points(new_parsed_features_data, ambiguous_entities_list_1)
+        test_points_result = await generate_sketch_test_points(old_parsed_features_data, ambiguous_entities_list_1)
 
         print("\n--- Sketch Test Points Generation Result ---")
         if isinstance(test_points_result, dict):
