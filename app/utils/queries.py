@@ -43,6 +43,31 @@ def parse_console_map_output(console_output: str) -> dict:
         result[key] = items
     return result
 
+def query_get_all_entities(url: str, entity_type: str, rollbackIndex: int) -> dict:
+  """
+  Query to get all entities of a given type.
+  Args:
+    url (str): The URL of the Onshape document.
+    entity_type (str): The type of entity to get.
+    rollbackIndex (int): The rollback index of the feature tree state.
+  """
+  output = []
+  feature_payload = {
+        "script": f"""
+        function(context is Context, queries) {{
+          return transientQueriesToStrings(evaluateQuery(context, qEverything(EntityType.{entity_type})));
+          }}"""
+      }
+  params = {'rollbackBarIndex': rollbackIndex}
+  response = standard_api_request(url,
+                                  endpoints['featurescript'],
+                                  method='POST',
+                                  extra_arguments=params,
+                                  payload=feature_payload)
+  for result in response['result']['message']['value']:
+    output.append(result['message']['value'])
+  return output
+
 def query_get_created_entities(url: str, feature_id: str, extra_arguments: dict = None) -> dict:
     """
     Query to get the created entities of a given feature ID.
@@ -79,6 +104,13 @@ def query_get_created_entities(url: str, feature_id: str, extra_arguments: dict 
     return response
 
 def query_get_default_features(url: str) -> dict:
+    """
+    Query to get the default features of a given part studio.
+    Args:
+        url (str): The URL of the part studio.
+    Returns:
+        dict: The default features of the given part studio.
+    """
     output = {}
     entity_names = ['Origin', 'Front', 'Right', 'Top']
     entity_types = ['VERTEX', 'FACE', 'FACE', 'FACE']
@@ -278,6 +310,7 @@ def define_ambiguous_entities(url: str, entity_id_list: list, enriched_feature_s
             for entity_dict in entities:
                 for entity_id in entity_dict.keys():
                     if entity_id in entity_id_list:
+                        print(f"Defining {entity_id} for {feature_id} at rollback {rollback_index}")
                         # Call the appropriate definition function
                         if category == 'edges':
                             definition = _define_edge(url, entity_id, rollback_index)
@@ -291,6 +324,9 @@ def define_ambiguous_entities(url: str, entity_id_list: list, enriched_feature_s
                             definition = None
                         # Insert the definition into the entity's dict
                         entity_dict[entity_id]['definition'] = definition
+                    else:
+                        print(f"Attempting to define {entity_id} at rollback {rollback_index} but it is not in the createdEntities list")
+
     return enriched_feature_summary
 
 if __name__ == '__main__':

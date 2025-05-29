@@ -958,5 +958,16 @@
         }
       ]
     }
+  },
+  {
+    "otherEntities": []
+  },
+  {
+    "defaultFeatures": {
+      "Origin": "IB",
+      "Front": "JCC",
+      "Right": "JEC",
+      "Top": "JDC"
+    }
   }
 ]

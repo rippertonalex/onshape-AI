@@ -1,3 +1,5 @@
+import json
+
 def extract_plane_vectors(response: dict) -> dict:
     """
     Extracts normal, origin, and x-direction vectors from a FeatureScript evOwnerSketchPlane response.
@@ -70,7 +72,6 @@ def extract_face_geometry(face_json: dict) -> dict:
         }
     """
     result = {}
-    # print(face_json)
     entries = face_json["result"]["message"]["value"]
 
     for entry in entries:

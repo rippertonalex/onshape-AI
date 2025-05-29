@@ -228,19 +228,8 @@ def enrich_feature_summaries(feature_summaries: list, url: str) -> list:
         list: The input list of feature summaries, with each dictionary enriched with the following keys:
             - 'createdEntities': a list of dicts representing entities created by the feature.
             - 'sketchPlane': (only for sketches) a dict of sketch plane vectors, if applicable.
-
-    Side Effects:
-        - Makes network requests to the Onshape API for each feature in the list.
-        - Modifies the input feature summary dictionaries in-place by adding new keys.
-
-    Notes:
-        - If an error occurs while retrieving created entities, the 'createdEntities' key will be set to an empty list.
-        - If an error occurs while retrieving the sketch plane, the 'sketchPlane' key may be omitted.
-        - The function assumes that the order of features in the input list matches the order in the Onshape feature tree.
     """
     enriched = []
-    default_features = query_get_default_features(url)
-    enriched.append({'defaultFeatures': default_features})
     for i, feature in enumerate(feature_summaries):
         feature_id = feature.get('featureId')
         feature_type = feature.get('featureType')
@@ -263,6 +252,14 @@ def enrich_feature_summaries(feature_summaries: list, url: str) -> list:
             sketch_plane_response = query_get_sketch_plane(url, feature_id)
             feature['sketchPlane'] = extract_plane_vectors(sketch_plane_response)
         enriched.append(feature)
+
+    # Add space for other entities
+    enriched.append({'otherEntities': []})
+
+    # Get default features
+    default_features = query_get_default_features(url)
+    enriched.append({'defaultFeatures': default_features})
+
     return enriched
 
 if __name__ == '__main__':

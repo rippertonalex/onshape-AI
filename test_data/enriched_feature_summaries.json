@@ -1,13 +1,5 @@
 [
   {
-    "defaultFeatures": {
-      "Origin": "IB",
-      "Front": "JCC",
-      "Right": "JEC",
-      "Top": "JDC"
-    }
-  },
-  {
     "featureType": "newSketch",
     "featureId": "FT1DvSE7Alu8Ovc_0",
     "name": "Sketch 1",
@@ -911,6 +903,17 @@
           "JJQ": {}
         }
       ]
+    }
+  },
+  {
+    "otherEntities": []
+  },
+  {
+    "defaultFeatures": {
+      "Origin": "IB",
+      "Front": "JCC",
+      "Right": "JEC",
+      "Top": "JDC"
     }
   }
 ]
