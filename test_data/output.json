@@ -1,0 +1,2478 @@
+----------------------------------------------------------------------------------------------------
+type: 151
+typeName: BTMSketch
+BTMSketchCurveSegment
+startPointId: A1sxRonLph8F.bottom.start
+endPointId: A1sxRonLph8F.bottom.end
+startParam: -0.049653470736034766
+endParam: 0.05194652926396525
+offsetCurveExtensions: []
+-----  ENTITY GEOMETRY -----
+type: 117
+typeName: BTCurveGeometryLine
+message: {'pntX': -0.0011465292639652389, 'pntY': 0.0, 'dirX': 1.0, 'dirY': 0.0}
+-----  END GEOMETRY -----
+centerId: 
+internalIds: []
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: A1sxRonLph8F.bottom
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: Mly9NSejnTjH6TUZr
+--------------------  END ENTITY  --------------------
+BTMSketchCurveSegment
+startPointId: A1sxRonLph8F.top.start
+endPointId: A1sxRonLph8F.top.end
+startParam: -0.024253470736034736
+endParam: 0.026546529263965248
+offsetCurveExtensions: []
+-----  ENTITY GEOMETRY -----
+type: 117
+typeName: BTCurveGeometryLine
+message: {'pntX': -0.0011465292639652458, 'pntY': 0.15239999999999998, 'dirX': 1.0, 'dirY': 0.0}
+-----  END GEOMETRY -----
+centerId: 
+internalIds: []
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: A1sxRonLph8F.top
+namespace: 
+index: 2
+hasUserCode: False
+nodeId: MkcQtHDuRpsIWRW6h
+--------------------  END ENTITY  --------------------
+BTMSketchCurveSegment
+startPointId: A1sxRonLph8F.left.start
+endPointId: A1sxRonLph8F.left.end
+startParam: -0.001081800857590905
+endParam: -0.1280818008575909
+offsetCurveExtensions: []
+-----  ENTITY GEOMETRY -----
+type: 117
+typeName: BTCurveGeometryLine
+message: {'pntX': -0.050800000000000005, 'pntY': -0.001081800857590905, 'dirX': 6.123233995736766e-17, 'dirY': -1.0}
+-----  END GEOMETRY -----
+centerId: 
+internalIds: []
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: A1sxRonLph8F.left
+namespace: 
+index: 3
+hasUserCode: False
+nodeId: MRKWiLpQD8tpqhaV0
+--------------------  END ENTITY  --------------------
+BTMSketchCurveSegment
+startPointId: A1sxRonLph8F.right.start
+endPointId: A1sxRonLph8F.right.end
+startParam: -0.07929134806218491
+endParam: -0.20629134806218488
+offsetCurveExtensions: []
+-----  ENTITY GEOMETRY -----
+type: 117
+typeName: BTCurveGeometryLine
+message: {'pntX': 0.05080000000000002, 'pntY': -0.07929134806218491, 'dirX': 6.123233995736766e-17, 'dirY': -1.0}
+-----  END GEOMETRY -----
+centerId: 
+internalIds: []
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: A1sxRonLph8F.right
+namespace: 
+index: 4
+hasUserCode: False
+nodeId: M2mxg5jIKW/JqRB2i
+--------------------  END ENTITY  --------------------
+BTMSketchCurveSegment
+startPointId: S5MdSzIc6InF.start
+endPointId: S5MdSzIc6InF.end
+startParam: -0.05080000000000001
+endParam: 0.05080000000000001
+offsetCurveExtensions: []
+-----  ENTITY GEOMETRY -----
+type: 117
+typeName: BTCurveGeometryLine
+message: {'pntX': 0.0, 'pntY': 0.07619999999999999, 'dirX': 1.0, 'dirY': 1.3659239968321314e-16}
+-----  END GEOMETRY -----
+centerId: 
+internalIds: []
+isConstruction: True
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: S5MdSzIc6InF
+namespace: 
+index: 5
+hasUserCode: False
+nodeId: Mr1iuzi3ZQKqBuhj7
+--------------------  END ENTITY  --------------------
+BTMSketchCurve
+-----  ENTITY GEOMETRY -----
+type: 115
+typeName: BTCurveGeometryCircle
+message: {'radius': 0.006350000000000001, 'xCenter': -0.03175, 'yCenter': 0.01905, 'xDir': 1.0, 'yDir': 0.0, 'clockwise': False}
+-----  END GEOMETRY -----
+centerId: HC4GLjl3pDsC.center
+internalIds: []
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: HC4GLjl3pDsC
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: MkGrzghDxCQskzfZ5
+--------------------  END ENTITY  --------------------
+BTMSketchCurve
+-----  ENTITY GEOMETRY -----
+type: 115
+typeName: BTCurveGeometryCircle
+message: {'radius': 0.006350000000000001, 'xCenter': 0.03175000000000001, 'yCenter': 0.01905000000000001, 'xDir': 0.9980519593061973, 'yDir': -0.062388192192599314, 'clockwise': False}
+-----  END GEOMETRY -----
+centerId: 6Z1OzPuTZ7I9.center
+internalIds: []
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: 6Z1OzPuTZ7I9
+namespace: 
+index: 2
+hasUserCode: False
+nodeId: MIhYKpYQksKsyFPmC
+--------------------  END ENTITY  --------------------
+BTMSketchPoint
+x: -0.05080000000000001
+y: 0.15239999999999995
+isUserPoint: True
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: MTPHm8vdPDwN.0.visualSharp
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: MZ+YziB4DwxcODhBM
+--------------------  END ENTITY  --------------------
+BTMSketchCurveSegment
+startPointId: MTPHm8vdPDwN.0.filletArc.start
+endPointId: MTPHm8vdPDwN.0.filletArc.end
+startParam: 1.5707963267948966
+endParam: 3.141592653589793
+offsetCurveExtensions: []
+-----  ENTITY GEOMETRY -----
+type: 115
+typeName: BTCurveGeometryCircle
+message: {'radius': 0.025400000000000002, 'xCenter': -0.02539999999999998, 'yCenter': 0.127, 'xDir': 1.0, 'yDir': 0.0, 'clockwise': False}
+-----  END GEOMETRY -----
+centerId: MTPHm8vdPDwN.0.filletArc.center
+internalIds: []
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: MTPHm8vdPDwN.0.filletArc
+namespace: 
+index: 3
+hasUserCode: False
+nodeId: MP/KAY4rzgBJ3r4AK
+--------------------  END ENTITY  --------------------
+BTMSketchPoint
+x: 0.05079999999999996
+y: 0.15239999999999998
+isUserPoint: True
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: jU0owSE8VkKn.0.visualSharp
+namespace: 
+index: 2
+hasUserCode: False
+nodeId: MYboGRAXWD6GG0uRS
+--------------------  END ENTITY  --------------------
+BTMSketchCurveSegment
+startPointId: jU0owSE8VkKn.0.filletArc.start
+endPointId: jU0owSE8VkKn.0.filletArc.end
+startParam: 0.0
+endParam: 1.5707963267948972
+offsetCurveExtensions: []
+-----  ENTITY GEOMETRY -----
+type: 115
+typeName: BTCurveGeometryCircle
+message: {'radius': 0.025399999999999985, 'xCenter': 0.02540000000000002, 'yCenter': 0.12699999999999997, 'xDir': 1.0, 'yDir': 0.0, 'clockwise': False}
+-----  END GEOMETRY -----
+centerId: jU0owSE8VkKn.0.filletArc.center
+internalIds: []
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: jU0owSE8VkKn.0.filletArc
+namespace: 
+index: 4
+hasUserCode: False
+nodeId: MgtV4nEFFnYb3O8c8
+--------------------  END ENTITY  --------------------
+BTMSketchCurve
+-----  ENTITY GEOMETRY -----
+type: 115
+typeName: BTCurveGeometryCircle
+message: {'radius': 0.01759763620489981, 'xCenter': 0.0, 'yCenter': 0.07619999999999999, 'xDir': 1.0, 'yDir': 0.0, 'clockwise': False}
+-----  END GEOMETRY -----
+centerId: fOrgWiMieXsN.cCircle.center
+internalIds: []
+isConstruction: True
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: fOrgWiMieXsN.cCircle
+namespace: 
+index: 5
+hasUserCode: False
+nodeId: M0SjbD5BMYYD0gh7L
+--------------------  END ENTITY  --------------------
+BTMSketchCurveSegment
+startPointId: fOrgWiMieXsN.seed.start
+endPointId: fOrgWiMieXsN.seed.end
+startParam: 0.008370980880791766
+endParam: 0.02869098088079177
+offsetCurveExtensions: []
+-----  ENTITY GEOMETRY -----
+type: 117
+typeName: BTCurveGeometryLine
+message: {'pntX': -0.01853098088079177, 'pntY': 0.05860236379510017, 'dirX': 1.0, 'dirY': 2.4854953865697392e-17}
+-----  END GEOMETRY -----
+centerId: 
+internalIds: []
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: fOrgWiMieXsN.seed
+namespace: 
+index: 6
+hasUserCode: False
+nodeId: MHL5Z4W4cRgUbsYFx
+--------------------  END ENTITY  --------------------
+BTMSketchCurveSegment
+startPointId: fOrgWiMieXsN.pattern.0.1.0.start
+endPointId: fOrgWiMieXsN.pattern.0.1.0.end
+startParam: -0.02869098088079179
+endParam: -0.008370980880791782
+offsetCurveExtensions: []
+-----  ENTITY GEOMETRY -----
+type: 117
+typeName: BTCurveGeometryLine
+message: {'pntX': 0.024505490440395912, 'pntY': 0.08344948209735949, 'dirX': 0.5000000000000001, 'dirY': 0.8660254037844386}
+-----  END GEOMETRY -----
+centerId: 
+internalIds: []
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: fOrgWiMieXsN.pattern.0.1.0
+namespace: 
+index: 7
+hasUserCode: False
+nodeId: /GOC4dc0V2JFASsd
+--------------------  END ENTITY  --------------------
+BTMSketchCurveSegment
+startPointId: fOrgWiMieXsN.pattern.0.2.0.start
+endPointId: fOrgWiMieXsN.pattern.0.2.0.end
+startParam: -0.028690980880791764
+endParam: -0.008370980880791752
+offsetCurveExtensions: []
+-----  ENTITY GEOMETRY -----
+type: 117
+typeName: BTCurveGeometryLine
+message: {'pntX': 0.005974509559604151, 'pntY': 0.10104711830225929, 'dirX': -0.4999999999999998, 'dirY': 0.8660254037844387}
+-----  END GEOMETRY -----
+centerId: 
+internalIds: []
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: fOrgWiMieXsN.pattern.0.2.0
+namespace: 
+index: 8
+hasUserCode: False
+nodeId: TeWM/Wn20tE9E8Ha
+--------------------  END ENTITY  --------------------
+BTMSketchCurveSegment
+startPointId: fOrgWiMieXsN.pattern.0.3.0.start
+endPointId: fOrgWiMieXsN.pattern.0.3.0.end
+startParam: -0.028690980880791774
+endParam: -0.008370980880791766
+offsetCurveExtensions: []
+-----  ENTITY GEOMETRY -----
+type: 117
+typeName: BTCurveGeometryLine
+message: {'pntX': -0.01853098088079177, 'pntY': 0.09379763620489981, 'dirX': -1.0, 'dirY': 9.760972604903793e-17}
+-----  END GEOMETRY -----
+centerId: 
+internalIds: []
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: fOrgWiMieXsN.pattern.0.3.0
+namespace: 
+index: 9
+hasUserCode: False
+nodeId: LfYccHijK5Gzi3B3
+--------------------  END ENTITY  --------------------
+BTMSketchCurveSegment
+startPointId: fOrgWiMieXsN.pattern.0.4.0.start
+endPointId: fOrgWiMieXsN.pattern.0.4.0.end
+startParam: -0.028690980880791767
+endParam: -0.008370980880791764
+offsetCurveExtensions: []
+-----  ENTITY GEOMETRY -----
+type: 117
+typeName: BTCurveGeometryLine
+message: {'pntX': -0.024505490440395898, 'pntY': 0.0689505179026405, 'dirX': -0.5000000000000004, 'dirY': -0.8660254037844384}
+-----  END GEOMETRY -----
+centerId: 
+internalIds: []
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: fOrgWiMieXsN.pattern.0.4.0
+namespace: 
+index: 10
+hasUserCode: False
+nodeId: qQJtVDe7ncxv4FHY
+--------------------  END ENTITY  --------------------
+BTMSketchCurveSegment
+startPointId: fOrgWiMieXsN.pattern.0.5.0.start
+endPointId: fOrgWiMieXsN.pattern.0.5.0.end
+startParam: 0.00837098088079178
+endParam: 0.028690980880791785
+offsetCurveExtensions: []
+-----  ENTITY GEOMETRY -----
+type: 117
+typeName: BTCurveGeometryLine
+message: {'pntX': -0.024505490440395905, 'pntY': 0.0834494820973595, 'dirX': 0.5000000000000001, 'dirY': -0.8660254037844386}
+-----  END GEOMETRY -----
+centerId: 
+internalIds: []
+isConstruction: False
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: fOrgWiMieXsN.pattern.0.5.0
+namespace: 
+index: 11
+hasUserCode: False
+nodeId: ovBPx0vTfRTA03tq
+--------------------  END ENTITY  --------------------
+BTMSketchPoint
+x: 1.5407439555097887e-33
+y: 0.05860236379510018
+isUserPoint: True
+isConstruction: True
+parameters: []
+isFromSplineHandle: False
+isFromEndpointSplineHandle: False
+isFromSplineControlPolygon: False
+entityId: fOrgWiMieXsN.midPoint
+namespace: 
+index: 3
+hasUserCode: False
+nodeId: MNfMcwVq997bVSEZ0
+--------------------  END ENTITY  --------------------
+BTMSketchConstraint
+constraintType: PERPENDICULAR
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: A1sxRonLph8F.top
+parameterId: localFirst
+hasUserCode: False
+nodeId: MqpzY2nqvqc/tWN4Z
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.left
+parameterId: localSecond
+hasUserCode: False
+nodeId: MG+quOdkriBg1V+bb
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: A1sxRonLph8F.perpendicular
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: MvOmH2ihaITi8oJdc
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: PARALLEL
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: A1sxRonLph8F.bottom
+parameterId: localFirst
+hasUserCode: False
+nodeId: M21y2lBqYEKKYIY9H
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.top
+parameterId: localSecond
+hasUserCode: False
+nodeId: MEYYPJ3F4WJuguSRQ
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: A1sxRonLph8F.parallel.1
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: MAkZ8N9UN+wpvNixG
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: PARALLEL
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: A1sxRonLph8F.left
+parameterId: localFirst
+hasUserCode: False
+nodeId: M8EeTNeHGsmfbddHy
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.right
+parameterId: localSecond
+hasUserCode: False
+nodeId: Mn67pDMQkMVnnuvEg
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: A1sxRonLph8F.parallel.2
+namespace: 
+index: 2
+hasUserCode: False
+nodeId: Mwfvx5j0gWg4snEn+
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: HORIZONTAL
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: A1sxRonLph8F.top
+parameterId: localFirst
+hasUserCode: False
+nodeId: MLlqKZbp6FBwPkIaF
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: A1sxRonLph8F.horizontal
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: M6SqaR6HHON2EmGNB
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: COINCIDENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: A1sxRonLph8F.bottom.start
+parameterId: localFirst
+hasUserCode: False
+nodeId: MuePKhElfKJAK2V2i
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.left.start
+parameterId: localSecond
+hasUserCode: False
+nodeId: M2xLLJOmcx7J0MDwm
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: A1sxRonLph8F.corner0
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: Mr1GpqeNG6LQofoe7
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: COINCIDENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: A1sxRonLph8F.bottom.end
+parameterId: localFirst
+hasUserCode: False
+nodeId: MdzrUVkTfk//dRK/i
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.right.start
+parameterId: localSecond
+hasUserCode: False
+nodeId: MUeZyG+mg4DkytnzV
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: A1sxRonLph8F.corner1
+namespace: 
+index: 2
+hasUserCode: False
+nodeId: Mk9V+J1inAHlgGpLn
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: COINCIDENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+queries: [{'type': 138, 'typeName': 'BTMIndividualQuery', 'message': {'geometryIds': ['IB'], 'hasUserCode': False, 'nodeId': 'MWqrJCTDMZIE6GyA+'}}]
+parameterId: externalFirst
+hasUserCode: False
+nodeId: MBQLNUDU/VMA0H86t
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.bottom
+parameterId: localSecond
+hasUserCode: False
+nodeId: MFM44Ckp2pvoXQs4g
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: ZQYJBEvUAGvF
+namespace: 
+index: 5
+hasUserCode: False
+nodeId: MQZH4Duoux/eIaC8i
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: MIDPOINT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+queries: [{'type': 138, 'typeName': 'BTMIndividualQuery', 'message': {'geometryIds': ['IB'], 'hasUserCode': False, 'nodeId': 'MRvk4n0HsJD5eUfMS'}}]
+parameterId: externalEntity1
+hasUserCode: False
+nodeId: MX7wUzwAW0Qg1te3P
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.bottom
+parameterId: localEntity2
+hasUserCode: False
+nodeId: MMRHvRWpnjqU+jr9N
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: D2VUFfRc4JPq
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: MWkB3Z0/+4k7m6epp
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: MIDPOINT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: S5MdSzIc6InF.start
+parameterId: localMidpoint
+hasUserCode: False
+nodeId: M+dA1ckt2cw10YIc8
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.left.start
+parameterId: localEntity1
+hasUserCode: False
+nodeId: MFwmBOiA4o3G/pyvj
+--------------------
+-- PARAM 3 --
+value: MTPHm8vdPDwN.0.visualSharp
+parameterId: localEntity2
+hasUserCode: False
+nodeId: M0QJtimcQmwxrIICi
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: S5MdSzIc6InF.startSnap0
+namespace: 
+index: 2
+hasUserCode: False
+nodeId: M1SEihDtmeAy9QPs+
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: MIDPOINT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: S5MdSzIc6InF.end
+parameterId: localMidpoint
+hasUserCode: False
+nodeId: MwXnDsffH0ixXwkRZ
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.right.start
+parameterId: localEntity1
+hasUserCode: False
+nodeId: MUmgiGAN+lsaNJFvD
+--------------------
+-- PARAM 3 --
+value: jU0owSE8VkKn.0.visualSharp
+parameterId: localEntity2
+hasUserCode: False
+nodeId: M9KlBop9RZCD2OIVu
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: S5MdSzIc6InF.endSnap0
+namespace: 
+index: 3
+hasUserCode: False
+nodeId: MdAbi4yRoUYFkHEBL
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: EQUAL
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: 6Z1OzPuTZ7I9
+parameterId: localFirst
+hasUserCode: False
+nodeId: MJB1oTbW3SoiV4EdN
+--------------------
+-- PARAM 2 --
+value: HC4GLjl3pDsC
+parameterId: localSecond
+hasUserCode: False
+nodeId: MP6ZeUiMPYYfxRekO
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: NEEzFGmMbZG9
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: MAa3B4M2Ut0OrU/95
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: DIAMETER
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: HC4GLjl3pDsC
+parameterId: localFirst
+hasUserCode: False
+nodeId: M32nLNuVPwzGpPMNw
+--------------------
+-- PARAM 2 --
+units: 
+value: 0.0
+expression: 0.5 in
+isInteger: False
+parameterId: length
+hasUserCode: False
+nodeId: MObKbIxlM4jOnYXEG
+--------------------
+-- PARAM 3 --
+units: 
+value: 0.0
+expression: 6.196412147995478
+isInteger: False
+parameterId: labelRatio
+hasUserCode: False
+nodeId: MlOvudyePz2rcsj8t
+--------------------
+-- PARAM 4 --
+units: 
+value: 0.0
+expression: 3.032955157433905*rad
+isInteger: False
+parameterId: labelAngle
+hasUserCode: False
+nodeId: MBHWD5RNnNi6FIZ0p
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: xn414cHw1r7P
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: M2rEiBVmuO1UcOThT
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: DISTANCE
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: A1sxRonLph8F.bottom
+parameterId: localFirst
+hasUserCode: False
+nodeId: MABXpIarUrs6Sp8QR
+--------------------
+-- PARAM 2 --
+value: HC4GLjl3pDsC.center
+parameterId: localSecond
+hasUserCode: False
+nodeId: Mn+ixxDdEuMC3nbiT
+--------------------
+-- PARAM 3 --
+enumName: DimensionDirection
+value: MINIMUM
+namespace: 
+parameterId: direction
+hasUserCode: False
+nodeId: MW0ZxhloLCcKZnaLq
+--------------------
+-- PARAM 4 --
+units: 
+value: 0.0
+expression: 0.75 in
+isInteger: False
+parameterId: length
+hasUserCode: False
+nodeId: M2lrkRomo9PL8tVHm
+--------------------
+-- PARAM 5 --
+enumName: DimensionHalfSpace
+value: LEFT
+namespace: 
+parameterId: halfSpace0
+hasUserCode: False
+nodeId: M5joiPvrIw7HFkAa/
+--------------------
+-- PARAM 6 --
+units: 
+value: 0.0
+expression: -0.9219314762244882
+isInteger: False
+parameterId: labelRatio
+hasUserCode: False
+nodeId: MkcBpX/w+Cwkx+U4+
+--------------------
+-- PARAM 7 --
+units: 
+value: 0.0
+expression: 0.0684397677172273*m
+isInteger: False
+parameterId: labelDistance
+hasUserCode: False
+nodeId: MMy1hJcH0ravw2EYW
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: hnVbVPgFXyj0
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: MiSviUPoqrlRu3O6u
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: HORIZONTAL
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: 6Z1OzPuTZ7I9.center
+parameterId: localFirst
+hasUserCode: False
+nodeId: M/w/bvtxqtFkH5obL
+--------------------
+-- PARAM 2 --
+value: HC4GLjl3pDsC.center
+parameterId: localSecond
+hasUserCode: False
+nodeId: MXCh6jf5Laqmb2x7j
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: xfVhJgMVNTt9
+namespace: 
+index: 2
+hasUserCode: False
+nodeId: MDbnxQzCVUy8VHXZ+
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: DISTANCE
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: A1sxRonLph8F.bottom.start
+parameterId: localFirst
+hasUserCode: False
+nodeId: MoZydtZS6koqFUli6
+--------------------
+-- PARAM 2 --
+value: HC4GLjl3pDsC.center
+parameterId: localSecond
+hasUserCode: False
+nodeId: MgfzW2HsVKFSxoFh0
+--------------------
+-- PARAM 3 --
+enumName: DimensionDirection
+value: HORIZONTAL
+namespace: 
+parameterId: direction
+hasUserCode: False
+nodeId: MWSQtfb3xc1G9hNNs
+--------------------
+-- PARAM 4 --
+units: 
+value: 0.0
+expression: 0.75 in
+isInteger: False
+parameterId: length
+hasUserCode: False
+nodeId: MdegXOV/DWWyfRuE5
+--------------------
+-- PARAM 5 --
+enumName: DimensionAlignment
+value: ALIGNED
+namespace: 
+parameterId: alignment
+hasUserCode: False
+nodeId: McxRGwDHHQk7v4Hef
+--------------------
+-- PARAM 6 --
+units: 
+value: 0.0
+expression: 0.5956495876466683
+isInteger: False
+parameterId: labelRatio
+hasUserCode: False
+nodeId: MSm4fqIjrGWEEi+e1
+--------------------
+-- PARAM 7 --
+units: 
+value: 0.0
+expression: 0.028652923540117226*m
+isInteger: False
+parameterId: labelDistance
+hasUserCode: False
+nodeId: MEVKvkPgc5Z1mwdn1
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: e7FR8sTl6MAC
+namespace: 
+index: 2
+hasUserCode: False
+nodeId: MmJcfVa5qgm4AKd2u
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: DISTANCE
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: 6Z1OzPuTZ7I9.center
+parameterId: localFirst
+hasUserCode: False
+nodeId: MeyNZSaVl6rNNeGhB
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.right
+parameterId: localSecond
+hasUserCode: False
+nodeId: MMiwWtXHzT+156wne
+--------------------
+-- PARAM 3 --
+enumName: DimensionDirection
+value: MINIMUM
+namespace: 
+parameterId: direction
+hasUserCode: False
+nodeId: Mo3xIg6wE78DnseOO
+--------------------
+-- PARAM 4 --
+units: 
+value: 0.0
+expression: 0.75 in
+isInteger: False
+parameterId: length
+hasUserCode: False
+nodeId: MnL2jGrpZzqVpzhZt
+--------------------
+-- PARAM 5 --
+enumName: DimensionHalfSpace
+value: RIGHT
+namespace: 
+parameterId: halfSpace1
+hasUserCode: False
+nodeId: Mgrgrqys+WS4VTHnX
+--------------------
+-- PARAM 6 --
+units: 
+value: 0.0
+expression: 0.4000572271512364
+isInteger: False
+parameterId: labelRatio
+hasUserCode: False
+nodeId: MdZnIlWer2ISQuHw6
+--------------------
+-- PARAM 7 --
+units: 
+value: 0.0
+expression: -0.10399492979115142*m
+isInteger: False
+parameterId: labelDistance
+hasUserCode: False
+nodeId: MKj2/fEGFKKGzTc52
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: EvfFePRNaf0v
+namespace: 
+index: 3
+hasUserCode: False
+nodeId: MJNTiwdP5py+YQeez
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: DISTANCE
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: MTPHm8vdPDwN.0.visualSharp
+parameterId: localFirst
+hasUserCode: False
+nodeId: MshjKZt2C2lCEZDT3
+--------------------
+-- PARAM 2 --
+value: jU0owSE8VkKn.0.visualSharp
+parameterId: localSecond
+hasUserCode: False
+nodeId: MzkWdvnoPJI06k9/T
+--------------------
+-- PARAM 3 --
+enumName: DimensionDirection
+value: MINIMUM
+namespace: 
+parameterId: direction
+hasUserCode: False
+nodeId: MSMoUQU0bYOQVl+5V
+--------------------
+-- PARAM 4 --
+units: 
+value: 0.0
+expression: 0.6875217251681306
+isInteger: False
+parameterId: labelRatio
+hasUserCode: False
+nodeId: M9O+epEtsenbSvKfH
+--------------------
+-- PARAM 5 --
+units: 
+value: 0.0
+expression: -0.0351340134825123*m
+isInteger: False
+parameterId: labelDistance
+hasUserCode: False
+nodeId: Mz4wkX1iS0astJo/A
+--------------------
+-- PARAM 6 --
+units: 
+value: 0.0
+expression: 4 in
+isInteger: False
+parameterId: length
+hasUserCode: False
+nodeId: MNRo6GJel0yYI8aqy
+--------------------
+-- PARAM 7 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: MPNz3R8e06XjyLIf5
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: MTPHm8vdPDwN.0.visualSharp.lengthB.0
+namespace: 
+index: 4
+hasUserCode: False
+nodeId: Ms3Kcp8+Jb6QMQufu
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: COINCIDENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: MTPHm8vdPDwN.0.visualSharp
+parameterId: localFirst
+hasUserCode: False
+nodeId: M+VSEkYcKqM+mQa8L
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.top
+parameterId: localSecond
+hasUserCode: False
+nodeId: M/MODYiT6/ZGmIpyt
+--------------------
+-- PARAM 3 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: Mch3G1AOoKzJjo7WJ
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: MTPHm8vdPDwN.0.visualSharp.coincidentB
+namespace: 
+index: 6
+hasUserCode: False
+nodeId: M2+yKZr4fM6QIaluF
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: COINCIDENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: MTPHm8vdPDwN.0.visualSharp
+parameterId: localFirst
+hasUserCode: False
+nodeId: MnhAklCqlyP6V8++e
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.left
+parameterId: localSecond
+hasUserCode: False
+nodeId: MPpsfn30c2bOOGf/h
+--------------------
+-- PARAM 3 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: Ml71yOvDLwjB65Odb
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: MTPHm8vdPDwN.0.visualSharp.coincident
+namespace: 
+index: 7
+hasUserCode: False
+nodeId: M1PXsetH93iZ+MC0s
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: COINCIDENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: MTPHm8vdPDwN.0.filletArc.start
+parameterId: localFirst
+hasUserCode: False
+nodeId: M8HAbDcd0RcMJD9b1
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.top.start
+parameterId: localSecond
+hasUserCode: False
+nodeId: MyxEa9RtR0XJskf5P
+--------------------
+-- PARAM 3 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: MQ6FWOoXC9hvguFsA
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: MTPHm8vdPDwN.0.filletArc.startSnap
+namespace: 
+index: 8
+hasUserCode: False
+nodeId: MA0hHLfJ+4qyQduGd
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: COINCIDENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: MTPHm8vdPDwN.0.filletArc.end
+parameterId: localFirst
+hasUserCode: False
+nodeId: Mmo3Vjz70nrxnvhOD
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.left.end
+parameterId: localSecond
+hasUserCode: False
+nodeId: Mq8MfPN6RFOXG4odT
+--------------------
+-- PARAM 3 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: MUQAP2gYTIKhgLhmd
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: MTPHm8vdPDwN.0.filletArc.endSnap
+namespace: 
+index: 9
+hasUserCode: False
+nodeId: MhDLUy2VAJVGWKJ1p
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: TANGENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: A1sxRonLph8F.left
+parameterId: localFirst
+hasUserCode: False
+nodeId: Md6pVtqnIQyTO3vU1
+--------------------
+-- PARAM 2 --
+value: MTPHm8vdPDwN.0.filletArc
+parameterId: localSecond
+hasUserCode: False
+nodeId: MJh3oa66HdRNY5GOC
+--------------------
+-- PARAM 3 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: MqnzhJDATkvI+Xi3G
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: [3.141592653589793]
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: MTPHm8vdPDwN.0.tangentA
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: MWW02iFmrETfdatZq
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: TANGENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: A1sxRonLph8F.top
+parameterId: localFirst
+hasUserCode: False
+nodeId: MOX+1Gjp0fbF9GPnG
+--------------------
+-- PARAM 2 --
+value: MTPHm8vdPDwN.0.filletArc
+parameterId: localSecond
+hasUserCode: False
+nodeId: M7WZ0FY52Ovvz1cu0
+--------------------
+-- PARAM 3 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: MJjKUYSaapy63YkEI
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: [1.5707963267948966]
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: MTPHm8vdPDwN.0.tangentB
+namespace: 
+index: 2
+hasUserCode: False
+nodeId: M2N0Yu5tArow1sujS
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: RADIUS
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: MTPHm8vdPDwN.0.filletArc
+parameterId: localFirst
+hasUserCode: False
+nodeId: MvoP+2u7bVCD/AKnE
+--------------------
+-- PARAM 2 --
+units: 
+value: 0.0
+expression: 1 in
+isInteger: False
+parameterId: length
+hasUserCode: False
+nodeId: MN1HHFJiFA23kVlpw
+--------------------
+-- PARAM 3 --
+enumName: RadiusDisplay
+value: RADIAL
+namespace: 
+parameterId: radiusDisplay
+hasUserCode: False
+nodeId: MmkS/BXMhTKD5kiTS
+--------------------
+-- PARAM 4 --
+units: 
+value: 0.0
+expression: 1.2822645206135592
+isInteger: False
+parameterId: labelRatio
+hasUserCode: False
+nodeId: MrfAeZDYOWNad8Et8
+--------------------
+-- PARAM 5 --
+units: 
+value: 0.0
+expression: -0.6224455767251971*rad
+isInteger: False
+parameterId: labelAngle
+hasUserCode: False
+nodeId: Mb7TEzDmgT+JOfpiW
+--------------------
+-- PARAM 6 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: MhywUHd7TnWr42dQs
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: MTPHm8vdPDwN.0.radius
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: MKWQEzwMXP+Lr+Jkp
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: DISTANCE
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: A1sxRonLph8F.right.start
+parameterId: localFirst
+hasUserCode: False
+nodeId: MtYIjvc016CWqrJuD
+--------------------
+-- PARAM 2 --
+value: jU0owSE8VkKn.0.visualSharp
+parameterId: localSecond
+hasUserCode: False
+nodeId: MRfDYEWp8iwH1NmZM
+--------------------
+-- PARAM 3 --
+enumName: DimensionDirection
+value: MINIMUM
+namespace: 
+parameterId: direction
+hasUserCode: False
+nodeId: MOGvQcQuykaTJ+W6N
+--------------------
+-- PARAM 4 --
+units: 
+value: 0.0
+expression: 0.5357243354157553
+isInteger: False
+parameterId: labelRatio
+hasUserCode: False
+nodeId: M9WQzV3IMm5/Z5w64
+--------------------
+-- PARAM 5 --
+units: 
+value: 0.0
+expression: 0.03294567677649974*m
+isInteger: False
+parameterId: labelDistance
+hasUserCode: False
+nodeId: MubY/8pnwzyqvFwKZ
+--------------------
+-- PARAM 6 --
+units: 
+value: 0.0
+expression: 6 in
+isInteger: False
+parameterId: length
+hasUserCode: False
+nodeId: MZ/ntfLtBbszkCIe9
+--------------------
+-- PARAM 7 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: MKNmYm4Ylo7MnQ7W7
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: jU0owSE8VkKn.0.visualSharp.lengthB.0
+namespace: 
+index: 5
+hasUserCode: False
+nodeId: M7CAPlXoWwvQys1BV
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: COINCIDENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: jU0owSE8VkKn.0.visualSharp
+parameterId: localFirst
+hasUserCode: False
+nodeId: MAtBatYvNeNcr+eTw
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.right
+parameterId: localSecond
+hasUserCode: False
+nodeId: MOavWXGTXt/ooJtw+
+--------------------
+-- PARAM 3 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: MLis7BhdeN1lK3gdO
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: jU0owSE8VkKn.0.visualSharp.coincidentB
+namespace: 
+index: 10
+hasUserCode: False
+nodeId: M1IhDOM4QwAmfja1n
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: COINCIDENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: jU0owSE8VkKn.0.visualSharp
+parameterId: localFirst
+hasUserCode: False
+nodeId: MVRfkKaewIraWcjXL
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.top
+parameterId: localSecond
+hasUserCode: False
+nodeId: Mnyhnxtcu0g+3w5JO
+--------------------
+-- PARAM 3 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: MjzyzYYROsD4U8D09
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: jU0owSE8VkKn.0.visualSharp.coincident
+namespace: 
+index: 11
+hasUserCode: False
+nodeId: MXIqfbXWlC5WnGP6/
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: COINCIDENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: jU0owSE8VkKn.0.filletArc.start
+parameterId: localFirst
+hasUserCode: False
+nodeId: MggVIx6uwGFOGqKvs
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.right.end
+parameterId: localSecond
+hasUserCode: False
+nodeId: M3iGC+AupNr8DH3xV
+--------------------
+-- PARAM 3 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: MfU2SOCzRGFqhZJou
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: jU0owSE8VkKn.0.filletArc.startSnap
+namespace: 
+index: 12
+hasUserCode: False
+nodeId: MJNWzSshOEU7DjNOE
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: COINCIDENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: jU0owSE8VkKn.0.filletArc.end
+parameterId: localFirst
+hasUserCode: False
+nodeId: MaZgTjqCx9H8Y6GZr
+--------------------
+-- PARAM 2 --
+value: A1sxRonLph8F.top.end
+parameterId: localSecond
+hasUserCode: False
+nodeId: MaqvmFSD2rN5PuA2X
+--------------------
+-- PARAM 3 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: MexLc23tpha1I3lst
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: jU0owSE8VkKn.0.filletArc.endSnap
+namespace: 
+index: 13
+hasUserCode: False
+nodeId: ML7HZCsI2cZom2sQb
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: TANGENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: A1sxRonLph8F.top
+parameterId: localFirst
+hasUserCode: False
+nodeId: M8xg2/g54hfb/LWe1
+--------------------
+-- PARAM 2 --
+value: jU0owSE8VkKn.0.filletArc
+parameterId: localSecond
+hasUserCode: False
+nodeId: MBsliTYwZAcYCCDmF
+--------------------
+-- PARAM 3 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: M4fhYvE/b/yn+gv7E
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: [1.5707963267948972]
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: jU0owSE8VkKn.0.tangentA
+namespace: 
+index: 3
+hasUserCode: False
+nodeId: MVetDdGCpvUYCRFbJ
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: TANGENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: A1sxRonLph8F.right
+parameterId: localFirst
+hasUserCode: False
+nodeId: MDzmhs+OvHZES17Ef
+--------------------
+-- PARAM 2 --
+value: jU0owSE8VkKn.0.filletArc
+parameterId: localSecond
+hasUserCode: False
+nodeId: MgFjQ7jrLPs/C6G7X
+--------------------
+-- PARAM 3 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: MjDnI30535D3r7qDZ
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: [0.0]
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: jU0owSE8VkKn.0.tangentB
+namespace: 
+index: 4
+hasUserCode: False
+nodeId: MUSXuJ30dAuIwydFs
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: EQUAL
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: jU0owSE8VkKn.0.filletArc
+parameterId: localFirst
+hasUserCode: False
+nodeId: MUCne+Ougu0rQErqa
+--------------------
+-- PARAM 2 --
+value: MTPHm8vdPDwN.0.filletArc
+parameterId: localSecond
+hasUserCode: False
+nodeId: MT2xVopHPNcUi7N/v
+--------------------
+-- PARAM 3 --
+enumName: SketchToolType
+value: FILLET
+namespace: 
+parameterId: sketchToolType
+hasUserCode: False
+nodeId: Mc11T9vunI0+slFu4
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: jU0owSE8VkKn.0.equal
+namespace: 
+index: 2
+hasUserCode: False
+nodeId: MoSfyrLHYXXZ4fxRv
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: MIDPOINT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: fOrgWiMieXsN.cCircle.center
+parameterId: localEntity1
+hasUserCode: False
+nodeId: M2z485f0f7eu+PQWW
+--------------------
+-- PARAM 2 --
+value: S5MdSzIc6InF
+parameterId: localEntity2
+hasUserCode: False
+nodeId: Mx7njvhY4ITQxu+u8
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: fOrgWiMieXsN.cCircle.centerSnap0
+namespace: 
+index: 4
+hasUserCode: False
+nodeId: MxnlXRZ1l/cv1Nt5w
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: VERTICAL
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: fOrgWiMieXsN.cCircle.center
+parameterId: localFirst
+hasUserCode: False
+nodeId: MCWJmgVxnYYbXZQd4
+--------------------
+-- PARAM 2 --
+value: fOrgWiMieXsN.midPoint
+parameterId: localSecond
+hasUserCode: False
+nodeId: MAD/9MUcGNSodJwIG
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: fOrgWiMieXsN.snapInference
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: MpV+6d2+IpnWaJkzX
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: CIRCULAR_PATTERN
+-----  PARAMETERS  -----
+-- PARAM 1 --
+units: 
+value: 0.0
+expression: 3.0
+isInteger: True
+parameterId: patterng
+hasUserCode: False
+nodeId: MuPZha/3hdtLK7BT3
+--------------------
+-- PARAM 2 --
+units: 
+value: 0.0
+expression: 6.0
+isInteger: True
+parameterId: patternc1
+hasUserCode: False
+nodeId: MZbAahiaMTm6A7bTp
+--------------------
+-- PARAM 3 --
+units: 
+value: 0.0
+expression: 6.0
+isInteger: True
+parameterId: previouspatternc1
+hasUserCode: False
+nodeId: MKkIniinAX+Uq0lTU
+--------------------
+-- PARAM 4 --
+units: 
+value: 0.0
+expression: 3.0
+isInteger: True
+parameterId: maximumpatterng
+hasUserCode: False
+nodeId: MGQievwF2pm/PbLdt
+--------------------
+-- PARAM 5 --
+value: False
+parameterId: openPattern
+hasUserCode: False
+nodeId: MG6DdgUuQ208Udd80
+--------------------
+-- PARAM 6 --
+value: fOrgWiMieXsN.seed
+parameterId: localInstance0,0
+hasUserCode: False
+nodeId: Mabp82bv+oB1NwUcS
+--------------------
+-- PARAM 7 --
+value: fOrgWiMieXsN.seed.start
+parameterId: localInstance1,0
+hasUserCode: False
+nodeId: M7XftS8JaNr6JhOTp
+--------------------
+-- PARAM 8 --
+value: fOrgWiMieXsN.seed.end
+parameterId: localInstance2,0
+hasUserCode: False
+nodeId: MYAFMIXo8CbBIeOC6
+--------------------
+-- PARAM 9 --
+value: fOrgWiMieXsN.pattern.0.1.0
+parameterId: localInstance0,1
+hasUserCode: False
+nodeId: MQgjB6vL1YuHdE8cf
+--------------------
+-- PARAM 10 --
+value: fOrgWiMieXsN.pattern.0.1.0.start
+parameterId: localInstance1,1
+hasUserCode: False
+nodeId: MKIrEwCC6wP1WCzxZ
+--------------------
+-- PARAM 11 --
+value: fOrgWiMieXsN.pattern.0.1.0.end
+parameterId: localInstance2,1
+hasUserCode: False
+nodeId: MOzACZ/qmcd8jYPvd
+--------------------
+-- PARAM 12 --
+value: fOrgWiMieXsN.pattern.0.2.0
+parameterId: localInstance0,2
+hasUserCode: False
+nodeId: MG4NR/am17Q1Lg8kK
+--------------------
+-- PARAM 13 --
+value: fOrgWiMieXsN.pattern.0.2.0.start
+parameterId: localInstance1,2
+hasUserCode: False
+nodeId: MDftQv7Jp+EPmL2Ph
+--------------------
+-- PARAM 14 --
+value: fOrgWiMieXsN.pattern.0.2.0.end
+parameterId: localInstance2,2
+hasUserCode: False
+nodeId: MVhakFKF4m5lrg2Yb
+--------------------
+-- PARAM 15 --
+value: fOrgWiMieXsN.pattern.0.3.0
+parameterId: localInstance0,3
+hasUserCode: False
+nodeId: M++V0BucYQDz5Pyaa
+--------------------
+-- PARAM 16 --
+value: fOrgWiMieXsN.pattern.0.3.0.start
+parameterId: localInstance1,3
+hasUserCode: False
+nodeId: MUi4Zz3v+nXNX+Eoe
+--------------------
+-- PARAM 17 --
+value: fOrgWiMieXsN.pattern.0.3.0.end
+parameterId: localInstance2,3
+hasUserCode: False
+nodeId: M7cjNzhWDSYJpTfXQ
+--------------------
+-- PARAM 18 --
+value: fOrgWiMieXsN.pattern.0.4.0
+parameterId: localInstance0,4
+hasUserCode: False
+nodeId: MPKPw/4t8tvjd70JE
+--------------------
+-- PARAM 19 --
+value: fOrgWiMieXsN.pattern.0.4.0.start
+parameterId: localInstance1,4
+hasUserCode: False
+nodeId: MpD+6r1nFX5MVoMZw
+--------------------
+-- PARAM 20 --
+value: fOrgWiMieXsN.pattern.0.4.0.end
+parameterId: localInstance2,4
+hasUserCode: False
+nodeId: M0YbwRBqLDyFBAKky
+--------------------
+-- PARAM 21 --
+value: fOrgWiMieXsN.pattern.0.5.0
+parameterId: localInstance0,5
+hasUserCode: False
+nodeId: MNjTwaz1DdiN3GNL0
+--------------------
+-- PARAM 22 --
+value: fOrgWiMieXsN.pattern.0.5.0.start
+parameterId: localInstance1,5
+hasUserCode: False
+nodeId: MbIXAo/XmeuIF4+Vt
+--------------------
+-- PARAM 23 --
+value: fOrgWiMieXsN.pattern.0.5.0.end
+parameterId: localInstance2,5
+hasUserCode: False
+nodeId: Mq1NLHH1JfqvtMsqA
+--------------------
+-- PARAM 24 --
+value: fOrgWiMieXsN.cCircle.center
+parameterId: localPivot
+hasUserCode: False
+nodeId: MNMJggE4hewJ4smwi
+--------------------
+-- PARAM 25 --
+units: 
+value: 0.0
+expression: 0.025555313584541883*m
+isInteger: False
+parameterId: labelDistance
+hasUserCode: False
+nodeId: MMMErX8kii5SwVMOI
+--------------------
+-- PARAM 26 --
+units: 
+value: 0.0
+expression: -1.5707963267948966*rad
+isInteger: False
+parameterId: labelAngle
+hasUserCode: False
+nodeId: MuE2RnnIMgzlMN6O1
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: fOrgWiMieXsN.pattern.pattern
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: MfZSqw1+V6p+/0Fry
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: TANGENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: fOrgWiMieXsN.cCircle
+parameterId: localFirst
+hasUserCode: False
+nodeId: Mr3W8UjVBI1RqdL2R
+--------------------
+-- PARAM 2 --
+value: fOrgWiMieXsN.seed
+parameterId: localSecond
+hasUserCode: False
+nodeId: Mix39aYw06hp3N+Km
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: [-1.5707963267948966]
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: fOrgWiMieXsN.tangent
+namespace: 
+index: 5
+hasUserCode: False
+nodeId: Mwh3K2Oh0LFUwz1Ou
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: MIDPOINT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: fOrgWiMieXsN.midPoint
+parameterId: localEntity1
+hasUserCode: False
+nodeId: Mh65VZH4bY1glG4Aw
+--------------------
+-- PARAM 2 --
+value: fOrgWiMieXsN.seed
+parameterId: localEntity2
+hasUserCode: False
+nodeId: Mhwhp7YevZSIVrvDd
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: fOrgWiMieXsN.midPointConstraint
+namespace: 
+index: 5
+hasUserCode: False
+nodeId: MB7ju5UA8+BKkKSGj
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: COINCIDENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: fOrgWiMieXsN.pattern.0.1.0.start
+parameterId: localFirst
+hasUserCode: False
+nodeId: M2cT2/qoe23Tq8rv1
+--------------------
+-- PARAM 2 --
+value: fOrgWiMieXsN.seed.end
+parameterId: localSecond
+hasUserCode: False
+nodeId: MY+15ft1/helLnf+Y
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: fOrgWiMieXsN.snap1
+namespace: 
+index: 14
+hasUserCode: False
+nodeId: M6gSN1Ni63K5Fn1/3
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: COINCIDENT
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: fOrgWiMieXsN.pattern.0.2.0.start
+parameterId: localFirst
+hasUserCode: False
+nodeId: MZLLzfSLw3CsywBMZ
+--------------------
+-- PARAM 2 --
+value: fOrgWiMieXsN.pattern.0.1.0.end
+parameterId: localSecond
+hasUserCode: False
+nodeId: M5/395UPd9FAsiJ6X
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: fOrgWiMieXsN.snap2
+namespace: 
+index: 15
+hasUserCode: False
+nodeId: MDlEPZ2k5PgnHUURf
+--------------------  END CONSTRAINT --------------------
+BTMSketchConstraint
+constraintType: LENGTH
+-----  PARAMETERS  -----
+-- PARAM 1 --
+value: fOrgWiMieXsN.seed
+parameterId: localFirst
+hasUserCode: False
+nodeId: McYP6VeFr+iIvZixy
+--------------------
+-- PARAM 2 --
+enumName: DimensionDirection
+value: MINIMUM
+namespace: 
+parameterId: direction
+hasUserCode: False
+nodeId: MXXW2iN53fsio/n2S
+--------------------
+-- PARAM 3 --
+units: 
+value: 0.0
+expression: 0.8 in
+isInteger: False
+parameterId: length
+hasUserCode: False
+nodeId: MEaqxDCXcNt00rasx
+--------------------
+-- PARAM 4 --
+enumName: DimensionAlignment
+value: ALIGNED
+namespace: 
+parameterId: alignment
+hasUserCode: False
+nodeId: MSTudZrN6ikLfqmLv
+--------------------
+-- PARAM 5 --
+units: 
+value: 0.0
+expression: 0.7855389865500737
+isInteger: False
+parameterId: labelRatio
+hasUserCode: False
+nodeId: MOJ4Qfm0Fn9e3gYkV
+--------------------
+-- PARAM 6 --
+units: 
+value: 0.0
+expression: 0.013527013477631772*m
+isInteger: False
+parameterId: labelDistance
+hasUserCode: False
+nodeId: MACN3vi4zCx2HOjqJ
+--------------------
+-----  END PARAMETERS  -----
+helpParameters: []
+hasOffsetData1: False
+offsetOrientation1: False
+offsetDistance1: 0.0
+hasOffsetData2: False
+offsetOrientation2: False
+offsetDistance2: 0.0
+hasPierceParameter: False
+pierceParameter: 0.0
+entityId: 8YLxBfSx1iS8
+namespace: 
+index: 1
+hasUserCode: False
+nodeId: M8UXyEhDHfvhHQeAe
+--------------------  END CONSTRAINT --------------------
+featureType: newSketch
+featureId: FT1DvSE7Alu8Ovc_0
+name: Sketch 1
+--------------------  PARAMETER START  --------------------
+BTMParameterQueryList
+----------  QUERIES START  ----------
+type: 138
+typeName: BTMIndividualQuery
+----- MESSAGE START -----
+geometryIds: ['JDC']
+hasUserCode: False
+nodeId: FKADTkClKTv7Ojm
+----- MESSAGE END -----
+----------  QUERIES END  ----------
+parameterId: sketchPlane
+hasUserCode: False
+nodeId: +wsRWf6XHHmOyCod
+--------------------  PARAMETER END  --------------------
+--------------------  PARAMETER START  --------------------
+BTMParameterBoolean
+value: False
+parameterId: disableImprinting
+hasUserCode: False
+nodeId: xwGUU7x4+3RRoj57
+--------------------  PARAMETER END  --------------------
+suppressed: False
+namespace: 
+subFeatures: []
+returnAfterSubfeatures: False
+suppressionState: {'type': 0}
+hasUserCode: False
+nodeId: 0QlRpl1ApjPu7Cuj
+----------------------------------------------------------------------------------------------------
+type: 134
+typeName: BTMFeature
+      featureType: extrude
+      featureId: FEKQK50y5G8sD7z_0
+      name: Extrude 1
+-----  PARAMETERS START  -----
+           [ENUM]  domain, OperationDomain: MODEL
+           [ENUM]  bodyType, ExtendedToolBodyType: SOLID
+           [ENUM]  operationType, NewBodyOperationType: NEW
+           [ENUM]  surfaceOperationType, NewSurfaceOperationType: NEW
+           [ENUM]  flatOperationType, FlatOperationType: REMOVE
+-----  entities [QUERY] START  -----
+                geometryIds: ['JGO']
+                hasUserCode: False
+                nodeId: FlIGBpj0QtNaVlo
+-----  entities [QUERY] END  -----
+-----  surfaceEntities [QUERY] START  -----
+-----  surfaceEntities [QUERY] END  -----
+-----  wallShape [QUERY] START  -----
+-----  wallShape [QUERY] END  -----
+           [BOOLEAN/OTHER] midplane: False
+           [VALUE] thickness1: 0.25 in
+           [BOOLEAN/OTHER] flipWall: False
+           [VALUE] thickness2: 0 in
+           [VALUE] thickness: 0.25 in
+           [ENUM]  endBound, BoundingType: BLIND
+           [BOOLEAN/OTHER] oppositeDirection: False
+           [VALUE] depth: 2 in
+-----  endBoundEntityFace [QUERY] START  -----
+-----  endBoundEntityFace [QUERY] END  -----
+-----  endBoundEntityBody [QUERY] START  -----
+-----  endBoundEntityBody [QUERY] END  -----
+-----  endBoundEntityVertex [QUERY] START  -----
+-----  endBoundEntityVertex [QUERY] END  -----
+           [BOOLEAN/OTHER] hasOffset: False
+           [VALUE] offsetDistance: 1 in
+           [BOOLEAN/OTHER] offsetOppositeDirection: False
+           [BOOLEAN/OTHER] hasExtrudeDirection: False
+-----  extrudeDirection [QUERY] START  -----
+-----  extrudeDirection [QUERY] END  -----
+           [BOOLEAN/OTHER] startOffset: False
+           [ENUM]  startOffsetBound, StartOffsetType: BLIND
+           [VALUE] startOffsetDistance: 1 in
+           [BOOLEAN/OTHER] startOffsetOppositeDirection: False
+-----  startOffsetEntity [QUERY] START  -----
+-----  startOffsetEntity [QUERY] END  -----
+           [BOOLEAN/OTHER] symmetric: True
+           [BOOLEAN/OTHER] hasDraft: False
+           [VALUE] draftAngle: 3 deg
+           [BOOLEAN/OTHER] draftPullDirection: False
+           [BOOLEAN/OTHER] hasSecondDirection: False
+           [ENUM]  secondDirectionBound, BoundingType: BLIND
+           [BOOLEAN/OTHER] secondDirectionOppositeDirection: True
+           [VALUE] secondDirectionDepth: 1 in
+-----  secondDirectionBoundEntityFace [QUERY] START  -----
+-----  secondDirectionBoundEntityFace [QUERY] END  -----
+-----  secondDirectionBoundEntityBody [QUERY] START  -----
+-----  secondDirectionBoundEntityBody [QUERY] END  -----
+-----  secondDirectionBoundEntityVertex [QUERY] START  -----
+-----  secondDirectionBoundEntityVertex [QUERY] END  -----
+           [BOOLEAN/OTHER] hasSecondDirectionOffset: False
+           [VALUE] secondDirectionOffsetDistance: 1 in
+           [BOOLEAN/OTHER] secondDirectionOffsetOppositeDirection: False
+           [BOOLEAN/OTHER] hasSecondDirectionDraft: False
+           [VALUE] secondDirectionDraftAngle: 3 deg
+           [BOOLEAN/OTHER] secondDirectionDraftPullDirection: False
+           [BOOLEAN/OTHER] defaultScope: False
+-----  booleanScope [QUERY] START  -----
+-----  booleanScope [QUERY] END  -----
+           [BOOLEAN/OTHER] defaultSurfaceScope: True
+-----  booleanSurfaceScope [QUERY] START  -----
+-----  booleanSurfaceScope [QUERY] END  -----
+-----  PARAMETERS END  -----
+      suppressed: False
+      namespace: 
+      subFeatures: []
+      returnAfterSubfeatures: False
+      suppressionState: {'type': 0}
+      hasUserCode: False
+      nodeId: icU3c47JQaxT7vkM
+----------------------------------------------------------------------------------------------------
+type: 134
+typeName: BTMFeature
+      featureType: fillet
+      featureId: FvGiffuaNa79Vf8_1
+      name: Fillet 1
+-----  PARAMETERS START  -----
+           [ENUM]  filletType, FilletType: EDGE
+-----  entities [QUERY] START  -----
+                geometryIds: ['JHK']
+                hasUserCode: False
+                nodeId: Fgmpz0vFru5JaJ3
+-----  entities [QUERY] END  -----
+-----  side1Face [QUERY] START  -----
+-----  side1Face [QUERY] END  -----
+-----  side2Face [QUERY] START  -----
+-----  side2Face [QUERY] END  -----
+-----  centerFaces [QUERY] START  -----
+-----  centerFaces [QUERY] END  -----
+           [BOOLEAN/OTHER] tangentPropagation: True
+           [ENUM]  blendControlType, BlendControlType: RADIUS
+           [ENUM]  crossSection, FilletCrossSection: CIRCULAR
+           [VALUE] radius: 0.2 in
+           [VALUE] width: 0.2 in
+           [VALUE] rho: 0.5
+           [VALUE] magnitude: 0.5
+           [BOOLEAN/OTHER] defaultsChanged: False
+           [BOOLEAN/OTHER] isAsymmetric: False
+           [VALUE] otherRadius: 0.2 in
+           [BOOLEAN/OTHER] flipAsymmetric: False
+           [BOOLEAN/OTHER] isPartial: False
+           [ENUM]  startPartialType, EndTypePartialFillet: PERCENTAGE
+           [VALUE] startPartialOffset: 0.2 in
+-----  startPartialEntity [QUERY] START  -----
+-----  startPartialEntity [QUERY] END  -----
+           [VALUE] partialFirstEdgeTotalParameter: 0.01
+           [BOOLEAN/OTHER] partialOppositeParameter: True
+           [BOOLEAN/OTHER] useTrimmedFirstBound: False
+           [BOOLEAN/OTHER] secondBound: False
+           [ENUM]  endPartialType, EndTypePartialFillet: PERCENTAGE
+           [VALUE] endPartialOffset: 0.2 in
+-----  endPartialEntity [QUERY] START  -----
+-----  endPartialEntity [QUERY] END  -----
+           [BOOLEAN/OTHER] useTrimmedSecondBound: False
+           [VALUE] partialSecondEdgeTotalParameter: 0.99
+           [BOOLEAN/OTHER] isVariable: False
+           [ITEMS] vertexSettings: []
+           [ITEMS] pointOnEdgeSettings: []
+           [BOOLEAN/OTHER] smoothTransition: False
+           [BOOLEAN/OTHER] allowEdgeOverflow: True
+-----  keepEdges [QUERY] START  -----
+-----  keepEdges [QUERY] END  -----
+           [BOOLEAN/OTHER] smoothCorners: False
+-----  smoothCornerExceptions [QUERY] START  -----
+-----  smoothCornerExceptions [QUERY] END  -----
+-----  PARAMETERS END  -----
+      suppressed: False
+      namespace: 
+      subFeatures: []
+      returnAfterSubfeatures: False
+      suppressionState: {'type': 0}
+      hasUserCode: False
+      nodeId: POCRFiJsfQZiBOcy
+----------------------------------------------------------------------------------------------------
+type: 134
+typeName: BTMFeature
+      featureType: fillet
+      featureId: F8KpM3D47ZWsupV_1
+      name: Fillet 2
+-----  PARAMETERS START  -----
+           [ENUM]  filletType, FilletType: EDGE
+-----  entities [QUERY] START  -----
+                geometryIds: ['KIlC']
+                hasUserCode: False
+                nodeId: FYt73XLpn4vUnjk
+-----  entities [QUERY] END  -----
+-----  side1Face [QUERY] START  -----
+-----  side1Face [QUERY] END  -----
+-----  side2Face [QUERY] START  -----
+-----  side2Face [QUERY] END  -----
+-----  centerFaces [QUERY] START  -----
+-----  centerFaces [QUERY] END  -----
+           [BOOLEAN/OTHER] tangentPropagation: True
+           [ENUM]  blendControlType, BlendControlType: RADIUS
+           [ENUM]  crossSection, FilletCrossSection: CIRCULAR
+           [VALUE] radius: 0.2 in
+           [VALUE] width: 0.2 in
+           [VALUE] rho: 0.5
+           [VALUE] magnitude: 0.5
+           [BOOLEAN/OTHER] defaultsChanged: False
+           [BOOLEAN/OTHER] isAsymmetric: False
+           [VALUE] otherRadius: 0.2 in
+           [BOOLEAN/OTHER] flipAsymmetric: False
+           [BOOLEAN/OTHER] isPartial: False
+           [ENUM]  startPartialType, EndTypePartialFillet: PERCENTAGE
+           [VALUE] startPartialOffset: 0.2 in
+-----  startPartialEntity [QUERY] START  -----
+-----  startPartialEntity [QUERY] END  -----
+           [VALUE] partialFirstEdgeTotalParameter: 0.01
+           [BOOLEAN/OTHER] partialOppositeParameter: True
+           [BOOLEAN/OTHER] useTrimmedFirstBound: False
+           [BOOLEAN/OTHER] secondBound: False
+           [ENUM]  endPartialType, EndTypePartialFillet: PERCENTAGE
+           [VALUE] endPartialOffset: 0.2 in
+-----  endPartialEntity [QUERY] START  -----
+-----  endPartialEntity [QUERY] END  -----
+           [BOOLEAN/OTHER] useTrimmedSecondBound: False
+           [VALUE] partialSecondEdgeTotalParameter: 0.99
+           [BOOLEAN/OTHER] isVariable: False
+           [ITEMS] vertexSettings: []
+           [ITEMS] pointOnEdgeSettings: []
+           [BOOLEAN/OTHER] smoothTransition: False
+           [BOOLEAN/OTHER] allowEdgeOverflow: True
+-----  keepEdges [QUERY] START  -----
+-----  keepEdges [QUERY] END  -----
+           [BOOLEAN/OTHER] smoothCorners: False
+-----  smoothCornerExceptions [QUERY] START  -----
+-----  smoothCornerExceptions [QUERY] END  -----
+-----  PARAMETERS END  -----
+      suppressed: False
+      namespace: 
+      subFeatures: []
+      returnAfterSubfeatures: False
+      suppressionState: {'type': 0}
+      hasUserCode: False
+      nodeId: A00vNdvjvKAxY/7l

@@ -78,6 +78,25 @@ def query_get_created_entities(url: str, feature_id: str, extra_arguments: dict 
     response = parse_console_map_output(response['console'])
     return response
 
+def query_get_default_features(url: str) -> dict:
+    output = {}
+    entity_names = ['Origin', 'Front', 'Right', 'Top']
+    entity_types = ['VERTEX', 'FACE', 'FACE', 'FACE']
+    for entity_name, entity_type in zip(entity_names, entity_types):
+      feature_payload = {
+        "script": f"""
+        function(context is Context, queries) {{
+          return transientQueriesToStrings(evaluateQuery(context, qCreatedBy(makeId(\"{entity_name}\"), EntityType.{entity_type})));
+          }}"""
+      }
+      response = standard_api_request(url,
+                                      endpoints['featurescript'],
+                                      method='POST',
+                                      payload=feature_payload)
+      id = response['result']['message']['value'][0]['message']['value']
+      output[entity_name] = id
+    return output
+
 def query_get_sketch_plane(url: str, sketch_id: str) -> dict:
     """
     Query to get the sketch plane of a given sketch ID.

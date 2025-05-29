@@ -1,0 +1,484 @@
+[
+  {
+    "featureType": "newSketch",
+    "featureId": "FHW0JIdGYljUbeD_0",
+    "name": "Sketch 1",
+    "createdEntities": {
+      "bodies": [
+        {
+          "JFD": {}
+        },
+        {
+          "JFH": {}
+        },
+        {
+          "JFL": {}
+        },
+        {
+          "JFP": {}
+        },
+        {
+          "JFT": {}
+        },
+        {
+          "JFX": {}
+        },
+        {
+          "JFb": {}
+        },
+        {
+          "JFf": {}
+        },
+        {
+          "JFj": {}
+        },
+        {
+          "JFn": {}
+        },
+        {
+          "JFr": {}
+        },
+        {
+          "JFv": {}
+        },
+        {
+          "JFz": {}
+        },
+        {
+          "JF3": {}
+        },
+        {
+          "JF7": {}
+        },
+        {
+          "JF/": {}
+        },
+        {
+          "KFDB": {}
+        },
+        {
+          "KFHB": {}
+        },
+        {
+          "JGD": {}
+        }
+      ],
+      "edges": [
+        {
+          "JFB": {}
+        },
+        {
+          "JFF": {}
+        },
+        {
+          "JFJ": {}
+        },
+        {
+          "JFN": {}
+        },
+        {
+          "JFR": {}
+        },
+        {
+          "JFV": {}
+        },
+        {
+          "JFZ": {}
+        },
+        {
+          "JFd": {}
+        },
+        {
+          "JFh": {}
+        },
+        {
+          "JFl": {}
+        },
+        {
+          "JFp": {}
+        },
+        {
+          "JFt": {}
+        },
+        {
+          "JFx": {}
+        },
+        {
+          "JF1": {}
+        },
+        {
+          "JF5": {}
+        },
+        {
+          "JF9": {}
+        },
+        {
+          "KFBB": {}
+        },
+        {
+          "JGB": {}
+        },
+        {
+          "JGF": {}
+        },
+        {
+          "JGJ": {}
+        },
+        {
+          "JGN": {}
+        },
+        {
+          "JGR": {}
+        },
+        {
+          "JGV": {}
+        },
+        {
+          "JGZ": {}
+        },
+        {
+          "JGd": {}
+        },
+        {
+          "JGh": {}
+        },
+        {
+          "JGl": {}
+        },
+        {
+          "JGp": {}
+        },
+        {
+          "JGt": {}
+        },
+        {
+          "JGx": {}
+        },
+        {
+          "JG1": {}
+        }
+      ],
+      "faces": [
+        {
+          "JGC": {}
+        },
+        {
+          "JGG": {}
+        },
+        {
+          "JGK": {}
+        },
+        {
+          "JGO": {}
+        }
+      ],
+      "vertices": [
+        {
+          "IF": {}
+        },
+        {
+          "JFE": {}
+        },
+        {
+          "JFI": {}
+        },
+        {
+          "JFM": {}
+        },
+        {
+          "JFQ": {}
+        },
+        {
+          "JFU": {}
+        },
+        {
+          "JFY": {}
+        },
+        {
+          "JFc": {}
+        },
+        {
+          "JFg": {}
+        },
+        {
+          "JFk": {}
+        },
+        {
+          "JFo": {}
+        },
+        {
+          "JFs": {}
+        },
+        {
+          "JFw": {}
+        },
+        {
+          "JF0": {}
+        },
+        {
+          "JF4": {}
+        },
+        {
+          "JF8": {}
+        },
+        {
+          "KFAB": {}
+        },
+        {
+          "KFEB": {}
+        },
+        {
+          "KFIB": {}
+        },
+        {
+          "KFMB": {}
+        },
+        {
+          "KFQB": {}
+        },
+        {
+          "KFUB": {}
+        },
+        {
+          "KFYB": {}
+        },
+        {
+          "KFcB": {}
+        },
+        {
+          "KFgB": {}
+        },
+        {
+          "KFkB": {}
+        },
+        {
+          "KFoB": {}
+        },
+        {
+          "KFsB": {}
+        },
+        {
+          "KFwB": {}
+        },
+        {
+          "KF0B": {}
+        },
+        {
+          "KF4B": {}
+        },
+        {
+          "KF8B": {}
+        },
+        {
+          "KFAC": {}
+        },
+        {
+          "KFEC": {}
+        },
+        {
+          "KFIC": {}
+        },
+        {
+          "IG": {}
+        },
+        {
+          "JGE": {}
+        },
+        {
+          "JGI": {}
+        },
+        {
+          "JGM": {}
+        },
+        {
+          "JGQ": {}
+        },
+        {
+          "JGU": {}
+        },
+        {
+          "JGY": {}
+        },
+        {
+          "JGc": {}
+        },
+        {
+          "JGg": {}
+        },
+        {
+          "JGk": {}
+        },
+        {
+          "JGo": {}
+        },
+        {
+          "JGs": {}
+        }
+      ]
+    },
+    "sketchPlane": {
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "origin": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "x_direction": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  {
+    "featureType": "revolve",
+    "featureId": "FfbjKZP8ttoR53Z_0",
+    "name": "Revolve 1",
+    "createdEntities": {
+      "bodies": [
+        {
+          "JHD": {}
+        }
+      ],
+      "edges": [
+        {
+          "JHB": {}
+        },
+        {
+          "JHF": {}
+        },
+        {
+          "JHJ": {}
+        },
+        {
+          "JHN": {}
+        }
+      ],
+      "faces": [
+        {
+          "JHC": {}
+        },
+        {
+          "JHG": {}
+        },
+        {
+          "JHK": {}
+        },
+        {
+          "JHO": {}
+        }
+      ],
+      "vertices": []
+    }
+  },
+  {
+    "featureType": "revolve",
+    "featureId": "FARwDYzWbuH5i9d_1",
+    "name": "Revolve 2",
+    "createdEntities": {
+      "bodies": [
+        {
+          "JID": {}
+        }
+      ],
+      "edges": [
+        {
+          "JIB": {}
+        },
+        {
+          "JIF": {}
+        },
+        {
+          "JIJ": {}
+        },
+        {
+          "JIN": {}
+        },
+        {
+          "JIR": {}
+        },
+        {
+          "JIV": {}
+        },
+        {
+          "JIZ": {}
+        },
+        {
+          "JId": {}
+        }
+      ],
+      "faces": [
+        {
+          "JIC": {}
+        },
+        {
+          "JIG": {}
+        },
+        {
+          "JIK": {}
+        },
+        {
+          "JIO": {}
+        },
+        {
+          "JIS": {}
+        },
+        {
+          "JIW": {}
+        },
+        {
+          "JIa": {}
+        },
+        {
+          "JIe": {}
+        }
+      ],
+      "vertices": []
+    }
+  },
+  {
+    "featureType": "revolve",
+    "featureId": "F5GXXfJncgMx3CW_2",
+    "name": "Revolve 3",
+    "createdEntities": {
+      "bodies": [
+        {
+          "JJD": {}
+        }
+      ],
+      "edges": [
+        {
+          "JJB": {}
+        },
+        {
+          "JJF": {}
+        },
+        {
+          "JJJ": {}
+        },
+        {
+          "JJN": {}
+        }
+      ],
+      "faces": [
+        {
+          "JJC": {}
+        },
+        {
+          "JJG": {}
+        },
+        {
+          "JJK": {}
+        },
+        {
+          "JJO": {}
+        }
+      ],
+      "vertices": []
+    }
+  }
+]

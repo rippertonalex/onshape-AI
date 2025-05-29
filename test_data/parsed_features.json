@@ -1,0 +1,2235 @@
+{
+  "features": [
+    {
+      "type": 151,
+      "typeName": "BTMSketch",
+      "message": {
+        "entities": [
+          {
+            "typeName": "BTMSketchCurveSegment",
+            "startPointId": "A1sxRonLph8F.bottom.start",
+            "endPointId": "A1sxRonLph8F.bottom.end",
+            "startParam": -0.049653470736034766,
+            "endParam": 0.05194652926396525,
+            "offsetCurveExtensions": [],
+            "geometry": {
+              "type": 117,
+              "typeName": "BTCurveGeometryLine",
+              "message": {
+                "pntX": -0.0011465292639652389,
+                "pntY": 0.0,
+                "dirX": 1.0,
+                "dirY": 0.0
+              }
+            },
+            "centerId": "",
+            "internalIds": [],
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "A1sxRonLph8F.bottom",
+            "namespace": "",
+            "index": 1,
+            "hasUserCode": false,
+            "nodeId": "Mly9NSejnTjH6TUZr"
+          },
+          {
+            "typeName": "BTMSketchCurveSegment",
+            "startPointId": "A1sxRonLph8F.top.start",
+            "endPointId": "A1sxRonLph8F.top.end",
+            "startParam": -0.024253470736034736,
+            "endParam": 0.026546529263965248,
+            "offsetCurveExtensions": [],
+            "geometry": {
+              "type": 117,
+              "typeName": "BTCurveGeometryLine",
+              "message": {
+                "pntX": -0.0011465292639652458,
+                "pntY": 0.15239999999999998,
+                "dirX": 1.0,
+                "dirY": 0.0
+              }
+            },
+            "centerId": "",
+            "internalIds": [],
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "A1sxRonLph8F.top",
+            "namespace": "",
+            "index": 2,
+            "hasUserCode": false,
+            "nodeId": "MkcQtHDuRpsIWRW6h"
+          },
+          {
+            "typeName": "BTMSketchCurveSegment",
+            "startPointId": "A1sxRonLph8F.left.start",
+            "endPointId": "A1sxRonLph8F.left.end",
+            "startParam": -0.001081800857590905,
+            "endParam": -0.1280818008575909,
+            "offsetCurveExtensions": [],
+            "geometry": {
+              "type": 117,
+              "typeName": "BTCurveGeometryLine",
+              "message": {
+                "pntX": -0.050800000000000005,
+                "pntY": -0.001081800857590905,
+                "dirX": 6.123233995736766e-17,
+                "dirY": -1.0
+              }
+            },
+            "centerId": "",
+            "internalIds": [],
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "A1sxRonLph8F.left",
+            "namespace": "",
+            "index": 3,
+            "hasUserCode": false,
+            "nodeId": "MRKWiLpQD8tpqhaV0"
+          },
+          {
+            "typeName": "BTMSketchCurveSegment",
+            "startPointId": "A1sxRonLph8F.right.start",
+            "endPointId": "A1sxRonLph8F.right.end",
+            "startParam": -0.07929134806218491,
+            "endParam": -0.20629134806218488,
+            "offsetCurveExtensions": [],
+            "geometry": {
+              "type": 117,
+              "typeName": "BTCurveGeometryLine",
+              "message": {
+                "pntX": 0.05080000000000002,
+                "pntY": -0.07929134806218491,
+                "dirX": 6.123233995736766e-17,
+                "dirY": -1.0
+              }
+            },
+            "centerId": "",
+            "internalIds": [],
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "A1sxRonLph8F.right",
+            "namespace": "",
+            "index": 4,
+            "hasUserCode": false,
+            "nodeId": "M2mxg5jIKW/JqRB2i"
+          },
+          {
+            "typeName": "BTMSketchCurveSegment",
+            "startPointId": "S5MdSzIc6InF.start",
+            "endPointId": "S5MdSzIc6InF.end",
+            "startParam": -0.05080000000000001,
+            "endParam": 0.05080000000000001,
+            "offsetCurveExtensions": [],
+            "geometry": {
+              "type": 117,
+              "typeName": "BTCurveGeometryLine",
+              "message": {
+                "pntX": 0.0,
+                "pntY": 0.07619999999999999,
+                "dirX": 1.0,
+                "dirY": 1.3659239968321314e-16
+              }
+            },
+            "centerId": "",
+            "internalIds": [],
+            "isConstruction": true,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "S5MdSzIc6InF",
+            "namespace": "",
+            "index": 5,
+            "hasUserCode": false,
+            "nodeId": "Mr1iuzi3ZQKqBuhj7"
+          },
+          {
+            "typeName": "BTMSketchCurve",
+            "geometry": {
+              "type": 115,
+              "typeName": "BTCurveGeometryCircle",
+              "message": {
+                "radius": 0.006350000000000001,
+                "xCenter": -0.03175,
+                "yCenter": 0.01905,
+                "xDir": 1.0,
+                "yDir": 0.0,
+                "clockwise": false
+              }
+            },
+            "centerId": "HC4GLjl3pDsC.center",
+            "internalIds": [],
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "HC4GLjl3pDsC",
+            "namespace": "",
+            "index": 1,
+            "hasUserCode": false,
+            "nodeId": "MkGrzghDxCQskzfZ5"
+          },
+          {
+            "typeName": "BTMSketchCurve",
+            "geometry": {
+              "type": 115,
+              "typeName": "BTCurveGeometryCircle",
+              "message": {
+                "radius": 0.006350000000000001,
+                "xCenter": 0.03175000000000001,
+                "yCenter": 0.01905000000000001,
+                "xDir": 0.9980519593061973,
+                "yDir": -0.062388192192599314,
+                "clockwise": false
+              }
+            },
+            "centerId": "6Z1OzPuTZ7I9.center",
+            "internalIds": [],
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "6Z1OzPuTZ7I9",
+            "namespace": "",
+            "index": 2,
+            "hasUserCode": false,
+            "nodeId": "MIhYKpYQksKsyFPmC"
+          },
+          {
+            "typeName": "BTMSketchPoint",
+            "x": -0.05080000000000001,
+            "y": 0.15239999999999995,
+            "isUserPoint": true,
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "MTPHm8vdPDwN.0.visualSharp",
+            "namespace": "",
+            "index": 1,
+            "hasUserCode": false,
+            "nodeId": "MZ+YziB4DwxcODhBM"
+          },
+          {
+            "typeName": "BTMSketchCurveSegment",
+            "startPointId": "MTPHm8vdPDwN.0.filletArc.start",
+            "endPointId": "MTPHm8vdPDwN.0.filletArc.end",
+            "startParam": 1.5707963267948966,
+            "endParam": 3.141592653589793,
+            "offsetCurveExtensions": [],
+            "geometry": {
+              "type": 115,
+              "typeName": "BTCurveGeometryCircle",
+              "message": {
+                "radius": 0.025400000000000002,
+                "xCenter": -0.02539999999999998,
+                "yCenter": 0.127,
+                "xDir": 1.0,
+                "yDir": 0.0,
+                "clockwise": false
+              }
+            },
+            "centerId": "MTPHm8vdPDwN.0.filletArc.center",
+            "internalIds": [],
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "MTPHm8vdPDwN.0.filletArc",
+            "namespace": "",
+            "index": 3,
+            "hasUserCode": false,
+            "nodeId": "MP/KAY4rzgBJ3r4AK"
+          },
+          {
+            "typeName": "BTMSketchPoint",
+            "x": 0.05079999999999996,
+            "y": 0.15239999999999998,
+            "isUserPoint": true,
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "jU0owSE8VkKn.0.visualSharp",
+            "namespace": "",
+            "index": 2,
+            "hasUserCode": false,
+            "nodeId": "MYboGRAXWD6GG0uRS"
+          },
+          {
+            "typeName": "BTMSketchCurveSegment",
+            "startPointId": "jU0owSE8VkKn.0.filletArc.start",
+            "endPointId": "jU0owSE8VkKn.0.filletArc.end",
+            "startParam": 0.0,
+            "endParam": 1.5707963267948972,
+            "offsetCurveExtensions": [],
+            "geometry": {
+              "type": 115,
+              "typeName": "BTCurveGeometryCircle",
+              "message": {
+                "radius": 0.025399999999999985,
+                "xCenter": 0.02540000000000002,
+                "yCenter": 0.12699999999999997,
+                "xDir": 1.0,
+                "yDir": 0.0,
+                "clockwise": false
+              }
+            },
+            "centerId": "jU0owSE8VkKn.0.filletArc.center",
+            "internalIds": [],
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "jU0owSE8VkKn.0.filletArc",
+            "namespace": "",
+            "index": 4,
+            "hasUserCode": false,
+            "nodeId": "MgtV4nEFFnYb3O8c8"
+          },
+          {
+            "typeName": "BTMSketchCurve",
+            "geometry": {
+              "type": 115,
+              "typeName": "BTCurveGeometryCircle",
+              "message": {
+                "radius": 0.01759763620489981,
+                "xCenter": 0.0,
+                "yCenter": 0.07619999999999999,
+                "xDir": 1.0,
+                "yDir": 0.0,
+                "clockwise": false
+              }
+            },
+            "centerId": "fOrgWiMieXsN.cCircle.center",
+            "internalIds": [],
+            "isConstruction": true,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "fOrgWiMieXsN.cCircle",
+            "namespace": "",
+            "index": 5,
+            "hasUserCode": false,
+            "nodeId": "M0SjbD5BMYYD0gh7L"
+          },
+          {
+            "typeName": "BTMSketchCurveSegment",
+            "startPointId": "fOrgWiMieXsN.seed.start",
+            "endPointId": "fOrgWiMieXsN.seed.end",
+            "startParam": 0.008370980880791766,
+            "endParam": 0.02869098088079177,
+            "offsetCurveExtensions": [],
+            "geometry": {
+              "type": 117,
+              "typeName": "BTCurveGeometryLine",
+              "message": {
+                "pntX": -0.01853098088079177,
+                "pntY": 0.05860236379510017,
+                "dirX": 1.0,
+                "dirY": 2.4854953865697392e-17
+              }
+            },
+            "centerId": "",
+            "internalIds": [],
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "fOrgWiMieXsN.seed",
+            "namespace": "",
+            "index": 6,
+            "hasUserCode": false,
+            "nodeId": "MHL5Z4W4cRgUbsYFx"
+          },
+          {
+            "typeName": "BTMSketchCurveSegment",
+            "startPointId": "fOrgWiMieXsN.pattern.0.1.0.start",
+            "endPointId": "fOrgWiMieXsN.pattern.0.1.0.end",
+            "startParam": -0.02869098088079179,
+            "endParam": -0.008370980880791782,
+            "offsetCurveExtensions": [],
+            "geometry": {
+              "type": 117,
+              "typeName": "BTCurveGeometryLine",
+              "message": {
+                "pntX": 0.024505490440395912,
+                "pntY": 0.08344948209735949,
+                "dirX": 0.5000000000000001,
+                "dirY": 0.8660254037844386
+              }
+            },
+            "centerId": "",
+            "internalIds": [],
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "fOrgWiMieXsN.pattern.0.1.0",
+            "namespace": "",
+            "index": 7,
+            "hasUserCode": false,
+            "nodeId": "/GOC4dc0V2JFASsd"
+          },
+          {
+            "typeName": "BTMSketchCurveSegment",
+            "startPointId": "fOrgWiMieXsN.pattern.0.2.0.start",
+            "endPointId": "fOrgWiMieXsN.pattern.0.2.0.end",
+            "startParam": -0.028690980880791764,
+            "endParam": -0.008370980880791752,
+            "offsetCurveExtensions": [],
+            "geometry": {
+              "type": 117,
+              "typeName": "BTCurveGeometryLine",
+              "message": {
+                "pntX": 0.005974509559604151,
+                "pntY": 0.10104711830225929,
+                "dirX": -0.4999999999999998,
+                "dirY": 0.8660254037844387
+              }
+            },
+            "centerId": "",
+            "internalIds": [],
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "fOrgWiMieXsN.pattern.0.2.0",
+            "namespace": "",
+            "index": 8,
+            "hasUserCode": false,
+            "nodeId": "TeWM/Wn20tE9E8Ha"
+          },
+          {
+            "typeName": "BTMSketchCurveSegment",
+            "startPointId": "fOrgWiMieXsN.pattern.0.3.0.start",
+            "endPointId": "fOrgWiMieXsN.pattern.0.3.0.end",
+            "startParam": -0.028690980880791774,
+            "endParam": -0.008370980880791766,
+            "offsetCurveExtensions": [],
+            "geometry": {
+              "type": 117,
+              "typeName": "BTCurveGeometryLine",
+              "message": {
+                "pntX": -0.01853098088079177,
+                "pntY": 0.09379763620489981,
+                "dirX": -1.0,
+                "dirY": 9.760972604903793e-17
+              }
+            },
+            "centerId": "",
+            "internalIds": [],
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "fOrgWiMieXsN.pattern.0.3.0",
+            "namespace": "",
+            "index": 9,
+            "hasUserCode": false,
+            "nodeId": "LfYccHijK5Gzi3B3"
+          },
+          {
+            "typeName": "BTMSketchCurveSegment",
+            "startPointId": "fOrgWiMieXsN.pattern.0.4.0.start",
+            "endPointId": "fOrgWiMieXsN.pattern.0.4.0.end",
+            "startParam": -0.028690980880791767,
+            "endParam": -0.008370980880791764,
+            "offsetCurveExtensions": [],
+            "geometry": {
+              "type": 117,
+              "typeName": "BTCurveGeometryLine",
+              "message": {
+                "pntX": -0.024505490440395898,
+                "pntY": 0.0689505179026405,
+                "dirX": -0.5000000000000004,
+                "dirY": -0.8660254037844384
+              }
+            },
+            "centerId": "",
+            "internalIds": [],
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "fOrgWiMieXsN.pattern.0.4.0",
+            "namespace": "",
+            "index": 10,
+            "hasUserCode": false,
+            "nodeId": "qQJtVDe7ncxv4FHY"
+          },
+          {
+            "typeName": "BTMSketchCurveSegment",
+            "startPointId": "fOrgWiMieXsN.pattern.0.5.0.start",
+            "endPointId": "fOrgWiMieXsN.pattern.0.5.0.end",
+            "startParam": 0.00837098088079178,
+            "endParam": 0.028690980880791785,
+            "offsetCurveExtensions": [],
+            "geometry": {
+              "type": 117,
+              "typeName": "BTCurveGeometryLine",
+              "message": {
+                "pntX": -0.024505490440395905,
+                "pntY": 0.0834494820973595,
+                "dirX": 0.5000000000000001,
+                "dirY": -0.8660254037844386
+              }
+            },
+            "centerId": "",
+            "internalIds": [],
+            "isConstruction": false,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "fOrgWiMieXsN.pattern.0.5.0",
+            "namespace": "",
+            "index": 11,
+            "hasUserCode": false,
+            "nodeId": "ovBPx0vTfRTA03tq"
+          },
+          {
+            "typeName": "BTMSketchPoint",
+            "x": 1.5407439555097887e-33,
+            "y": 0.05860236379510018,
+            "isUserPoint": true,
+            "isConstruction": true,
+            "parameters": [],
+            "isFromSplineHandle": false,
+            "isFromEndpointSplineHandle": false,
+            "isFromSplineControlPolygon": false,
+            "entityId": "fOrgWiMieXsN.midPoint",
+            "namespace": "",
+            "index": 3,
+            "hasUserCode": false,
+            "nodeId": "MNfMcwVq997bVSEZ0"
+          }
+        ],
+        "constraints": [
+          {
+            "constraintType": "PERPENDICULAR",
+            "parameters": [
+              {
+                "value": "A1sxRonLph8F.top",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.left",
+                "parameterId": "localSecond"
+              }
+            ],
+            "entityId": "A1sxRonLph8F.perpendicular",
+            "namespace": ""
+          },
+          {
+            "constraintType": "PARALLEL",
+            "parameters": [
+              {
+                "value": "A1sxRonLph8F.bottom",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.top",
+                "parameterId": "localSecond"
+              }
+            ],
+            "entityId": "A1sxRonLph8F.parallel.1",
+            "namespace": ""
+          },
+          {
+            "constraintType": "PARALLEL",
+            "parameters": [
+              {
+                "value": "A1sxRonLph8F.left",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.right",
+                "parameterId": "localSecond"
+              }
+            ],
+            "entityId": "A1sxRonLph8F.parallel.2",
+            "namespace": ""
+          },
+          {
+            "constraintType": "HORIZONTAL",
+            "parameters": [
+              {
+                "value": "A1sxRonLph8F.top",
+                "parameterId": "localFirst"
+              }
+            ],
+            "entityId": "A1sxRonLph8F.horizontal",
+            "namespace": ""
+          },
+          {
+            "constraintType": "COINCIDENT",
+            "parameters": [
+              {
+                "value": "A1sxRonLph8F.bottom.start",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.left.start",
+                "parameterId": "localSecond"
+              }
+            ],
+            "entityId": "A1sxRonLph8F.corner0",
+            "namespace": ""
+          },
+          {
+            "constraintType": "COINCIDENT",
+            "parameters": [
+              {
+                "value": "A1sxRonLph8F.bottom.end",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.right.start",
+                "parameterId": "localSecond"
+              }
+            ],
+            "entityId": "A1sxRonLph8F.corner1",
+            "namespace": ""
+          },
+          {
+            "constraintType": "COINCIDENT",
+            "parameters": [
+              {
+                "queries": [
+                  {
+                    "type": 138,
+                    "typeName": "BTMIndividualQuery",
+                    "message": {
+                      "geometryIds": [
+                        "IB"
+                      ],
+                      "hasUserCode": false,
+                      "nodeId": "MeOvULKQirDu16kUW"
+                    }
+                  }
+                ],
+                "parameterId": "externalFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.bottom",
+                "parameterId": "localSecond"
+              }
+            ],
+            "entityId": "ZQYJBEvUAGvF",
+            "namespace": ""
+          },
+          {
+            "constraintType": "MIDPOINT",
+            "parameters": [
+              {
+                "queries": [
+                  {
+                    "type": 138,
+                    "typeName": "BTMIndividualQuery",
+                    "message": {
+                      "geometryIds": [
+                        "IB"
+                      ],
+                      "hasUserCode": false,
+                      "nodeId": "Mb4++Bz6bH3J3GfsV"
+                    }
+                  }
+                ],
+                "parameterId": "externalEntity1"
+              },
+              {
+                "value": "A1sxRonLph8F.bottom",
+                "parameterId": "localEntity2"
+              }
+            ],
+            "entityId": "D2VUFfRc4JPq",
+            "namespace": ""
+          },
+          {
+            "constraintType": "MIDPOINT",
+            "parameters": [
+              {
+                "value": "S5MdSzIc6InF.start",
+                "parameterId": "localMidpoint"
+              },
+              {
+                "value": "A1sxRonLph8F.left.start",
+                "parameterId": "localEntity1"
+              },
+              {
+                "value": "MTPHm8vdPDwN.0.visualSharp",
+                "parameterId": "localEntity2"
+              }
+            ],
+            "entityId": "S5MdSzIc6InF.startSnap0",
+            "namespace": ""
+          },
+          {
+            "constraintType": "MIDPOINT",
+            "parameters": [
+              {
+                "value": "S5MdSzIc6InF.end",
+                "parameterId": "localMidpoint"
+              },
+              {
+                "value": "A1sxRonLph8F.right.start",
+                "parameterId": "localEntity1"
+              },
+              {
+                "value": "jU0owSE8VkKn.0.visualSharp",
+                "parameterId": "localEntity2"
+              }
+            ],
+            "entityId": "S5MdSzIc6InF.endSnap0",
+            "namespace": ""
+          },
+          {
+            "constraintType": "EQUAL",
+            "parameters": [
+              {
+                "value": "6Z1OzPuTZ7I9",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "HC4GLjl3pDsC",
+                "parameterId": "localSecond"
+              }
+            ],
+            "entityId": "NEEzFGmMbZG9",
+            "namespace": ""
+          },
+          {
+            "constraintType": "DIAMETER",
+            "parameters": [
+              {
+                "value": "HC4GLjl3pDsC",
+                "parameterId": "localFirst"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.5 in",
+                "isInteger": false,
+                "parameterId": "length"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "6.196412147995478",
+                "isInteger": false,
+                "parameterId": "labelRatio"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "3.032955157433905*rad",
+                "isInteger": false,
+                "parameterId": "labelAngle"
+              }
+            ],
+            "entityId": "xn414cHw1r7P",
+            "namespace": ""
+          },
+          {
+            "constraintType": "DISTANCE",
+            "parameters": [
+              {
+                "value": "A1sxRonLph8F.bottom",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "HC4GLjl3pDsC.center",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "DimensionDirection",
+                "value": "MINIMUM",
+                "namespace": "",
+                "parameterId": "direction"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.75 in",
+                "isInteger": false,
+                "parameterId": "length"
+              },
+              {
+                "enumName": "DimensionHalfSpace",
+                "value": "LEFT",
+                "namespace": "",
+                "parameterId": "halfSpace0"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "-0.9219314762244882",
+                "isInteger": false,
+                "parameterId": "labelRatio"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.0684397677172273*m",
+                "isInteger": false,
+                "parameterId": "labelDistance"
+              }
+            ],
+            "entityId": "hnVbVPgFXyj0",
+            "namespace": ""
+          },
+          {
+            "constraintType": "HORIZONTAL",
+            "parameters": [
+              {
+                "value": "6Z1OzPuTZ7I9.center",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "HC4GLjl3pDsC.center",
+                "parameterId": "localSecond"
+              }
+            ],
+            "entityId": "xfVhJgMVNTt9",
+            "namespace": ""
+          },
+          {
+            "constraintType": "DISTANCE",
+            "parameters": [
+              {
+                "value": "A1sxRonLph8F.bottom.start",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "HC4GLjl3pDsC.center",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "DimensionDirection",
+                "value": "HORIZONTAL",
+                "namespace": "",
+                "parameterId": "direction"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.75 in",
+                "isInteger": false,
+                "parameterId": "length"
+              },
+              {
+                "enumName": "DimensionAlignment",
+                "value": "ALIGNED",
+                "namespace": "",
+                "parameterId": "alignment"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.39198786925310725",
+                "isInteger": false,
+                "parameterId": "labelRatio"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.011969978348257025*m",
+                "isInteger": false,
+                "parameterId": "labelDistance"
+              }
+            ],
+            "entityId": "e7FR8sTl6MAC",
+            "namespace": ""
+          },
+          {
+            "constraintType": "DISTANCE",
+            "parameters": [
+              {
+                "value": "6Z1OzPuTZ7I9.center",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.right",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "DimensionDirection",
+                "value": "MINIMUM",
+                "namespace": "",
+                "parameterId": "direction"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.75 in",
+                "isInteger": false,
+                "parameterId": "length"
+              },
+              {
+                "enumName": "DimensionHalfSpace",
+                "value": "RIGHT",
+                "namespace": "",
+                "parameterId": "halfSpace1"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.4000572271512364",
+                "isInteger": false,
+                "parameterId": "labelRatio"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "-0.10399492979115142*m",
+                "isInteger": false,
+                "parameterId": "labelDistance"
+              }
+            ],
+            "entityId": "EvfFePRNaf0v",
+            "namespace": ""
+          },
+          {
+            "constraintType": "DISTANCE",
+            "parameters": [
+              {
+                "value": "MTPHm8vdPDwN.0.visualSharp",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "jU0owSE8VkKn.0.visualSharp",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "DimensionDirection",
+                "value": "MINIMUM",
+                "namespace": "",
+                "parameterId": "direction"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.6875217251681306",
+                "isInteger": false,
+                "parameterId": "labelRatio"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "-0.0351340134825123*m",
+                "isInteger": false,
+                "parameterId": "labelDistance"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "4 in",
+                "isInteger": false,
+                "parameterId": "length"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "MTPHm8vdPDwN.0.visualSharp.lengthB.0",
+            "namespace": ""
+          },
+          {
+            "constraintType": "COINCIDENT",
+            "parameters": [
+              {
+                "value": "MTPHm8vdPDwN.0.visualSharp",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.top",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "MTPHm8vdPDwN.0.visualSharp.coincidentB",
+            "namespace": ""
+          },
+          {
+            "constraintType": "COINCIDENT",
+            "parameters": [
+              {
+                "value": "MTPHm8vdPDwN.0.visualSharp",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.left",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "MTPHm8vdPDwN.0.visualSharp.coincident",
+            "namespace": ""
+          },
+          {
+            "constraintType": "COINCIDENT",
+            "parameters": [
+              {
+                "value": "MTPHm8vdPDwN.0.filletArc.start",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.top.start",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "MTPHm8vdPDwN.0.filletArc.startSnap",
+            "namespace": ""
+          },
+          {
+            "constraintType": "COINCIDENT",
+            "parameters": [
+              {
+                "value": "MTPHm8vdPDwN.0.filletArc.end",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.left.end",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "MTPHm8vdPDwN.0.filletArc.endSnap",
+            "namespace": ""
+          },
+          {
+            "constraintType": "TANGENT",
+            "parameters": [
+              {
+                "value": "A1sxRonLph8F.left",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "MTPHm8vdPDwN.0.filletArc",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "MTPHm8vdPDwN.0.tangentA",
+            "namespace": ""
+          },
+          {
+            "constraintType": "TANGENT",
+            "parameters": [
+              {
+                "value": "A1sxRonLph8F.top",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "MTPHm8vdPDwN.0.filletArc",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "MTPHm8vdPDwN.0.tangentB",
+            "namespace": ""
+          },
+          {
+            "constraintType": "RADIUS",
+            "parameters": [
+              {
+                "value": "MTPHm8vdPDwN.0.filletArc",
+                "parameterId": "localFirst"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "1 in",
+                "isInteger": false,
+                "parameterId": "length"
+              },
+              {
+                "enumName": "RadiusDisplay",
+                "value": "RADIAL",
+                "namespace": "",
+                "parameterId": "radiusDisplay"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "1.2822645206135592",
+                "isInteger": false,
+                "parameterId": "labelRatio"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "-0.6224455767251971*rad",
+                "isInteger": false,
+                "parameterId": "labelAngle"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "MTPHm8vdPDwN.0.radius",
+            "namespace": ""
+          },
+          {
+            "constraintType": "DISTANCE",
+            "parameters": [
+              {
+                "value": "A1sxRonLph8F.right.start",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "jU0owSE8VkKn.0.visualSharp",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "DimensionDirection",
+                "value": "MINIMUM",
+                "namespace": "",
+                "parameterId": "direction"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.5357243354157553",
+                "isInteger": false,
+                "parameterId": "labelRatio"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.03294567677649974*m",
+                "isInteger": false,
+                "parameterId": "labelDistance"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "6 in",
+                "isInteger": false,
+                "parameterId": "length"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "jU0owSE8VkKn.0.visualSharp.lengthB.0",
+            "namespace": ""
+          },
+          {
+            "constraintType": "COINCIDENT",
+            "parameters": [
+              {
+                "value": "jU0owSE8VkKn.0.visualSharp",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.right",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "jU0owSE8VkKn.0.visualSharp.coincidentB",
+            "namespace": ""
+          },
+          {
+            "constraintType": "COINCIDENT",
+            "parameters": [
+              {
+                "value": "jU0owSE8VkKn.0.visualSharp",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.top",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "jU0owSE8VkKn.0.visualSharp.coincident",
+            "namespace": ""
+          },
+          {
+            "constraintType": "COINCIDENT",
+            "parameters": [
+              {
+                "value": "jU0owSE8VkKn.0.filletArc.start",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.right.end",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "jU0owSE8VkKn.0.filletArc.startSnap",
+            "namespace": ""
+          },
+          {
+            "constraintType": "COINCIDENT",
+            "parameters": [
+              {
+                "value": "jU0owSE8VkKn.0.filletArc.end",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "A1sxRonLph8F.top.end",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "jU0owSE8VkKn.0.filletArc.endSnap",
+            "namespace": ""
+          },
+          {
+            "constraintType": "TANGENT",
+            "parameters": [
+              {
+                "value": "A1sxRonLph8F.top",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "jU0owSE8VkKn.0.filletArc",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "jU0owSE8VkKn.0.tangentA",
+            "namespace": ""
+          },
+          {
+            "constraintType": "TANGENT",
+            "parameters": [
+              {
+                "value": "A1sxRonLph8F.right",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "jU0owSE8VkKn.0.filletArc",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "jU0owSE8VkKn.0.tangentB",
+            "namespace": ""
+          },
+          {
+            "constraintType": "EQUAL",
+            "parameters": [
+              {
+                "value": "jU0owSE8VkKn.0.filletArc",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "MTPHm8vdPDwN.0.filletArc",
+                "parameterId": "localSecond"
+              },
+              {
+                "enumName": "SketchToolType",
+                "value": "FILLET",
+                "namespace": "",
+                "parameterId": "sketchToolType"
+              }
+            ],
+            "entityId": "jU0owSE8VkKn.0.equal",
+            "namespace": ""
+          },
+          {
+            "constraintType": "MIDPOINT",
+            "parameters": [
+              {
+                "value": "fOrgWiMieXsN.cCircle.center",
+                "parameterId": "localEntity1"
+              },
+              {
+                "value": "S5MdSzIc6InF",
+                "parameterId": "localEntity2"
+              }
+            ],
+            "entityId": "fOrgWiMieXsN.cCircle.centerSnap0",
+            "namespace": ""
+          },
+          {
+            "constraintType": "VERTICAL",
+            "parameters": [
+              {
+                "value": "fOrgWiMieXsN.cCircle.center",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "fOrgWiMieXsN.midPoint",
+                "parameterId": "localSecond"
+              }
+            ],
+            "entityId": "fOrgWiMieXsN.snapInference",
+            "namespace": ""
+          },
+          {
+            "constraintType": "CIRCULAR_PATTERN",
+            "parameters": [
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "3.0",
+                "isInteger": true,
+                "parameterId": "patterng"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "6.0",
+                "isInteger": true,
+                "parameterId": "patternc1"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "6.0",
+                "isInteger": true,
+                "parameterId": "previouspatternc1"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "3.0",
+                "isInteger": true,
+                "parameterId": "maximumpatterng"
+              },
+              {
+                "value": false,
+                "parameterId": "openPattern"
+              },
+              {
+                "value": "fOrgWiMieXsN.seed",
+                "parameterId": "localInstance0,0"
+              },
+              {
+                "value": "fOrgWiMieXsN.seed.start",
+                "parameterId": "localInstance1,0"
+              },
+              {
+                "value": "fOrgWiMieXsN.seed.end",
+                "parameterId": "localInstance2,0"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.1.0",
+                "parameterId": "localInstance0,1"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.1.0.start",
+                "parameterId": "localInstance1,1"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.1.0.end",
+                "parameterId": "localInstance2,1"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.2.0",
+                "parameterId": "localInstance0,2"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.2.0.start",
+                "parameterId": "localInstance1,2"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.2.0.end",
+                "parameterId": "localInstance2,2"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.3.0",
+                "parameterId": "localInstance0,3"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.3.0.start",
+                "parameterId": "localInstance1,3"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.3.0.end",
+                "parameterId": "localInstance2,3"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.4.0",
+                "parameterId": "localInstance0,4"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.4.0.start",
+                "parameterId": "localInstance1,4"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.4.0.end",
+                "parameterId": "localInstance2,4"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.5.0",
+                "parameterId": "localInstance0,5"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.5.0.start",
+                "parameterId": "localInstance1,5"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.5.0.end",
+                "parameterId": "localInstance2,5"
+              },
+              {
+                "value": "fOrgWiMieXsN.cCircle.center",
+                "parameterId": "localPivot"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.025555313584541883*m",
+                "isInteger": false,
+                "parameterId": "labelDistance"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "-1.5707963267948966*rad",
+                "isInteger": false,
+                "parameterId": "labelAngle"
+              }
+            ],
+            "entityId": "fOrgWiMieXsN.pattern.pattern",
+            "namespace": ""
+          },
+          {
+            "constraintType": "TANGENT",
+            "parameters": [
+              {
+                "value": "fOrgWiMieXsN.cCircle",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "fOrgWiMieXsN.seed",
+                "parameterId": "localSecond"
+              }
+            ],
+            "entityId": "fOrgWiMieXsN.tangent",
+            "namespace": ""
+          },
+          {
+            "constraintType": "MIDPOINT",
+            "parameters": [
+              {
+                "value": "fOrgWiMieXsN.midPoint",
+                "parameterId": "localEntity1"
+              },
+              {
+                "value": "fOrgWiMieXsN.seed",
+                "parameterId": "localEntity2"
+              }
+            ],
+            "entityId": "fOrgWiMieXsN.midPointConstraint",
+            "namespace": ""
+          },
+          {
+            "constraintType": "COINCIDENT",
+            "parameters": [
+              {
+                "value": "fOrgWiMieXsN.pattern.0.1.0.start",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "fOrgWiMieXsN.seed.end",
+                "parameterId": "localSecond"
+              }
+            ],
+            "entityId": "fOrgWiMieXsN.snap1",
+            "namespace": ""
+          },
+          {
+            "constraintType": "COINCIDENT",
+            "parameters": [
+              {
+                "value": "fOrgWiMieXsN.pattern.0.2.0.start",
+                "parameterId": "localFirst"
+              },
+              {
+                "value": "fOrgWiMieXsN.pattern.0.1.0.end",
+                "parameterId": "localSecond"
+              }
+            ],
+            "entityId": "fOrgWiMieXsN.snap2",
+            "namespace": ""
+          },
+          {
+            "constraintType": "LENGTH",
+            "parameters": [
+              {
+                "value": "fOrgWiMieXsN.seed",
+                "parameterId": "localFirst"
+              },
+              {
+                "enumName": "DimensionDirection",
+                "value": "MINIMUM",
+                "namespace": "",
+                "parameterId": "direction"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.8 in",
+                "isInteger": false,
+                "parameterId": "length"
+              },
+              {
+                "enumName": "DimensionAlignment",
+                "value": "ALIGNED",
+                "namespace": "",
+                "parameterId": "alignment"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.7855389865500737",
+                "isInteger": false,
+                "parameterId": "labelRatio"
+              },
+              {
+                "units": "",
+                "value": 0.0,
+                "expression": "0.013527013477631772*m",
+                "isInteger": false,
+                "parameterId": "labelDistance"
+              }
+            ],
+            "entityId": "8YLxBfSx1iS8",
+            "namespace": ""
+          }
+        ],
+        "featureType": "newSketch",
+        "featureId": "FT1DvSE7Alu8Ovc_0",
+        "name": "Sketch 1",
+        "parameters": [
+          {
+            "typeName": "BTMParameterQueryList",
+            "queries": [
+              {
+                "type": 138,
+                "typeName": "BTMIndividualQuery",
+                "message": {
+                  "geometryIds": [
+                    "JDC"
+                  ],
+                  "hasUserCode": false,
+                  "nodeId": "FKADTkClKTv7Ojm"
+                }
+              }
+            ],
+            "parameterId": "sketchPlane",
+            "hasUserCode": false,
+            "nodeId": "+wsRWf6XHHmOyCod"
+          },
+          {
+            "typeName": "BTMParameterBoolean",
+            "value": false,
+            "parameterId": "disableImprinting",
+            "hasUserCode": false,
+            "nodeId": "xwGUU7x4+3RRoj57"
+          }
+        ],
+        "suppressed": false,
+        "namespace": "",
+        "subFeatures": [],
+        "returnAfterSubfeatures": false,
+        "suppressionState": {
+          "type": 0
+        },
+        "hasUserCode": false,
+        "nodeId": "0QlRpl1ApjPu7Cuj"
+      }
+    },
+    {
+      "type": 134,
+      "typeName": "BTMFeature",
+      "message": {
+        "featureType": "extrude",
+        "featureId": "FEKQK50y5G8sD7z_0",
+        "name": "Extrude 1",
+        "parameters": [
+          {
+            "parameterId": "domain",
+            "enumName": "OperationDomain",
+            "value": "MODEL"
+          },
+          {
+            "parameterId": "bodyType",
+            "enumName": "ExtendedToolBodyType",
+            "value": "SOLID"
+          },
+          {
+            "parameterId": "operationType",
+            "enumName": "NewBodyOperationType",
+            "value": "NEW"
+          },
+          {
+            "parameterId": "surfaceOperationType",
+            "enumName": "NewSurfaceOperationType",
+            "value": "NEW"
+          },
+          {
+            "parameterId": "flatOperationType",
+            "enumName": "FlatOperationType",
+            "value": "REMOVE"
+          },
+          {
+            "parameterId": "entities",
+            "queries": [
+              {
+                "geometryIds": [
+                  "JGO"
+                ],
+                "hasUserCode": false,
+                "nodeId": "FOeu27r0Ra2OaWR"
+              }
+            ]
+          },
+          {
+            "parameterId": "surfaceEntities",
+            "queries": []
+          },
+          {
+            "parameterId": "wallShape",
+            "queries": []
+          },
+          {
+            "parameterId": "midplane",
+            "value": false
+          },
+          {
+            "parameterId": "thickness1",
+            "expression": "0.25 in"
+          },
+          {
+            "parameterId": "flipWall",
+            "value": false
+          },
+          {
+            "parameterId": "thickness2",
+            "expression": "0 in"
+          },
+          {
+            "parameterId": "thickness",
+            "expression": "0.25 in"
+          },
+          {
+            "parameterId": "endBound",
+            "enumName": "BoundingType",
+            "value": "BLIND"
+          },
+          {
+            "parameterId": "oppositeDirection",
+            "value": false
+          },
+          {
+            "parameterId": "depth",
+            "expression": "2 in"
+          },
+          {
+            "parameterId": "endBoundEntityFace",
+            "queries": []
+          },
+          {
+            "parameterId": "endBoundEntityBody",
+            "queries": []
+          },
+          {
+            "parameterId": "endBoundEntityVertex",
+            "queries": []
+          },
+          {
+            "parameterId": "hasOffset",
+            "value": false
+          },
+          {
+            "parameterId": "offsetDistance",
+            "expression": "1 in"
+          },
+          {
+            "parameterId": "offsetOppositeDirection",
+            "value": false
+          },
+          {
+            "parameterId": "hasExtrudeDirection",
+            "value": false
+          },
+          {
+            "parameterId": "extrudeDirection",
+            "queries": []
+          },
+          {
+            "parameterId": "startOffset",
+            "value": false
+          },
+          {
+            "parameterId": "startOffsetBound",
+            "enumName": "StartOffsetType",
+            "value": "BLIND"
+          },
+          {
+            "parameterId": "startOffsetDistance",
+            "expression": "1 in"
+          },
+          {
+            "parameterId": "startOffsetOppositeDirection",
+            "value": false
+          },
+          {
+            "parameterId": "startOffsetEntity",
+            "queries": []
+          },
+          {
+            "parameterId": "symmetric",
+            "value": true
+          },
+          {
+            "parameterId": "hasDraft",
+            "value": false
+          },
+          {
+            "parameterId": "draftAngle",
+            "expression": "3 deg"
+          },
+          {
+            "parameterId": "draftPullDirection",
+            "value": false
+          },
+          {
+            "parameterId": "hasSecondDirection",
+            "value": false
+          },
+          {
+            "parameterId": "secondDirectionBound",
+            "enumName": "BoundingType",
+            "value": "BLIND"
+          },
+          {
+            "parameterId": "secondDirectionOppositeDirection",
+            "value": true
+          },
+          {
+            "parameterId": "secondDirectionDepth",
+            "expression": "1 in"
+          },
+          {
+            "parameterId": "secondDirectionBoundEntityFace",
+            "queries": []
+          },
+          {
+            "parameterId": "secondDirectionBoundEntityBody",
+            "queries": []
+          },
+          {
+            "parameterId": "secondDirectionBoundEntityVertex",
+            "queries": []
+          },
+          {
+            "parameterId": "hasSecondDirectionOffset",
+            "value": false
+          },
+          {
+            "parameterId": "secondDirectionOffsetDistance",
+            "expression": "1 in"
+          },
+          {
+            "parameterId": "secondDirectionOffsetOppositeDirection",
+            "value": false
+          },
+          {
+            "parameterId": "hasSecondDirectionDraft",
+            "value": false
+          },
+          {
+            "parameterId": "secondDirectionDraftAngle",
+            "expression": "3 deg"
+          },
+          {
+            "parameterId": "secondDirectionDraftPullDirection",
+            "value": false
+          },
+          {
+            "parameterId": "defaultScope",
+            "value": false
+          },
+          {
+            "parameterId": "booleanScope",
+            "queries": []
+          },
+          {
+            "parameterId": "defaultSurfaceScope",
+            "value": true
+          },
+          {
+            "parameterId": "booleanSurfaceScope",
+            "queries": []
+          }
+        ],
+        "suppressed": false,
+        "namespace": "",
+        "subFeatures": [],
+        "returnAfterSubfeatures": false,
+        "suppressionState": {
+          "type": 0
+        },
+        "hasUserCode": false,
+        "nodeId": "icU3c47JQaxT7vkM"
+      }
+    },
+    {
+      "type": 134,
+      "typeName": "BTMFeature",
+      "message": {
+        "featureType": "fillet",
+        "featureId": "FvGiffuaNa79Vf8_1",
+        "name": "Fillet 1",
+        "parameters": [
+          {
+            "parameterId": "filletType",
+            "enumName": "FilletType",
+            "value": "EDGE"
+          },
+          {
+            "parameterId": "entities",
+            "queries": [
+              {
+                "geometryIds": [
+                  "JHK"
+                ],
+                "hasUserCode": false,
+                "nodeId": "FkSK3zpEn8uREGJ"
+              }
+            ]
+          },
+          {
+            "parameterId": "side1Face",
+            "queries": []
+          },
+          {
+            "parameterId": "side2Face",
+            "queries": []
+          },
+          {
+            "parameterId": "centerFaces",
+            "queries": []
+          },
+          {
+            "parameterId": "tangentPropagation",
+            "value": true
+          },
+          {
+            "parameterId": "blendControlType",
+            "enumName": "BlendControlType",
+            "value": "RADIUS"
+          },
+          {
+            "parameterId": "crossSection",
+            "enumName": "FilletCrossSection",
+            "value": "CIRCULAR"
+          },
+          {
+            "parameterId": "radius",
+            "expression": "0.2 in"
+          },
+          {
+            "parameterId": "width",
+            "expression": "0.2 in"
+          },
+          {
+            "parameterId": "rho",
+            "expression": "0.5"
+          },
+          {
+            "parameterId": "magnitude",
+            "expression": "0.5"
+          },
+          {
+            "parameterId": "defaultsChanged",
+            "value": false
+          },
+          {
+            "parameterId": "isAsymmetric",
+            "value": false
+          },
+          {
+            "parameterId": "otherRadius",
+            "expression": "0.2 in"
+          },
+          {
+            "parameterId": "flipAsymmetric",
+            "value": false
+          },
+          {
+            "parameterId": "isPartial",
+            "value": false
+          },
+          {
+            "parameterId": "startPartialType",
+            "enumName": "EndTypePartialFillet",
+            "value": "PERCENTAGE"
+          },
+          {
+            "parameterId": "startPartialOffset",
+            "expression": "0.2 in"
+          },
+          {
+            "parameterId": "startPartialEntity",
+            "queries": []
+          },
+          {
+            "parameterId": "partialFirstEdgeTotalParameter",
+            "expression": "0.01"
+          },
+          {
+            "parameterId": "partialOppositeParameter",
+            "value": true
+          },
+          {
+            "parameterId": "useTrimmedFirstBound",
+            "value": false
+          },
+          {
+            "parameterId": "secondBound",
+            "value": false
+          },
+          {
+            "parameterId": "endPartialType",
+            "enumName": "EndTypePartialFillet",
+            "value": "PERCENTAGE"
+          },
+          {
+            "parameterId": "endPartialOffset",
+            "expression": "0.2 in"
+          },
+          {
+            "parameterId": "endPartialEntity",
+            "queries": []
+          },
+          {
+            "parameterId": "useTrimmedSecondBound",
+            "value": false
+          },
+          {
+            "parameterId": "partialSecondEdgeTotalParameter",
+            "expression": "0.99"
+          },
+          {
+            "parameterId": "isVariable",
+            "value": false
+          },
+          {
+            "parameterId": "vertexSettings",
+            "items": []
+          },
+          {
+            "parameterId": "pointOnEdgeSettings",
+            "items": []
+          },
+          {
+            "parameterId": "smoothTransition",
+            "value": false
+          },
+          {
+            "parameterId": "allowEdgeOverflow",
+            "value": true
+          },
+          {
+            "parameterId": "keepEdges",
+            "queries": []
+          },
+          {
+            "parameterId": "smoothCorners",
+            "value": false
+          },
+          {
+            "parameterId": "smoothCornerExceptions",
+            "queries": []
+          }
+        ],
+        "suppressed": false,
+        "namespace": "",
+        "subFeatures": [],
+        "returnAfterSubfeatures": false,
+        "suppressionState": {
+          "type": 0
+        },
+        "hasUserCode": false,
+        "nodeId": "POCRFiJsfQZiBOcy"
+      }
+    },
+    {
+      "type": 134,
+      "typeName": "BTMFeature",
+      "message": {
+        "featureType": "fillet",
+        "featureId": "F8KpM3D47ZWsupV_1",
+        "name": "Fillet 2",
+        "parameters": [
+          {
+            "parameterId": "filletType",
+            "enumName": "FilletType",
+            "value": "EDGE"
+          },
+          {
+            "parameterId": "entities",
+            "queries": [
+              {
+                "geometryIds": [
+                  "KIlC"
+                ],
+                "hasUserCode": false,
+                "nodeId": "FYt73XLpn4vUnjk"
+              }
+            ]
+          },
+          {
+            "parameterId": "side1Face",
+            "queries": []
+          },
+          {
+            "parameterId": "side2Face",
+            "queries": []
+          },
+          {
+            "parameterId": "centerFaces",
+            "queries": []
+          },
+          {
+            "parameterId": "tangentPropagation",
+            "value": true
+          },
+          {
+            "parameterId": "blendControlType",
+            "enumName": "BlendControlType",
+            "value": "RADIUS"
+          },
+          {
+            "parameterId": "crossSection",
+            "enumName": "FilletCrossSection",
+            "value": "CIRCULAR"
+          },
+          {
+            "parameterId": "radius",
+            "expression": "0.2 in"
+          },
+          {
+            "parameterId": "width",
+            "expression": "0.2 in"
+          },
+          {
+            "parameterId": "rho",
+            "expression": "0.5"
+          },
+          {
+            "parameterId": "magnitude",
+            "expression": "0.5"
+          },
+          {
+            "parameterId": "defaultsChanged",
+            "value": false
+          },
+          {
+            "parameterId": "isAsymmetric",
+            "value": false
+          },
+          {
+            "parameterId": "otherRadius",
+            "expression": "0.2 in"
+          },
+          {
+            "parameterId": "flipAsymmetric",
+            "value": false
+          },
+          {
+            "parameterId": "isPartial",
+            "value": false
+          },
+          {
+            "parameterId": "startPartialType",
+            "enumName": "EndTypePartialFillet",
+            "value": "PERCENTAGE"
+          },
+          {
+            "parameterId": "startPartialOffset",
+            "expression": "0.2 in"
+          },
+          {
+            "parameterId": "startPartialEntity",
+            "queries": []
+          },
+          {
+            "parameterId": "partialFirstEdgeTotalParameter",
+            "expression": "0.01"
+          },
+          {
+            "parameterId": "partialOppositeParameter",
+            "value": true
+          },
+          {
+            "parameterId": "useTrimmedFirstBound",
+            "value": false
+          },
+          {
+            "parameterId": "secondBound",
+            "value": false
+          },
+          {
+            "parameterId": "endPartialType",
+            "enumName": "EndTypePartialFillet",
+            "value": "PERCENTAGE"
+          },
+          {
+            "parameterId": "endPartialOffset",
+            "expression": "0.2 in"
+          },
+          {
+            "parameterId": "endPartialEntity",
+            "queries": []
+          },
+          {
+            "parameterId": "useTrimmedSecondBound",
+            "value": false
+          },
+          {
+            "parameterId": "partialSecondEdgeTotalParameter",
+            "expression": "0.99"
+          },
+          {
+            "parameterId": "isVariable",
+            "value": false
+          },
+          {
+            "parameterId": "vertexSettings",
+            "items": []
+          },
+          {
+            "parameterId": "pointOnEdgeSettings",
+            "items": []
+          },
+          {
+            "parameterId": "smoothTransition",
+            "value": false
+          },
+          {
+            "parameterId": "allowEdgeOverflow",
+            "value": true
+          },
+          {
+            "parameterId": "keepEdges",
+            "queries": []
+          },
+          {
+            "parameterId": "smoothCorners",
+            "value": false
+          },
+          {
+            "parameterId": "smoothCornerExceptions",
+            "queries": []
+          }
+        ],
+        "suppressed": false,
+        "namespace": "",
+        "subFeatures": [],
+        "returnAfterSubfeatures": false,
+        "suppressionState": {
+          "type": 0
+        },
+        "hasUserCode": false,
+        "nodeId": "A00vNdvjvKAxY/7l"
+      }
+    }
+  ]
+}

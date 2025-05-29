@@ -70,6 +70,7 @@ def extract_face_geometry(face_json: dict) -> dict:
         }
     """
     result = {}
+    # print(face_json)
     entries = face_json["result"]["message"]["value"]
 
     for entry in entries:

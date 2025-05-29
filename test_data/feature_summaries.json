@@ -1,0 +1,22 @@
+[
+  {
+    "featureType": "newSketch",
+    "featureId": "FT1DvSE7Alu8Ovc_0",
+    "name": "Sketch 1"
+  },
+  {
+    "featureType": "extrude",
+    "featureId": "FEKQK50y5G8sD7z_0",
+    "name": "Extrude 1"
+  },
+  {
+    "featureType": "fillet",
+    "featureId": "FvGiffuaNa79Vf8_1",
+    "name": "Fillet 1"
+  },
+  {
+    "featureType": "fillet",
+    "featureId": "F8KpM3D47ZWsupV_1",
+    "name": "Fillet 2"
+  }
+]

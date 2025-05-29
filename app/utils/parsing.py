@@ -1,10 +1,24 @@
-import json
+import sys
 import os
+
+# Calculate the project root directory based on the current script's location
+# This script is in app/utils, so we need to go up two levels
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
+# Now we can safely import our modules
+if __name__ == '__main__':
+    from app.utils.api_requests import standard_api_request, endpoints
+else:
+    from .api_requests import standard_api_request, endpoints
+
+import json
 from typing import Any, Dict, List, Union, Optional
 from agents import function_tool
-from app.utils.api_requests import standard_api_request, endpoints
 from app.utils.filter import apply_filters, FILTER_CONFIG
-from app.utils.queries import query_get_created_entities, query_get_sketch_plane
+from app.utils.queries import query_get_created_entities, query_get_sketch_plane, query_get_default_features
 from app.utils.geometry_extractors import extract_plane_vectors
 from datetime import datetime
 
@@ -86,8 +100,8 @@ def feature_3d_parse(feature) -> dict:
                     feature_param_dict['value'] = parameter['message'].get('value')
                 param_list.append(feature_param_dict)
             # Apply type-specific parameter-level filters for 3D features to the whole list
-            if feature_type and feature_type in FILTER_CONFIG:
-                param_list = apply_filters(param_list, FILTER_CONFIG[feature_type])
+            # if feature_type and feature_type in FILTER_CONFIG:
+            #     param_list = apply_filters(param_list, FILTER_CONFIG[feature_type])
             result['parameters'] = param_list
         else:
             result[messagekey] = message[messagekey]
@@ -189,6 +203,7 @@ def extract_feature_summaries(parsed_features: dict) -> list:
         summaries.append(summary)
     return summaries
 
+
 def enrich_feature_summaries(feature_summaries: list, url: str) -> list:
     """
     Enriches a list of feature summary dictionaries with additional information from the Onshape API.
@@ -224,6 +239,8 @@ def enrich_feature_summaries(feature_summaries: list, url: str) -> list:
         - The function assumes that the order of features in the input list matches the order in the Onshape feature tree.
     """
     enriched = []
+    default_features = query_get_default_features(url)
+    enriched.append({'defaultFeatures': default_features})
     for i, feature in enumerate(feature_summaries):
         feature_id = feature.get('featureId')
         feature_type = feature.get('featureType')
