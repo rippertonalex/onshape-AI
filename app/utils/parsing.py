@@ -18,7 +18,7 @@ import json
 from typing import Any, Dict, List, Union, Optional
 from agents import function_tool
 from app.utils.filter import apply_filters, FILTER_CONFIG
-from app.utils.queries import query_get_created_entities, query_get_sketch_plane, query_get_default_features
+from app.utils.queries import query_get_created_entities, query_get_sketch_plane, query_get_default_features, query_get_all_entities
 from app.utils.geometry_extractors import extract_plane_vectors
 from datetime import datetime
 
@@ -209,10 +209,8 @@ def enrich_feature_summaries(feature_summaries: list, url: str) -> list:
     Enriches a list of feature summary dictionaries with additional information from the Onshape API.
 
     For each feature in the input summary list, this function:
-      - Calls `query_get_created_entities` to retrieve the entities created by the feature, passing
-        `extra_arguments={'rollbackBarIndex': i+1}` where `i` is the feature's index in the list. The
-        returned entities are added to the feature summary under the key 'createdEntities' as a list of
-        dictionaries, each mapping the entity name to an empty dictionary.
+      - Calls `query_get_all_entities` to retrieve all entities at each rollback state
+      - Tracks unique entities to avoid duplicates across features
       - If the feature's type is 'newSketch', it also calls `query_get_sketch_plane` to retrieve the
         sketch plane information, which is processed by `extract_plane_vectors` and added to the summary
         under the key 'sketchPlane'.
@@ -229,35 +227,58 @@ def enrich_feature_summaries(feature_summaries: list, url: str) -> list:
             - 'createdEntities': a list of dicts representing entities created by the feature.
             - 'sketchPlane': (only for sketches) a dict of sketch plane vectors, if applicable.
     """
+    # Initialize tracking of all entities we've seen
+    seen_entities = {
+        'bodies': set(),
+        'faces': set(),
+        'edges': set(),
+        'vertices': set()
+    }
+    
+    # Get default features and add their entities to seen_entities
+    default_features = query_get_default_features(url)
+    for entity_name, entity_id in default_features.items():
+        # Determine entity type based on entity_name
+        if entity_name == 'Origin':
+            seen_entities['vertices'].add(entity_id)
+        else:  # Front, Right, Top are faces
+            seen_entities['faces'].add(entity_id)
+    
     enriched = []
     for i, feature in enumerate(feature_summaries):
         feature_id = feature.get('featureId')
         feature_type = feature.get('featureType')
-        # Get created entities with rollbackBarIndex
-        entities_response = query_get_created_entities(url, feature_id, extra_arguments={'rollbackBarIndex': i+1})
-        created_entities = {}
-        try:
-            # entities_response is now a dict with keys: bodies, edges, faces, vertices
-            for entity_type in ['bodies', 'edges', 'faces', 'vertices']:
-                items = entities_response.get(entity_type, [])
-                created_entities[entity_type] = [{item: {}} for item in items]
-        except Exception:
-            # If error, set all to empty lists
-            for entity_type in ['bodies', 'edges', 'faces', 'vertices']:
-                created_entities[entity_type] = []
+        
+        # Get all entities at this rollback state
+        all_entities = query_get_all_entities(url, extra_arguments={'rollbackBarIndex': i+1})
+        
+        # Find new entities (not seen before)
+        created_entities = {
+            'bodies': [],
+            'faces': [],
+            'edges': [],
+            'vertices': []
+        }
+        
+        for entity_type in ['bodies', 'faces', 'edges', 'vertices']:
+            for entity_id in all_entities[entity_type]:
+                if entity_id not in seen_entities[entity_type]:
+                    created_entities[entity_type].append({entity_id: {}})
+                    seen_entities[entity_type].add(entity_id)
+        
         feature['createdEntities'] = created_entities
-        ## TODO : add rollbackBarIndex to the feature_summaries
+        
         # If sketch, get sketch plane
         if feature_type and feature_type == 'newSketch':
             sketch_plane_response = query_get_sketch_plane(url, feature_id)
             feature['sketchPlane'] = extract_plane_vectors(sketch_plane_response)
+        
         enriched.append(feature)
 
     # Add space for other entities
     enriched.append({'otherEntities': []})
 
-    # Get default features
-    default_features = query_get_default_features(url)
+    # Add default features
     enriched.append({'defaultFeatures': default_features})
 
     return enriched

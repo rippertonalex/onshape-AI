@@ -43,30 +43,38 @@ def parse_console_map_output(console_output: str) -> dict:
         result[key] = items
     return result
 
-def query_get_all_entities(url: str, entity_type: str, rollbackIndex: int) -> dict:
-  """
-  Query to get all entities of a given type.
-  Args:
-    url (str): The URL of the Onshape document.
-    entity_type (str): The type of entity to get.
-    rollbackIndex (int): The rollback index of the feature tree state.
-  """
-  output = []
-  feature_payload = {
-        "script": f"""
-        function(context is Context, queries) {{
-          return transientQueriesToStrings(evaluateQuery(context, qEverything(EntityType.{entity_type})));
-          }}"""
-      }
-  params = {'rollbackBarIndex': rollbackIndex}
-  response = standard_api_request(url,
-                                  endpoints['featurescript'],
-                                  method='POST',
-                                  extra_arguments=params,
-                                  payload=feature_payload)
-  for result in response['result']['message']['value']:
-    output.append(result['message']['value'])
-  return output
+def query_get_all_entities(url: str, extra_arguments: dict = None) -> dict:
+    """
+    Query to get all entities of all types.
+    Args:
+        url (str): The URL of the Onshape document.
+        extra_arguments (dict): Extra arguments to pass to the query. Typically of the form {'rollbackBarIndex': i}
+    Returns:
+        dict: All entities separated by type: BODY, FACE, EDGE, VERTEX.
+    """
+    result = {}
+    keys = ['bodies', 'faces', 'edges', 'vertices']
+    entity_types = ['BODY', 'FACE', 'EDGE', 'VERTEX']
+    
+    for key, entity_type in zip(keys, entity_types):
+        feature_payload = {
+            "script": f"""
+            function(context is Context, queries) {{
+              return transientQueriesToStrings(evaluateQuery(context, qEverything(EntityType.{entity_type})));
+              }}"""
+        }
+        response = standard_api_request(url,
+                                    endpoints['featurescript'],
+                                    method='POST',
+                                    payload=feature_payload,
+                                    params=extra_arguments)
+        
+        entities = []
+        for item in response['result']['message']['value']:
+            entities.append(item['message']['value'])
+        result[key] = entities
+    
+    return result
 
 def query_get_created_entities(url: str, feature_id: str, extra_arguments: dict = None) -> dict:
     """
@@ -109,7 +117,13 @@ def query_get_default_features(url: str) -> dict:
     Args:
         url (str): The URL of the part studio.
     Returns:
-        dict: The default features of the given part studio.
+        dict: The default features of the given part studio. Example:
+        {
+            'Origin': 'IB',
+            'Front': 'JCC',
+            'Right': 'JDC',
+            'Top': 'JEC'
+        }
     """
     output = {}
     entity_names = ['Origin', 'Front', 'Right', 'Top']
