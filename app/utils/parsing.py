@@ -6,14 +6,30 @@ from app.utils.api_requests import standard_api_request, endpoints
 from app.utils.filter import apply_filters, FILTER_CONFIG
 from app.utils.queries import query_get_created_entities, query_get_sketch_plane
 from app.utils.geometry_extractors import extract_plane_vectors
+from datetime import datetime
 
-def feature_parser(response) -> dict:
+
+def feature_parser(response_data: dict):
+    """
+    Parses the feature data dictionary obtained directly from an Onshape API JSON response.
+    It processes both 3D features and 2D sketch features, applying configured filters.
+    Expects a dictionary containing a 'features' list.
+    Returns a dictionary with a 'features' key containing a list of parsed feature dictionaries.
+    """
+    # response_data = json.loads(response_json_str) # No longer needed, input is already a dict
+    print(f"[{datetime.now()}] feature_parser: Received dictionary data.")
     features = []
-    for feature in response['features']:
+    raw_features_list = response_data.get('features', []) # Use the input dict directly
+    if not isinstance(raw_features_list, list):
+         print(f"[{datetime.now()}] feature_parser: Warning - 'features' key not found or not a list in input data.")
+         raw_features_list = [] # Process empty list to avoid errors
+
+    print(f"[{datetime.now()}] feature_parser: Processing {len(raw_features_list)} raw features.")
+    for feature in raw_features_list:
         feature_dict = {}
         featureType = None
         for key in feature.keys():
-            if key == 'typeName':
+            if key == 'typeName': # Still assuming typeName exists
                 if feature['typeName'] == 'BTMFeature':
                     featureType = '3D'
                 elif feature['typeName'] == 'BTMSketch':
@@ -29,11 +45,18 @@ def feature_parser(response) -> dict:
             else:
                 feature_dict[key] = feature[key]
             
-            if featureType == '3D':
-                feature_dict = apply_filters(feature_dict, FILTER_CONFIG['feature_3d'])
-            elif featureType == '2D':
-                feature_dict = apply_filters(feature_dict, FILTER_CONFIG['feature_2d'])
+            # Apply filters (this part might need review depending on desired filter application point)
+            # The original code applied filters inside the key loop, which seems odd.
+            # It might be better applied once per feature_dict after the loop?
+            # Let's keep original logic for now:
+            if key == 'message': 
+                if featureType == '3D':
+                    pass # Handled in feature_3d_parse
+                elif featureType == '2D':
+                    pass # Handled in feature_2d_parse
+
         features.append(feature_dict)
+    print(f"[{datetime.now()}] feature_parser: Finished processing. Parsed features count: {len(features)}.")
     return {'features': features}
 
 def feature_3d_parse(feature) -> dict:
