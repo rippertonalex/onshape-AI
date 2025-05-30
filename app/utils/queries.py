@@ -164,6 +164,27 @@ def query_get_sketch_plane(url: str, sketch_id: str) -> dict:
                                     payload=payload)
     return response
 
+def query_get_sketch_n_regions(url: str, sketch_id: str) -> dict:
+    """
+    Query to get the sketch and its regions.
+    Args:
+        url (str): The URL of the Onshape document.
+        sketch_id (str): The featureID of the sketch to get the regions of.
+    Returns:
+        int: The number of regions in the sketch.
+    """
+    payload = {
+    "script": f"""
+    function(context is Context, queries) {{
+    return transientQueriesToStrings(evaluateQuery(context, qSketchRegion(makeId('{sketch_id}'), false)));
+    }}"""
+    }
+    response = standard_api_request(url,
+                                    endpoints['featurescript'],
+                                    method='POST',
+                                    payload=payload)
+    return len(response['result']['message']['value'])
+
 def query_sketch_profiles_contains(url: str, enriched_feature_summary: list, test_points: list) -> list:
     """
     For each sketch and its test points, check which region(s) each point is contained in.
@@ -317,8 +338,13 @@ def define_ambiguous_entities(url: str, entity_id_list: list, enriched_feature_s
         feature_id = feature.get('featureId')
         feature_type = feature.get('featureType')
         if feature_type == 'newSketch':
-            continue  # Skip sketches for now
+            # Get the number of regions in the sketch
+            n_regions = query_get_sketch_n_regions(url, feature_id)
+            print(f"Sketch {feature_id} has {n_regions} regions")
+            feature['n_regions'] = n_regions
         created_entities = feature.get('createdEntities', {})
+        ## TODO: Invert the searching hierarchy, so that we search for the entity_id_list in the createdEntities,
+        ## and then call the appropriate definition function.
         for category in ['bodies', 'faces', 'edges', 'vertices']:
             entities = created_entities.get(category, [])
             for entity_dict in entities:
@@ -339,8 +365,8 @@ def define_ambiguous_entities(url: str, entity_id_list: list, enriched_feature_s
                         # Insert the definition into the entity's dict
                         entity_dict[entity_id]['definition'] = definition
                     else:
-                        print(f"Attempting to define {entity_id} at rollback {rollback_index} but it is not in the createdEntities list")
-
+                        # print(f"Attempting to define {entity_id} at rollback {rollback_index} but it is not in the createdEntities list")
+                        pass
     return enriched_feature_summary
 
 if __name__ == '__main__':

@@ -27,6 +27,8 @@ endpoints = {
     'assemblies': '/api/assemblies/d/did/w/wid/e/eid',
     'assemblyfeatures': '/api/assemblies/d/did/w/wid/e/eid/features',
     'assemblyfeaturespecs': '/api/assemblies/d/did/w/wid/e/eid/featurespecs',
+    'metadata' : '/api/metadata/d/did/w/wid/e/eid',
+    'part_metadata': '/api/metadata/d/did/w/wid/e/eid/p/pid'
 }
 
 def standard_api_request(url: str,

@@ -1,6 +1,6 @@
 import sys
 import os
-
+import json
 # Calculate the project root directory based on the current script's location
 # This script is in app/utils/pre-processing, so we need to go up three levels
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
@@ -51,7 +51,7 @@ if __name__ == "__main__":
     new_enriched_summaries_data = enrich_feature_summaries(new_feature_summaries, url)
     
     # Example test points output (this would normally come from test_points.py)
-    print("Here is the enriched feature summary: ", new_enriched_summaries_data)
+    # print("Enriched feature summary: ", json.dumps(new_enriched_summaries_data, indent=4))
     test_points_output = [
         {
             "sketch_id": "FT1DvSE7Alu8Ovc_0",
@@ -61,4 +61,4 @@ if __name__ == "__main__":
     
     result = define_sketch_entities(url, test_points_output, new_enriched_summaries_data)
     print("Sketch entities definition result:")
-    print(result)
+    print(json.dumps(result, indent=4))

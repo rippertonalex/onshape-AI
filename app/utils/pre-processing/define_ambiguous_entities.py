@@ -29,7 +29,9 @@ def define_ambiguous_entities_wrapper(url: str, enriched_feature_summary: list, 
 
 if __name__ == "__main__":
     # Example usage for testing
-   
+    ## TODO: Make these test cases standard, import urls from some other file
+    ## TODO: Add grepping function from COLAB to validate the output
+
     test_onshape_url = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/140112c65afa2d3dddb074ba"
     test_onshape_url_2 = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/ed0327add99ecf3427274439"
     test_onshape_url_3 = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/8e8fe9de5851db99112d3500"
@@ -47,7 +49,7 @@ if __name__ == "__main__":
     new_feature_summaries = extract_feature_summaries(new_parsed_features_data)
     new_enriched_summaries_data = enrich_feature_summaries(new_feature_summaries, test_onshape_url)
 
-    print("Here is the new_enriched_summaries_data: ", new_enriched_summaries_data)
+    # print("Here is the new_enriched_summaries_data: ", new_enriched_summaries_data)
     
     
     # Example ambiguous entity IDs (this would normally come from identify_ambiguous_entities)
