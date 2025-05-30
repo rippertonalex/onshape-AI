@@ -168,5 +168,37 @@ def onshape_chat():
     return Response.make(response_payload, Response.HTTP_SUCCESS)
 
 
+@chat_routes.post("/pre_processing", endpoint="pre_processing")
+@handle_exceptions
+def pre_processing():
+    logger.info("--- Entered /v1/chat/pre_processing route ---")
+    json_data = request.get_json()
+    if not json_data:
+        return Response.make({"error": "Request must be JSON"}, Response.HTTP_BAD_REQUEST)
+    
+    part_studio_url = json_data.get("part_studio_url")
+
+    try:
+        pre_processing_data = asyncio.run(chat_controller.pre_processing(part_studio_url))
+    except Exception as e:
+        logger.exception("Error running pre_processing")
+        return Response.make({"error": "An internal error occurred"}, Response.HTTP_ERROR)
+    
+    response_payload = {
+        "visualized_summary": pre_processing_data.get("visualized_summary"),
+        "enriched_summary": pre_processing_data.get("enriched_summary"),
+        "defined_sketch_entities": pre_processing_data.get("defined_sketch_entities"),
+        "parsed_features": pre_processing_data.get("parsed_features")
+    }
+
+    logger.info("--- Pre-processing completed successfully ---")
+    return Response.make(response_payload, Response.HTTP_SUCCESS)
+
+    
+    
+    
+
+
+
 
 

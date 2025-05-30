@@ -35,30 +35,31 @@ def define_sketch_entities(url: str, test_points_output: list, enriched_feature_
 if __name__ == "__main__":
     # Example usage for testing
     url = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/140112c65afa2d3dddb074ba"
+    url_2 = "https://cad.onshape.com/documents/34194a7792ea9db6d10188d3/w/2603dadfb9d5ccf8117390d0/e/ed0327add99ecf3427274439"
     
     # First we need to get the enriched feature summary
     params = {'rollbackBarIndex': -1, 'noSketchGeometry': 'false'}
 
     # # Step 1: Get and parse features
     response = standard_api_request(
-            url,
+            url_2,
             endpoints['features'],
             method='GET',
             params=params
         )
     new_parsed_features_data = feature_parser(response)
     new_feature_summaries = extract_feature_summaries(new_parsed_features_data)
-    new_enriched_summaries_data = enrich_feature_summaries(new_feature_summaries, url)
+    new_enriched_summaries_data = enrich_feature_summaries(new_feature_summaries, url_2)
     
     # Example test points output (this would normally come from test_points.py)
     print("Here is the enriched feature summary: ", new_enriched_summaries_data)
     test_points_output = [
         {
-            "sketch_id": "FT1DvSE7Alu8Ovc_0",
-            "test_points": [[0.0, 0.12], [0.0, 0.0762], [-0.03175, 0.01905], [0.03175, 0.01905]]
+            "sketch_id": "FDYx1igecssEYyx_0",
+            "test_points": [[0.0, 0.0], [0.02, 0.0], [0.0, -0.127], [0.02, -0.127], [0.2032, 0.0], [0.2232, 0.0], [0.1, 0.0], [0.0, -0.05]]
         }
     ]
     
-    result = define_sketch_entities(url, test_points_output, new_enriched_summaries_data)
+    result = define_sketch_entities(url_2, test_points_output, new_enriched_summaries_data)
     print("Sketch entities definition result:")
     print(result)

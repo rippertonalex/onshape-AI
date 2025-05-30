@@ -38,22 +38,23 @@ if __name__ == "__main__":
 
     # # Step 1: Get and parse features
     response = standard_api_request(
-            test_onshape_url,
+            test_onshape_url_2,
             endpoints['features'],
             method='GET',
             params=params
         )
     new_parsed_features_data = feature_parser(response)
     new_feature_summaries = extract_feature_summaries(new_parsed_features_data)
-    new_enriched_summaries_data = enrich_feature_summaries(new_feature_summaries, test_onshape_url)
+    new_enriched_summaries_data = enrich_feature_summaries(new_feature_summaries, test_onshape_url_2)
 
     print("Here is the new_enriched_summaries_data: ", new_enriched_summaries_data)
     
     
     # Example ambiguous entity IDs (this would normally come from identify_ambiguous_entities)
     ambiguous_entity_ids = ['IB', 'JDC', 'JGO', 'JHK', 'KIlC']
+    ambiguous_entity_ids_2 =  ['JDC', 'IB', 'JGW', 'JGS', 'JGi', 'JGO', 'JGe', 'JGa', 'JID', 'JHD', 'JHB', 'JHJ', 'JHN', 'JHF', 'JN9', 'JN1', 'JIB', 'JIJ', 'JKF', 'JKB', 'JH1', 'JJV', 'JHV', 'JIl', 'JHR', 'JJR', 'JHx', 'JIh']
     
-    result = define_ambiguous_entities_wrapper(test_onshape_url, new_enriched_summaries_data, ambiguous_entity_ids)
+    result = define_ambiguous_entities_wrapper(test_onshape_url_2, new_enriched_summaries_data, ambiguous_entity_ids_2)
     print("Ambiguous entities definition result:")
     import json
     print(json.dumps(result, indent=2))
