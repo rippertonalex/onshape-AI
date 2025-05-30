@@ -2,7 +2,8 @@ from typing import List, Dict
 from app.controllers.controller import Controller
 from app.commands import (
     OnShapeAgent,
-    OnshapeChat
+    OnshapeChat,
+    PreProcessing
     )
 import logging
 
@@ -24,6 +25,10 @@ class OpenShapeController(Controller):
         except Exception as e:
             logger.exception(f"Error during onshape_chat controller execution or command init: {e}")
             raise
+    
+    async def pre_processing(self, part_studio_url: str) -> PreProcessing:
+        logger.info(f"Executing pre_processing command for URL: {part_studio_url}")
+        return await self.executor.execute_write(PreProcessing(part_studio_url))
     
     
     

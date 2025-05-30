@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 import asyncio
 from typing import Union, List, Dict, Any
 
+#TODO: Include points to region ids as context. 
+
 # Calculate the project root directory based on the current script's location
 # This script is in app/utils/pre-processing, so we need to go up three levels
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
@@ -31,7 +33,7 @@ from app.utils.parsing import feature_parser, extract_feature_summaries, enrich_
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 # Define a model for this specific task.
 # Users can set OPENAI_MODEL_FOR_VISUALIZATION in their .env file.
-OPENAI_MODEL_FOR_VISUALIZATION = os.getenv("OPENAI_MODEL_FOR_VISUALIZATION", "gpt-4o")  # Default to a capable model
+OPENAI_MODEL_FOR_VISUALIZATION = os.getenv("OPENAI_MODEL_FOR_VISUALIZATION", "gpt-4.1")  # Default to a capable model
 
 if not OPENAI_API_KEY:
     print("CRITICAL: OPENAI_API_KEY is not set in environment variables. Geometry visualization will fail.")
@@ -161,22 +163,23 @@ if __name__ == "__main__":
 
     # # Step 1: Get and parse features
     response = standard_api_request(
-            test_onshape_url,
+            test_onshape_url_2,
             endpoints['features'],
             method='GET',
             params=params
         )
     new_parsed_features_data = feature_parser(response)
     new_feature_summaries = extract_feature_summaries(new_parsed_features_data)
-    new_enriched_summaries_data = enrich_feature_summaries(new_feature_summaries, test_onshape_url)
+    new_enriched_summaries_data = enrich_feature_summaries(new_feature_summaries, test_onshape_url_2)
     
     
 
     # Example ambiguous entity IDs (this would normally come from identify_ambiguous_entities)
     ambiguous_entity_ids = ['IB', 'JDC', 'JGO', 'JHK', 'KIlC']
+    ambiguous_entity_ids_2 =  ['JDC', 'IB', 'JGW', 'JGS', 'JGi', 'JGO', 'JGe', 'JGa', 'JID', 'JHD', 'JHB', 'JHJ', 'JHN', 'JHF', 'JN9', 'JN1', 'JIB', 'JIJ', 'JKF', 'JKB', 'JH1', 'JJV', 'JHV', 'JIl', 'JHR', 'JJR', 'JHx', 'JIh']
     
     # Define ambiguous entities
-    enriched_with_definitions = define_ambiguous_entities_wrapper(test_onshape_url, new_enriched_summaries_data, ambiguous_entity_ids)
+    enriched_with_definitions = define_ambiguous_entities_wrapper(test_onshape_url_2, new_enriched_summaries_data, ambiguous_entity_ids_2)
     
     # Visualize the geometry
     print("Generating geometry visualization...")
