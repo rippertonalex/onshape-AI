@@ -39,10 +39,10 @@ OPENAI_API_KEY=...
 BEARER_TOKEN=...
 
 # Optional (persist async job status/results to S3; useful in AWS)
-S3_BUCKET_NAME=zappa-ylghz6vxt
+S3_BUCKET_NAME=
 
 # Optional (DB; only needed if you use the SQLAlchemy models/migrations)
-SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://user:pass@host:5432/dbname
+SQLALCHEMY_DATABASE_URI=
 
 # Optional
 LOG_LEVEL=INFO
